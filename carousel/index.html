@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Palm Central – Instagram Carousel Preview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0a;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    padding: 40px 20px;
+    min-height: 100vh;
+  }
+  h1 {
+    text-align: center;
+    color: #F0C84E;
+    font-size: 28px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.5);
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+  }
+  .carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 20px 10px 30px;
+    scroll-snap-type: x mandatory;
+    scrollbar-color: #C8972A #1a1a1a;
+  }
+  .carousel::-webkit-scrollbar { height: 6px; }
+  .carousel::-webkit-scrollbar-track { background: #1a1a1a; border-radius: 3px; }
+  .carousel::-webkit-scrollbar-thumb { background: #C8972A; border-radius: 3px; }
+  .slide-wrapper {
+    flex-shrink: 0;
+    scroll-snap-align: start;
+    text-align: center;
+  }
+  .slide-label {
+    color: rgba(255,255,255,0.6);
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  iframe {
+    width: 324px;
+    height: 405px;
+    border: none;
+    border-radius: 16px;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+    transform-origin: top left;
+    transform: scale(0.3);
+    display: block;
+  }
+  .iframe-outer {
+    width: 324px;
+    height: 405px;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.6);
+  }
+  iframe {
+    width: 1080px;
+    height: 1350px;
+    border: none;
+    transform-origin: top left;
+    transform: scale(0.3);
+    pointer-events: none;
+    display: block;
+  }
+  .open-btn {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    color: #1a2a3a;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .open-btn:hover { opacity: 0.85; }
+  .instructions {
+    text-align: center;
+    margin-top: 30px;
+    color: rgba(255,255,255,0.45);
+    font-size: 12px;
+    letter-spacing: 1px;
+    line-height: 1.8;
+  }
+  .instructions strong { color: #F0C84E; }
+</style>
+</head>
+<body>
+  <h1>Palm Central</h1>
+  <div class="subtitle">Instagram Carousel · 5 Slides · 1080 × 1350px</div>
+
+  <div class="carousel">
+
+    <div class="slide-wrapper">
+      <div class="slide-label">Slide 1 · Cover</div>
+      <div class="iframe-outer">
+        <iframe src="slide1-cover.html" scrolling="no"></iframe>
+      </div>
+      <a class="open-btn" href="slide1-cover.html" target="_blank">Open Full Size ↗</a>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide-label">Slide 2 · Interiors</div>
+      <div class="iframe-outer">
+        <iframe src="slide2-interiors.html" scrolling="no"></iframe>
+      </div>
+      <a class="open-btn" href="slide2-interiors.html" target="_blank">Open Full Size ↗</a>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide-label">Slide 3 · Overview</div>
+      <div class="iframe-outer">
+        <iframe src="slide3-overview.html" scrolling="no"></iframe>
+      </div>
+      <a class="open-btn" href="slide3-overview.html" target="_blank">Open Full Size ↗</a>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide-label">Slide 4 · Payment Plan</div>
+      <div class="iframe-outer">
+        <iframe src="slide4-payment.html" scrolling="no"></iframe>
+      </div>
+      <a class="open-btn" href="slide4-payment.html" target="_blank">Open Full Size ↗</a>
+    </div>
+
+    <div class="slide-wrapper">
+      <div class="slide-label">Slide 5 · Location</div>
+      <div class="iframe-outer">
+        <iframe src="slide5-location.html" scrolling="no"></iframe>
+      </div>
+      <a class="open-btn" href="slide5-location.html" target="_blank">Open Full Size ↗</a>
+    </div>
+
+  </div>
+
+  <div class="instructions">
+    To export as images: Open each slide at full size → <strong>Right-click → Print → Save as PDF</strong><br>
+    Or use browser DevTools → <strong>Ctrl+Shift+P → "Capture screenshot"</strong> for a pixel-perfect PNG<br>
+    Each slide is exactly <strong>1080 × 1350px</strong> (Instagram 4:5 portrait format)
+  </div>
+</body>
+</html>
