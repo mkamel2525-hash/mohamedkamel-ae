@@ -184,18 +184,10 @@ section[id], [id].section { scroll-margin-top: 84px; }
   width: 100%; filter: drop-shadow(0 30px 45px rgba(44,36,32,0.35)); position: relative; z-index: 2;
 }
 .hero__portrait-frame img.is-fallback { background: linear-gradient(160deg, #5985AE, #4B76A0); min-height: 480px; border-radius: 6px; }
-/* Glass podium so the portrait reads as a distinct layer in front of the skyline */
-.hero__portrait-frame::before {
-  content: ''; position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%);
-  width: 90%; height: 92%; border-radius: 16px; z-index: 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.72) 0%, rgba(244,239,232,0.5) 100%);
-  border: 1px solid rgba(255,255,255,0.65);
-  box-shadow: 0 50px 90px -45px rgba(44,36,32,0.5);
-  backdrop-filter: blur(6px) saturate(120%);
-}
+/* Clean portrait in front of the skyline — no panel; subtle gold keyline only */
 .hero__portrait-frame::after {
-  content: ''; position: absolute; left: 50%; top: 52%; transform: translate(-50%, -50%);
-  width: 90%; height: 92%; border: 1px solid rgba(201,169,110,0.55); border-radius: 16px; z-index: 1;
+  content: ''; position: absolute; left: 50%; bottom: -2%; transform: translateX(-50%);
+  width: 82%; height: 80%; border: 1px solid rgba(201,169,110,0.4); border-radius: 4px; z-index: 1;
 }
 
 .glass-card {
