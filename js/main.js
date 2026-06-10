@@ -349,3 +349,47 @@
     vis.observe(canvas);
   }
 })();
+
+/* ============================================================
+   v6 — hero pointer parallax (multi-plane depth)
+   ============================================================ */
+(function () {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || !window.matchMedia('(pointer:fine)').matches) return;
+
+  const heroInner = document.querySelector('.hero__inner');
+  const portrait = document.querySelector('.hero__portrait');
+  const cards = document.querySelectorAll('.hero .glass-card');
+  if (!heroInner) return;
+
+  let raf = null, tx = 0, ty = 0, cx = 0, cy = 0;
+
+  function onMove(e) {
+    const r = heroInner.getBoundingClientRect();
+    tx = (e.clientX - r.left) / r.width - 0.5;   // -0.5 .. 0.5
+    ty = (e.clientY - r.top) / r.height - 0.5;
+    if (!raf) raf = requestAnimationFrame(apply);
+  }
+  function apply() {
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    if (portrait) portrait.style.transform =
+      `perspective(1100px) rotateY(${(cx * 10).toFixed(2)}deg) rotateX(${(-cy * 8).toFixed(2)}deg)`;
+    cards.forEach((card, i) => {
+      const depth = 14 + i * 10;
+      card.style.transform =
+        `translate3d(${(cx * depth).toFixed(1)}px, ${(cy * depth).toFixed(1)}px, 0)`;
+    });
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+      raf = requestAnimationFrame(apply);
+    } else { raf = null; }
+  }
+  function reset() {
+    tx = ty = 0;
+    if (!raf) raf = requestAnimationFrame(apply);
+  }
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', onMove);
+  hero.addEventListener('mouseleave', reset);
+})();

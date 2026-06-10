@@ -763,6 +763,50 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
   }
 }
 
+/* ============================================================
+   v6 — EXTENDED 3D LAYER
+   Richer depth, professional and simple. Reduced-motion safe.
+   ============================================================ */
+
+/* Whole hero reacts to pointer for parallax depth (set via JS vars) */
+.hero__inner { transform-style: preserve-3d; }
+.hero__portrait { transition: transform .3s var(--ease); transform-style: preserve-3d; }
+.hero__portrait-frame img { transform: translateZ(40px); }
+.glass-card { transition: transform .3s var(--ease), box-shadow .4s var(--ease); }
+
+/* Developer cards flip to reveal thesis in 3D */
+.dev-card { transform-style: preserve-3d; }
+.dev-card__name { display: inline-block; transition: transform .5s var(--ease); transform-style: preserve-3d; }
+.dev-card:hover .dev-card__name { transform: translateZ(26px); }
+.dev-card__pos { display: inline-block; transition: transform .5s var(--ease); }
+.dev-card:hover .dev-card__pos { transform: translateZ(16px); }
+
+/* Process steps lift in depth as the active one advances */
+.process-step { transition: transform .6s var(--ease); transform-style: preserve-3d; }
+.process-step.is-active { transform: translateZ(0) translateY(-8px) scale(1.015); }
+.process-step.is-active .process-step__num { text-shadow: 0 14px 30px rgba(49,83,111,0.22); }
+
+/* Stat cards get a glossy 3D plate feel + gentle entrance rotate */
+.stat { transition: transform .5s var(--ease), background .5s, box-shadow .5s var(--ease); transform-style: preserve-3d; }
+.stat:hover { transform: translateY(-6px) rotateX(6deg); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.5); }
+
+/* Section titles: gold word "lifts" forward */
+.section__title { transform-style: preserve-3d; }
+
+/* Animated gradient divider between major bands */
+.band-divider { height: 2px; border: 0; margin: 0; background: linear-gradient(90deg, transparent, var(--gold), transparent); background-size: 200% 100%; animation: shimmer-line 6s linear infinite; opacity: .5; }
+@keyframes shimmer-line { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+/* Floating WhatsApp + back-to-top gain subtle 3D press */
+.fab, .to-top { transition: transform .35s var(--ease), background .4s, box-shadow .4s; }
+.fab:active, .to-top:active { transform: scale(0.92) translateZ(0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__portrait, .hero__portrait-frame img, .glass-card,
+  .dev-card__name, .dev-card__pos, .process-step, .stat { transform: none !important; transition: none !important; }
+  .band-divider { animation: none; }
+}
+
 </style>
 
   <!-- Structured Data -->
@@ -1639,6 +1683,50 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
     }, { threshold: 0.05 });
     vis.observe(canvas);
   }
+})();
+
+/* ============================================================
+   v6 — hero pointer parallax (multi-plane depth)
+   ============================================================ */
+(function () {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReduced || !window.matchMedia('(pointer:fine)').matches) return;
+
+  const heroInner = document.querySelector('.hero__inner');
+  const portrait = document.querySelector('.hero__portrait');
+  const cards = document.querySelectorAll('.hero .glass-card');
+  if (!heroInner) return;
+
+  let raf = null, tx = 0, ty = 0, cx = 0, cy = 0;
+
+  function onMove(e) {
+    const r = heroInner.getBoundingClientRect();
+    tx = (e.clientX - r.left) / r.width - 0.5;   // -0.5 .. 0.5
+    ty = (e.clientY - r.top) / r.height - 0.5;
+    if (!raf) raf = requestAnimationFrame(apply);
+  }
+  function apply() {
+    cx += (tx - cx) * 0.08;
+    cy += (ty - cy) * 0.08;
+    if (portrait) portrait.style.transform =
+      `perspective(1100px) rotateY(${(cx * 10).toFixed(2)}deg) rotateX(${(-cy * 8).toFixed(2)}deg)`;
+    cards.forEach((card, i) => {
+      const depth = 14 + i * 10;
+      card.style.transform =
+        `translate3d(${(cx * depth).toFixed(1)}px, ${(cy * depth).toFixed(1)}px, 0)`;
+    });
+    if (Math.abs(tx - cx) > 0.001 || Math.abs(ty - cy) > 0.001) {
+      raf = requestAnimationFrame(apply);
+    } else { raf = null; }
+  }
+  function reset() {
+    tx = ty = 0;
+    if (!raf) raf = requestAnimationFrame(apply);
+  }
+  const hero = document.getElementById('hero');
+  hero.addEventListener('mousemove', onMove);
+  hero.addEventListener('mouseleave', reset);
 })();
 
 </script>
