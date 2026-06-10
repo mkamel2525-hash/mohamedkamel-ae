@@ -807,6 +807,106 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
   .band-divider { animation: none; }
 }
 
+/* ============================================================
+   v7 — CLEARER PROPERTY BACKDROPS + MORE LIVE MOTION
+   ============================================================ */
+
+/* --- Backgrounds made clearer (lighter overlays, sharper images) --- */
+/* Navy sections: villa shows through more, white text still safe */
+.pm.section--dark {
+  background-image:
+    linear-gradient(180deg, rgba(49,83,111,0.78) 0%, rgba(40,69,93,0.84) 100%),
+    url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=85&w=2400&auto=format&fit=crop');
+}
+.trusted.section--dark {
+  background-image:
+    linear-gradient(180deg, rgba(49,83,111,0.80) 0%, rgba(40,69,93,0.86) 100%),
+    url('https://images.unsplash.com/photo-1613977257363-707ba9348227?q=85&w=2400&auto=format&fit=crop');
+}
+/* Card sections: cards are solid, so let the photo breathe */
+.services.section--beige {
+  background-image:
+    linear-gradient(180deg, rgba(250,247,243,0.72) 0%, rgba(244,239,232,0.80) 100%),
+    url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=85&w=2400&auto=format&fit=crop');
+}
+.consult.section--beige {
+  background-image:
+    linear-gradient(180deg, rgba(250,247,243,0.82) 0%, rgba(244,239,232,0.90) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=85&w=2400&auto=format&fit=crop');
+}
+
+/* --- New backdrops on previously plain lower sections --- */
+.intel.section {
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.80) 0%, rgba(255,255,255,0.86) 100%),
+    url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?q=85&w=2400&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+.devs.section {
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.88) 100%),
+    url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=85&w=2400&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+.process.section--beige {
+  background-image:
+    linear-gradient(180deg, rgba(250,247,243,0.84) 0%, rgba(244,239,232,0.90) 100%),
+    url('https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?q=85&w=2400&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+.faq.section {
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,0.86) 0%, rgba(255,255,255,0.92) 100%),
+    url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?q=85&w=2400&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+@media (max-width: 900px) {
+  .intel.section, .devs.section, .process.section--beige, .faq.section { background-attachment: scroll; }
+}
+
+/* --- MORE LIVE MOTION --- */
+
+/* Portfolio glow now drifts + pulses (alive) */
+.pm__glow { animation: glow-drift 14s ease-in-out infinite alternate; }
+@keyframes glow-drift {
+  0%   { transform: translate3d(0,0,0) scale(1);   opacity: .8; }
+  100% { transform: translate3d(-6%, 6%, 0) scale(1.25); opacity: 1; }
+}
+
+/* Floating gold orbs in the navy sections */
+.pm.section--dark::after, .trusted.section--dark::after {
+  content: ''; position: absolute; width: 38vw; height: 38vw; max-width: 460px; max-height: 460px;
+  left: -8%; bottom: -12%; border-radius: 50%; pointer-events: none; z-index: 0;
+  background: radial-gradient(circle, rgba(201,169,110,0.16), transparent 65%);
+  animation: orb-float 12s ease-in-out infinite;
+}
+.trusted.section--dark::after { left: auto; right: -8%; top: -12%; bottom: auto; animation-delay: -5s; }
+@keyframes orb-float { 0%,100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-26px) scale(1.08); } }
+.pm .container, .trusted .container { position: relative; z-index: 2; }
+
+/* Card sections: animated soft sheen sweeping across the section */
+.services.section--beige, .intel.section, .devs.section { position: relative; overflow: hidden; }
+.services.section--beige::after, .intel.section::after, .devs.section::after {
+  content: ''; position: absolute; top: -50%; left: -60%; width: 50%; height: 200%;
+  background: linear-gradient(100deg, transparent, rgba(201,169,110,0.07), transparent);
+  transform: skewX(-16deg); animation: sec-sheen 9s linear infinite; pointer-events: none; z-index: 0;
+}
+@keyframes sec-sheen { 0% { left: -60%; } 100% { left: 160%; } }
+.services .container, .intel .container, .devs .container { position: relative; z-index: 1; }
+
+/* Eyebrow gold dot pulses on every section */
+.eyebrow::after { content: ''; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); margin-left: 0.7rem; vertical-align: middle; animation: dot-pulse 2.4s ease-in-out infinite; }
+@keyframes dot-pulse { 0%,100% { opacity: .4; transform: scale(0.8);} 50% { opacity: 1; transform: scale(1.25);} }
+
+/* Trust marquee a touch livelier */
+.trust__track { animation-duration: 26s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pm__glow, .pm.section--dark::after, .trusted.section--dark::after,
+  .services.section--beige::after, .intel.section::after, .devs.section::after,
+  .eyebrow::after { animation: none !important; }
+}
+
 </style>
 
   <!-- Structured Data -->
@@ -1727,6 +1827,27 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
   const hero = document.getElementById('hero');
   hero.addEventListener('mousemove', onMove);
   hero.addEventListener('mouseleave', reset);
+})();
+
+/* ============================================================
+   v7 — pointer tilt on the About photo
+   ============================================================ */
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(pointer:fine)').matches) return;
+  const frame = document.querySelector('.about__img-frame');
+  if (!frame) return;
+  frame.style.transformStyle = 'preserve-3d';
+  frame.style.transition = 'transform .3s cubic-bezier(0.22,1,0.36,1)';
+  const wrap = frame.closest('.about__visual') || frame;
+  wrap.addEventListener('mousemove', (e) => {
+    const r = frame.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    frame.style.transform = `perspective(1000px) rotateY(${(x * 9).toFixed(2)}deg) rotateX(${(-y * 9).toFixed(2)}deg) scale(1.02)`;
+  });
+  wrap.addEventListener('mouseleave', () => { frame.style.transform = ''; });
 })();
 
 </script>

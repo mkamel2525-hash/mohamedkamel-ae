@@ -393,3 +393,24 @@
   hero.addEventListener('mousemove', onMove);
   hero.addEventListener('mouseleave', reset);
 })();
+
+/* ============================================================
+   v7 — pointer tilt on the About photo
+   ============================================================ */
+(function () {
+  'use strict';
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (!window.matchMedia('(pointer:fine)').matches) return;
+  const frame = document.querySelector('.about__img-frame');
+  if (!frame) return;
+  frame.style.transformStyle = 'preserve-3d';
+  frame.style.transition = 'transform .3s cubic-bezier(0.22,1,0.36,1)';
+  const wrap = frame.closest('.about__visual') || frame;
+  wrap.addEventListener('mousemove', (e) => {
+    const r = frame.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width - 0.5;
+    const y = (e.clientY - r.top) / r.height - 0.5;
+    frame.style.transform = `perspective(1000px) rotateY(${(x * 9).toFixed(2)}deg) rotateX(${(-y * 9).toFixed(2)}deg) scale(1.02)`;
+  });
+  wrap.addEventListener('mouseleave', () => { frame.style.transform = ''; });
+})();
