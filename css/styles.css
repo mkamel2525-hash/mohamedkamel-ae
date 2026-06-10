@@ -621,3 +621,6 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 }
 
 /* Light hero: no text shadows needed — dark on light is crystal clear */
+
+/* Services: centre a lone last card in the 3-column grid */
+@media (min-width: 1025px) { .service-card:nth-child(3n+1):last-child { grid-column: 2; } }
