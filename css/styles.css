@@ -155,7 +155,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .hero__bg {
   position: absolute; inset: -10% 0 0 0; z-index: 0;
   background-image:
-    linear-gradient(180deg, rgba(29,26,23,0.28) 0%, rgba(29,26,23,0.38) 50%, rgba(29,26,23,0.72) 100%),
+    linear-gradient(180deg, rgba(29,26,23,0.30) 0%, rgba(29,26,23,0.08) 14%, rgba(29,26,23,0.10) 38%, rgba(29,26,23,0.30) 60%, rgba(29,26,23,0.68) 100%),
     url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=2070&auto=format&fit=crop');
   background-size: cover; background-position: center; will-change: transform;
 }
@@ -466,7 +466,7 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 @media (prefers-reduced-motion: reduce) { .grain { display: none; } }
 
 /* HERO — layered gradient mesh so it looks premium even before the photo loads */
-.hero { background: radial-gradient(120% 120% at 15% 10%, #3a332a 0%, #292420 45%, #1d1916 100%); }
+.hero { background: radial-gradient(120% 120% at 15% 10%, #4a4136 0%, #322c26 45%, #211d19 100%); }
 .hero__bg::before {
   content: ''; position: absolute; inset: 0;
   background:
