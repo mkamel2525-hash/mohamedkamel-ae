@@ -440,3 +440,125 @@ section[id], [id].section { scroll-margin-top: 84px; }
   .hero__title { font-size: 2.7rem; }
   .glass-card--a { left: 0; top: 2%; } .glass-card--b { right: 0; bottom: 8%; }
 }
+
+/* ============================================================
+   v2 — MODERN UPGRADE LAYER
+   Richer depth, lighting, grain, FAQ, refined micro-interactions
+   ============================================================ */
+
+/* Smoother base rhythm + modern font features */
+body { font-feature-settings: "ss01","kern","liga"; letter-spacing: 0.005em; }
+h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
+
+/* Refined elevation tokens */
+:root {
+  --shadow-sm: 0 4px 14px -6px rgba(44,36,32,0.14);
+  --shadow-md: 0 20px 50px -28px rgba(44,36,32,0.30);
+  --shadow-lg: 0 40px 90px -50px rgba(29,26,23,0.45);
+  --radius: 14px;
+}
+
+/* Editorial film grain — subtle premium texture over the whole page */
+.grain {
+  position: fixed; inset: 0; z-index: 700; pointer-events: none; opacity: 0.4; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) { .grain { display: none; } }
+
+/* HERO — layered gradient mesh so it looks premium even before the photo loads */
+.hero { background: radial-gradient(120% 120% at 15% 10%, #2a2620 0%, #1d1a17 45%, #14110e 100%); }
+.hero__bg::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(40% 50% at 80% 20%, rgba(201,169,110,0.22), transparent 60%),
+    radial-gradient(45% 45% at 10% 90%, rgba(201,169,110,0.10), transparent 60%);
+  mix-blend-mode: screen;
+}
+.hero__title {
+  background: linear-gradient(180deg, #ffffff 0%, #f3e9d6 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero__eyebrow::before {
+  content: ''; display: inline-block; width: 34px; height: 1px; background: var(--gold);
+  vertical-align: middle; margin-right: 0.8rem; transform: translateY(-3px);
+}
+
+/* Glassier, deeper floating stat cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.28); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.glass-card__value { background: linear-gradient(180deg,#fff,#f0e4cd); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Buttons — modern sheen sweep */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ''; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-18deg); transition: left .7s var(--ease);
+}
+.btn:hover::after { left: 140%; }
+.btn--ghost::after { background: linear-gradient(100deg, transparent, rgba(255,255,255,0.18), transparent); }
+
+/* Cards — unified modern radius, depth and gold edge-glow on hover */
+.service-card, .dev-card, .intel-card, .stat { border-radius: var(--radius); }
+.service-card, .dev-card { box-shadow: var(--shadow-sm); }
+.service-card:hover, .dev-card:hover { box-shadow: var(--shadow-md), 0 0 0 1px rgba(201,169,110,0.35); }
+.service-card__index { display:inline-flex; width: 44px; height: 44px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius: 50%; }
+.service-card:hover .service-card__index { border-color: var(--gold); color: var(--gold-deep); }
+
+/* Section headings get a refined kicker line */
+.section__title { position: relative; }
+
+/* Trust marquee — softer, modern weight */
+.trust__track span { font-weight: 500; }
+
+/* Portfolio dark section — add depth grid */
+.pm.section--dark, .trusted.section--dark, .footer {
+  background-image:
+    radial-gradient(60% 80% at 80% 0%, rgba(201,169,110,0.10), transparent 60%),
+    linear-gradient(180deg, #1d1a17, #161310);
+}
+
+/* ============ FAQ (modern accordion) ============ */
+.faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem,6vw,5rem); align-items: start; }
+.faq__list { display: grid; gap: 0.9rem; }
+.faq__item {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 0 1.5rem; box-shadow: var(--shadow-sm); transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.faq__item[open] { box-shadow: var(--shadow-md); border-color: rgba(201,169,110,0.4); }
+.faq__item summary {
+  list-style: none; cursor: pointer; padding: 1.3rem 0; font-family: var(--serif); font-size: 1.35rem;
+  color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: '+'; font-family: var(--sans); font-weight: 300; font-size: 1.6rem; color: var(--gold-deep);
+  transition: transform .4s var(--ease); flex: 0 0 auto;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item p { color: var(--soft); padding: 0 0 1.4rem; font-size: 0.98rem; max-width: 60ch; }
+
+/* ============ Back to top ============ */
+.to-top {
+  position: fixed; bottom: 1.6rem; right: 1.6rem; z-index: 790; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--dark); color: var(--cream); border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+  display: grid; place-items: center; opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none;
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .4s; box-shadow: var(--shadow-md);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--gold); color: var(--dark); }
+/* lift the WhatsApp FAB so the two don't overlap */
+.fab { bottom: 5.4rem; }
+
+/* Modern focus + selection refinements */
+.faq__item summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+@media (max-width: 768px) {
+  .faq__grid { grid-template-columns: 1fr; }
+  .faq__item summary { font-size: 1.15rem; }
+  .to-top { width: 44px; height: 44px; bottom: 1.2rem; }
+  .fab { bottom: 4.6rem; }
+}

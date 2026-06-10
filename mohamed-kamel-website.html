@@ -477,6 +477,128 @@ section[id], [id].section { scroll-margin-top: 84px; }
   .glass-card--a { left: 0; top: 2%; } .glass-card--b { right: 0; bottom: 8%; }
 }
 
+/* ============================================================
+   v2 — MODERN UPGRADE LAYER
+   Richer depth, lighting, grain, FAQ, refined micro-interactions
+   ============================================================ */
+
+/* Smoother base rhythm + modern font features */
+body { font-feature-settings: "ss01","kern","liga"; letter-spacing: 0.005em; }
+h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
+
+/* Refined elevation tokens */
+:root {
+  --shadow-sm: 0 4px 14px -6px rgba(44,36,32,0.14);
+  --shadow-md: 0 20px 50px -28px rgba(44,36,32,0.30);
+  --shadow-lg: 0 40px 90px -50px rgba(29,26,23,0.45);
+  --radius: 14px;
+}
+
+/* Editorial film grain — subtle premium texture over the whole page */
+.grain {
+  position: fixed; inset: 0; z-index: 700; pointer-events: none; opacity: 0.4; mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+@media (prefers-reduced-motion: reduce) { .grain { display: none; } }
+
+/* HERO — layered gradient mesh so it looks premium even before the photo loads */
+.hero { background: radial-gradient(120% 120% at 15% 10%, #2a2620 0%, #1d1a17 45%, #14110e 100%); }
+.hero__bg::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(40% 50% at 80% 20%, rgba(201,169,110,0.22), transparent 60%),
+    radial-gradient(45% 45% at 10% 90%, rgba(201,169,110,0.10), transparent 60%);
+  mix-blend-mode: screen;
+}
+.hero__title {
+  background: linear-gradient(180deg, #ffffff 0%, #f3e9d6 100%);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.hero__eyebrow::before {
+  content: ''; display: inline-block; width: 34px; height: 1px; background: var(--gold);
+  vertical-align: middle; margin-right: 0.8rem; transform: translateY(-3px);
+}
+
+/* Glassier, deeper floating stat cards */
+.glass-card {
+  background: linear-gradient(135deg, rgba(255,255,255,0.16), rgba(255,255,255,0.06));
+  border: 1px solid rgba(255,255,255,0.28); border-radius: var(--radius);
+  box-shadow: var(--shadow-lg), inset 0 1px 0 rgba(255,255,255,0.25);
+}
+.glass-card__value { background: linear-gradient(180deg,#fff,#f0e4cd); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+/* Buttons — modern sheen sweep */
+.btn { position: relative; overflow: hidden; }
+.btn::after {
+  content: ''; position: absolute; top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.45), transparent);
+  transform: skewX(-18deg); transition: left .7s var(--ease);
+}
+.btn:hover::after { left: 140%; }
+.btn--ghost::after { background: linear-gradient(100deg, transparent, rgba(255,255,255,0.18), transparent); }
+
+/* Cards — unified modern radius, depth and gold edge-glow on hover */
+.service-card, .dev-card, .intel-card, .stat { border-radius: var(--radius); }
+.service-card, .dev-card { box-shadow: var(--shadow-sm); }
+.service-card:hover, .dev-card:hover { box-shadow: var(--shadow-md), 0 0 0 1px rgba(201,169,110,0.35); }
+.service-card__index { display:inline-flex; width: 44px; height: 44px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius: 50%; }
+.service-card:hover .service-card__index { border-color: var(--gold); color: var(--gold-deep); }
+
+/* Section headings get a refined kicker line */
+.section__title { position: relative; }
+
+/* Trust marquee — softer, modern weight */
+.trust__track span { font-weight: 500; }
+
+/* Portfolio dark section — add depth grid */
+.pm.section--dark, .trusted.section--dark, .footer {
+  background-image:
+    radial-gradient(60% 80% at 80% 0%, rgba(201,169,110,0.10), transparent 60%),
+    linear-gradient(180deg, #1d1a17, #161310);
+}
+
+/* ============ FAQ (modern accordion) ============ */
+.faq__grid { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(2rem,6vw,5rem); align-items: start; }
+.faq__list { display: grid; gap: 0.9rem; }
+.faq__item {
+  background: var(--white); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 0 1.5rem; box-shadow: var(--shadow-sm); transition: box-shadow .4s var(--ease), border-color .4s var(--ease);
+}
+.faq__item[open] { box-shadow: var(--shadow-md); border-color: rgba(201,169,110,0.4); }
+.faq__item summary {
+  list-style: none; cursor: pointer; padding: 1.3rem 0; font-family: var(--serif); font-size: 1.35rem;
+  color: var(--text); display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.faq__item summary::-webkit-details-marker { display: none; }
+.faq__item summary::after {
+  content: '+'; font-family: var(--sans); font-weight: 300; font-size: 1.6rem; color: var(--gold-deep);
+  transition: transform .4s var(--ease); flex: 0 0 auto;
+}
+.faq__item[open] summary::after { transform: rotate(45deg); }
+.faq__item p { color: var(--soft); padding: 0 0 1.4rem; font-size: 0.98rem; max-width: 60ch; }
+
+/* ============ Back to top ============ */
+.to-top {
+  position: fixed; bottom: 1.6rem; right: 1.6rem; z-index: 790; width: 48px; height: 48px; border-radius: 50%;
+  background: var(--dark); color: var(--cream); border: 1px solid rgba(255,255,255,0.15); cursor: pointer;
+  display: grid; place-items: center; opacity: 0; transform: translateY(20px) scale(0.9); pointer-events: none;
+  transition: opacity .4s var(--ease), transform .4s var(--ease), background .4s; box-shadow: var(--shadow-md);
+}
+.to-top.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--gold); color: var(--dark); }
+/* lift the WhatsApp FAB so the two don't overlap */
+.fab { bottom: 5.4rem; }
+
+/* Modern focus + selection refinements */
+.faq__item summary:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
+
+@media (max-width: 768px) {
+  .faq__grid { grid-template-columns: 1fr; }
+  .faq__item summary { font-size: 1.15rem; }
+  .to-top { width: 44px; height: 44px; bottom: 1.2rem; }
+  .fab { bottom: 4.6rem; }
+}
+
 </style>
 
   <!-- Structured Data -->
@@ -513,6 +635,9 @@ section[id], [id].section { scroll-margin-top: 84px; }
 
   <!-- Scroll progress -->
   <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Editorial film-grain texture -->
+  <div class="grain" aria-hidden="true"></div>
 
   <!-- Navigation -->
   <header class="nav" id="nav">
@@ -815,6 +940,40 @@ section[id], [id].section { scroll-margin-top: 84px; }
     </div>
   </section>
 
+  <!-- ============ SECTION 9.5 — FAQ ============ -->
+  <section class="faq section" id="faq">
+    <div class="container faq__grid">
+      <header class="faq__intro">
+        <p class="eyebrow reveal">Frequently Asked</p>
+        <h2 class="section__title reveal">Clarity Before Commitment</h2>
+        <p class="section__sub reveal">Considered answers to the questions every serious investor asks.</p>
+      </header>
+
+      <div class="faq__list">
+        <details class="faq__item reveal" open>
+          <summary>Why work with an advisor rather than a broker?</summary>
+          <p>A broker sells a transaction; an advisor protects your capital across a portfolio. Mohamed's role is strategic — aligning every acquisition with your long-term wealth objectives, not a single sale.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>What is the minimum to start investing in Dubai?</summary>
+          <p>Entry-level off-plan opportunities begin from around AED 1M, while a property-backed Golden Visa typically requires AED 2M. Mohamed tailors a strategy to your specific budget and goals.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Can property ownership secure a UAE Golden Visa?</summary>
+          <p>Yes. A qualifying property investment can grant you and your family 10-year renewable residency. Mohamed structures acquisitions to unlock this where it's part of your objective.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>Do you advise on both Dubai and Abu Dhabi?</summary>
+          <p>Both. Each emirate offers distinct advantages — Mohamed provides comparative analysis so capital is allocated with intent across the markets that best fit your strategy.</p>
+        </details>
+        <details class="faq__item reveal">
+          <summary>How does ongoing portfolio management work?</summary>
+          <p>Beyond acquisition, Mohamed monitors yield, market timing, and diversification — advising on when to hold, refinance, or exit, so your portfolio compounds value over time.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ SECTION 10 — CONSULTATION ============ -->
   <section class="consult section section--beige" id="consultation">
     <div class="container consult__grid">
@@ -933,6 +1092,11 @@ section[id], [id].section { scroll-margin-top: 84px; }
   <a href="https://wa.me/971588801766" class="fab" target="_blank" rel="noopener" aria-label="WhatsApp Mohamed Kamel">
     <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.586-5.443c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
+
+  <!-- Back to top -->
+  <button class="to-top" id="toTop" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
   <script>
 /* ============================================================
@@ -1159,6 +1323,30 @@ section[id], [id].section { scroll-margin-top: 84px; }
         <a href="https://wa.me/971588801766?text=${msg}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Send via WhatsApp</a>
       </div>`;
     form.classList.add('is-sent');
+  });
+})();
+
+/* ============================================================
+   v2 — back-to-top + FAQ accordion
+   ============================================================ */
+(function () {
+  'use strict';
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  if (toTop) {
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.9);
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // FAQ — open one at a time for a clean, modern feel
+  const faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
+    });
   });
 })();
 

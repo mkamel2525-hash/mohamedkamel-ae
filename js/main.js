@@ -224,3 +224,27 @@
     form.classList.add('is-sent');
   });
 })();
+
+/* ============================================================
+   v2 — back-to-top + FAQ accordion
+   ============================================================ */
+(function () {
+  'use strict';
+
+  // Back to top
+  const toTop = document.getElementById('toTop');
+  if (toTop) {
+    window.addEventListener('scroll', () => {
+      toTop.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.9);
+    }, { passive: true });
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  // FAQ — open one at a time for a clean, modern feel
+  const faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach(item => {
+    item.addEventListener('toggle', () => {
+      if (item.open) faqItems.forEach(o => { if (o !== item) o.open = false; });
+    });
+  });
+})();
