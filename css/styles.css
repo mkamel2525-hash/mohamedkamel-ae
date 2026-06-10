@@ -9,8 +9,8 @@
   --cream: #F4EFE8;
   --gold: #C9A96E;
   --gold-deep: #B08D4F;
-  --dark: #31536F;
-  --dark-2: #3C617F;
+  --dark: #3E6488;
+  --dark-2: #4B739A;
   --text: #2C2420;
   --soft: #7A6E68;
   --line: rgba(44, 36, 32, 0.12);
@@ -183,7 +183,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .hero__portrait-frame img {
   width: 100%; filter: drop-shadow(0 30px 45px rgba(44,36,32,0.35)); position: relative; z-index: 2;
 }
-.hero__portrait-frame img.is-fallback { background: linear-gradient(160deg, #3C617F, #31536F); min-height: 480px; border-radius: 6px; }
+.hero__portrait-frame img.is-fallback { background: linear-gradient(160deg, #4B739A, #3E6488); min-height: 480px; border-radius: 6px; }
 .hero__portrait-frame::after {
   content: ''; position: absolute; left: 50%; bottom: -2%; transform: translateX(-50%);
   width: 86%; height: 86%; border: 1px solid rgba(201,169,110,0.5); border-radius: 4px; z-index: 1;
@@ -512,7 +512,7 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 .pm.section--dark, .trusted.section--dark, .footer {
   background-image:
     radial-gradient(60% 80% at 80% 0%, rgba(201,169,110,0.10), transparent 60%),
-    linear-gradient(180deg, #31536F, #28455D);
+    linear-gradient(180deg, #3E6488, #335274);
 }
 
 /* ============ FAQ (modern accordion) ============ */
@@ -900,12 +900,12 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 /* Navy sections — Dubai skyline depth */
 .pm.section--dark {
   background-image:
-    linear-gradient(180deg, rgba(49,83,111,0.82) 0%, rgba(40,69,93,0.88) 100%),
+    linear-gradient(180deg, rgba(62,100,136,0.80) 0%, rgba(51,82,116,0.86) 100%),
     url('https://images.unsplash.com/photo-1528702748617-c64d49f918af?q=85&w=2400&auto=format&fit=crop');
 }
 .trusted.section--dark {
   background-image:
-    linear-gradient(180deg, rgba(49,83,111,0.84) 0%, rgba(40,69,93,0.90) 100%),
+    linear-gradient(180deg, rgba(62,100,136,0.82) 0%, rgba(51,82,116,0.88) 100%),
     url('https://images.unsplash.com/photo-1518684079-3c830dcef090?q=85&w=2400&auto=format&fit=crop');
 }
 
