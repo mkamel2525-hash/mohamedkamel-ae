@@ -126,20 +126,20 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .nav__inner { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; }
 .nav__brand { display: flex; align-items: center; gap: 0.7rem; }
 .nav__monogram {
-  font-family: var(--serif); font-size: 1.4rem; font-weight: 600; color: var(--gold);
-  border: 1px solid var(--gold); width: 40px; height: 40px; display: grid; place-items: center; border-radius: 2px;
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--gold);
+  border: 1px solid var(--gold); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 2px;
 }
-.nav__name { font-family: var(--serif); font-size: 1.22rem; font-weight: 600; letter-spacing: 0.04em; color: var(--dark); }
+.nav__name { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em; color: var(--dark); }
 .nav.is-scrolled .nav__name { color: var(--dark); }
 .nav__links { display: flex; gap: 2rem; }
 .nav__links a {
-  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); position: relative;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--dark); position: relative;
   display: inline-flex; align-items: center; min-height: 44px; opacity: 1;
 }
 .nav__links a::after { content: ''; position: absolute; left: 0; bottom: 8px; width: 0; height: 1px; background: var(--gold); transition: width .4s var(--ease); }
 .nav__links a:hover { opacity: 1; }
 .nav__links a:hover::after { width: 100%; }
-.nav__cta { font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dark); border: 1px solid var(--gold); padding: 0.7rem 1.3rem; border-radius: 2px; transition: background .4s var(--ease), color .4s var(--ease); }
+.nav__cta { font-size: 0.76rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dark); border: 1px solid var(--gold); padding: 0.7rem 1.3rem; border-radius: 2px; transition: background .4s var(--ease), color .4s var(--ease); }
 .nav__cta:hover { background: var(--gold); color: #fff; }
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
 .nav__toggle span { width: 26px; height: 2px; background: var(--text); transition: transform .4s var(--ease), opacity .3s; }
@@ -680,4 +680,49 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
   .process-step.reveal, .about__highlights li.reveal,
   .about__visual.reveal, .consult__form.reveal { transform: none !important; opacity: 1 !important; }
   .about__badge { animation: none; }
+}
+
+/* ============================================================
+   v5 — LUXURY PROPERTY BACKDROPS
+   Subtle villa/pool imagery behind spacious sections.
+   Strong overlays keep every word crystal clear.
+   ============================================================ */
+
+/* Portfolio Management (navy) — luxury pool villa at dusk */
+.pm.section--dark {
+  background-image:
+    linear-gradient(180deg, rgba(49,83,111,0.90) 0%, rgba(40,69,93,0.93) 100%),
+    url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Trusted by Investors (navy) — modern luxury villa */
+.trusted.section--dark {
+  background-image:
+    linear-gradient(180deg, rgba(49,83,111,0.91) 0%, rgba(40,69,93,0.94) 100%),
+    url('https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Consultation (light) — luxury residence, barely there */
+.consult.section--beige {
+  background-image:
+    linear-gradient(180deg, rgba(250,247,243,0.93) 0%, rgba(244,239,232,0.96) 100%),
+    url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Services (beige) — soft architectural texture */
+.services.section--beige {
+  background-image:
+    linear-gradient(180deg, rgba(250,247,243,0.95) 0%, rgba(244,239,232,0.97) 100%),
+    url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2000&auto=format&fit=crop');
+  background-size: cover; background-position: center; background-attachment: fixed;
+}
+
+/* Mobile: drop fixed attachment (iOS perf) */
+@media (max-width: 900px) {
+  .pm.section--dark, .trusted.section--dark, .consult.section--beige, .services.section--beige {
+    background-attachment: scroll;
+  }
 }
