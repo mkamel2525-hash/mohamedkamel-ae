@@ -360,7 +360,7 @@
 
   const heroInner = document.querySelector('.hero__inner');
   const portrait = document.querySelector('.hero__portrait');
-  const cards = document.querySelectorAll('.hero .glass-card');
+  const cards = [];  /* cards keep their gentle CSS float; not pointer-driven */
   if (!heroInner) return;
 
   let raf = null, tx = 0, ty = 0, cx = 0, cy = 0;
