@@ -249,3 +249,103 @@
     });
   });
 })();
+
+/* ============================================================
+   v3 — living layer: rotator, Dubai time, tilt, gold dust
+   ============================================================ */
+(function () {
+  'use strict';
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Rotating advisory word */
+  const word = document.getElementById('rotatorWord');
+  if (word && !prefersReduced) {
+    const words = ['Off-Plan Launches', 'Luxury Residences', 'Golden Visa Portfolios', 'Waterfront Investments', 'Branded Residences', 'Yield Strategies'];
+    let i = 0;
+    setInterval(() => {
+      word.classList.add('is-out');
+      setTimeout(() => {
+        i = (i + 1) % words.length;
+        word.textContent = words[i];
+        word.classList.remove('is-out');
+      }, 450);
+    }, 3200);
+  }
+
+  /* Live Dubai time */
+  const timeEl = document.getElementById('dubaiTime');
+  if (timeEl) {
+    const fmt = new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Dubai', hour: '2-digit', minute: '2-digit' });
+    const tick = () => { timeEl.textContent = 'Dubai ' + fmt.format(new Date()); };
+    tick();
+    setInterval(tick, 30000);
+  }
+
+  /* Subtle 3D tilt on cards (desktop only) */
+  if (!prefersReduced && window.matchMedia('(pointer:fine)').matches) {
+    const MAX = 5; // degrees
+    document.querySelectorAll('.service-card, .dev-card, .intel-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const r = card.getBoundingClientRect();
+        const rx = ((e.clientY - r.top) / r.height - 0.5) * -MAX;
+        const ry = ((e.clientX - r.left) / r.width - 0.5) * MAX;
+        card.classList.add('tilting');
+        card.style.transform = `perspective(900px) rotateX(${rx.toFixed(2)}deg) rotateY(${ry.toFixed(2)}deg) translateY(-6px)`;
+      });
+      card.addEventListener('mouseleave', () => {
+        card.classList.remove('tilting');
+        card.style.transform = '';
+      });
+    });
+  }
+
+  /* Gold dust drifting in the dark portfolio section */
+  const canvas = document.getElementById('goldDust');
+  if (canvas && !prefersReduced) {
+    const ctx = canvas.getContext('2d');
+    let w, h, parts = [], running = false, raf;
+
+    function resize() {
+      const r = canvas.parentElement.getBoundingClientRect();
+      w = canvas.width = r.width;
+      h = canvas.height = r.height;
+    }
+    function spawn(n) {
+      parts = Array.from({ length: n }, () => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        r: 0.6 + Math.random() * 1.8,
+        vy: 0.15 + Math.random() * 0.35,
+        vx: (Math.random() - 0.5) * 0.15,
+        a: 0.15 + Math.random() * 0.5,
+        tw: Math.random() * Math.PI * 2
+      }));
+    }
+    function draw() {
+      ctx.clearRect(0, 0, w, h);
+      const t = performance.now() / 1000;
+      for (const p of parts) {
+        p.y -= p.vy; p.x += p.vx;
+        if (p.y < -4) { p.y = h + 4; p.x = Math.random() * w; }
+        if (p.x < -4) p.x = w + 4; else if (p.x > w + 4) p.x = -4;
+        const tw = (Math.sin(t * 1.6 + p.tw) + 1) / 2;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(201,169,110,${(p.a * (0.45 + 0.55 * tw)).toFixed(3)})`;
+        ctx.fill();
+      }
+      if (running) raf = requestAnimationFrame(draw);
+    }
+    resize();
+    spawn(Math.min(70, Math.floor(w / 18)));
+    window.addEventListener('resize', () => { resize(); spawn(Math.min(70, Math.floor(w / 18))); }, { passive: true });
+
+    const vis = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting && !running) { running = true; draw(); }
+        else if (!e.isIntersecting && running) { running = false; cancelAnimationFrame(raf); }
+      });
+    }, { threshold: 0.05 });
+    vis.observe(canvas);
+  }
+})();
