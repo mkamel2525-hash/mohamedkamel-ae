@@ -194,9 +194,9 @@ section[id], [id].section { scroll-margin-top: 84px; }
     linear-gradient(180deg, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.05) 30%, rgba(250,247,243,0.15) 70%, rgba(250,247,243,0.96) 100%),
     linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.80) 34%, rgba(255,255,255,0.32) 64%, rgba(255,255,255,0.12) 100%),
     url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=85&w=2400&auto=format&fit=crop');
-  background-size: cover; background-position: center 30%; will-change: transform;
-  filter: saturate(1.14) contrast(1.07);
-  animation: kenburns 38s ease-in-out infinite alternate;
+  background-size: cover; background-position: center 30%;
+  filter: saturate(1.12) contrast(1.05);
+  transform: scale(1.04);
 }
 .hero__overlay { position: absolute; inset: 0; z-index: 1; background: radial-gradient(120% 90% at 78% 35%, rgba(201,169,110,0.14), transparent 55%), radial-gradient(60% 34% at 18% 0%, rgba(247,179,140,0.22), transparent 66%), radial-gradient(58% 32% at 82% 2%, rgba(240,170,190,0.20), transparent 66%), radial-gradient(70% 40% at 50% 0%, rgba(150,185,214,0.14), transparent 70%); }
 .hero__inner {
@@ -666,10 +666,7 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 
 
 /* Cinematic living skyline — slow 3D-feel zoom drift */
-@keyframes kenburns {
-  0%   { transform: scale(1) translate3d(0, 0, 0); }
-  100% { transform: scale(1.12) translate3d(-1.2%, -1.8%, 0); }
-}
+@keyframes kenburns { from { transform: scale(1.04); } to { transform: scale(1.04); } }
 @media (prefers-reduced-motion: reduce) { .hero__bg { animation: none; } }
 
 /* ============================================================
