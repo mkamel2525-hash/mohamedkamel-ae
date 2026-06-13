@@ -1060,3 +1060,8 @@ body { color: var(--navy-ink); }
 /* v14 — launch price/plan line */
 .dev-card__launches .lp { font-size:.82rem; font-weight:600; color: var(--navy-ink); margin-top:.15rem; }
 .dev-card__note { font-size:.72rem; color:#6a7990; margin-top:.7rem; font-style:italic; }
+
+/* v15 — launch price breakdown list */
+.dev-card__launches .lx { margin:.5rem 0 0; padding-left: 0; display:grid; gap:.25rem; }
+.dev-card__launches .lx li { background:transparent; border:0; padding:.1rem 0 .1rem .9rem; position:relative; font-size:.8rem; color:#3A5070; border-radius:0; }
+.dev-card__launches .lx li::before { content:''; position:absolute; left:0; top:.6em; width:5px; height:5px; border-radius:50%; background:var(--gold); }

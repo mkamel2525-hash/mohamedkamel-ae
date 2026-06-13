@@ -1100,6 +1100,11 @@ body { color: var(--navy-ink); }
 .dev-card__launches .lp { font-size:.82rem; font-weight:600; color: var(--navy-ink); margin-top:.15rem; }
 .dev-card__note { font-size:.72rem; color:#6a7990; margin-top:.7rem; font-style:italic; }
 
+/* v15 — launch price breakdown list */
+.dev-card__launches .lx { margin:.5rem 0 0; padding-left: 0; display:grid; gap:.25rem; }
+.dev-card__launches .lx li { background:transparent; border:0; padding:.1rem 0 .1rem .9rem; position:relative; font-size:.8rem; color:#3A5070; border-radius:0; }
+.dev-card__launches .lx li::before { content:''; position:absolute; left:0; top:.6em; width:5px; height:5px; border-radius:50%; background:var(--gold); }
+
 </style>
 
   <!-- Visitor tracking (Google Analytics 4) — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -1619,7 +1624,7 @@ body { color: var(--navy-ink); }
   /* ---------- Developer cards ---------- */
   const developers = [
     { name: 'Emaar', pos: 'Master Developer', positioning: 'The benchmark for iconic, large-scale destinations.', community: 'Downtown Dubai, Dubai Hills, Dubai Creek Harbour.', thesis: 'Blue-chip stability with consistent capital appreciation and liquidity.',
-      launches: [ {n:'The Valley — Lillia', a:'Dubailand', t:'Townhouses & villas', price:'From AED 2.0M', plan:'90/10', ho:'Q1 2027'}, {n:'Emaar South — Fairway Villas 2', a:'Dubai South', t:'Villas', price:'From AED 3.2M', plan:'85/15', ho:'Q4 2026'}, {n:'Dubai Creek Harbour', a:'Creek', t:'Apartments', price:'From AED 1.2M', plan:'60/40', ho:''} ] },
+      launches: [ {n:'Creek Haven', a:'Dubai Creek Harbour', t:'1, 2 & 3-bed waterfront apartments', price:'From AED 1.8M', plan:'80/20', ho:'', details:['1, 2 & 3-bedroom apartments','Dual-tower waterfront community','Payment plan synced to construction','~AED 2,410–2,500 / sq ft']}, {n:'Creek Bay', a:'Dubai Creek Harbour', t:'1, 2 & 3-bed waterfront apartments', price:'From AED 1.8M', plan:'80/20', ho:'', details:['1, 2 & 3-bedroom apartments','Payment: 10% on booking + staged 10% instalments','Part of the Creek Beach waterfront district']}, {n:'The Valley — Lillia', a:'Dubailand', t:'Townhouses & villas', price:'From AED 2.0M', plan:'90/10', ho:'Q1 2027'}, {n:'Emaar South — Fairway Villas 2', a:'Dubai South', t:'Villas', price:'From AED 3.2M', plan:'85/15', ho:'Q4 2026'} ] },
     { name: 'Omniyat', pos: 'Ultra-Luxury', positioning: 'Architecturally daring, collectible waterfront residences.', community: 'Business Bay, Palm Jumeirah, Marasi Bay.', thesis: 'Scarcity-driven trophy assets with strong international demand.',
       launches: [ {n:'ORLA', a:'Palm Jumeirah', t:'Ultra-luxury residences', price:'From AED 24.1M', plan:'5/45/50', ho:'Q3 2027'}, {n:'Vela Viento', a:'Marasi Bay', t:'Branded waterfront', price:'From AED 27.7M', plan:'5/55/40', ho:'Q4 2026'} ] },
     { name: 'Beyond by Omniyat', pos: 'Premium Lifestyle', positioning: 'Design-forward living from a celebrated luxury house.', community: 'Dubai Maritime City waterfront.', thesis: 'Branded waterfront product positioned for premium resale.',
@@ -1633,7 +1638,7 @@ body { color: var(--navy-ink); }
     { name: 'Dubai Holding', pos: 'Government-Backed', positioning: 'Master communities shaping Dubai’s urban fabric.', community: 'Jumeirah Village, Madinat Jumeirah, City Walk.', thesis: 'Institutional-grade communities with reliable demand.',
       launches: [ {n:'Bluewaters Bay', a:'Bluewaters Island', t:'Sea-view apartments', price:'From AED 2.56M', plan:'80/20', ho:'Q1 2027'}, {n:'Madinat Jumeirah Living', a:'Madinat Jumeirah', t:'Apartments', price:'From AED 1.91M', plan:'70/30', ho:'Q2 2026'}, {n:'Nad Al Sheba Gardens', a:'Nad Al Sheba', t:'Villas & townhouses', price:'From AED 4.18M', plan:'80/20', ho:'Q3 2027'} ] },
     { name: 'Nakheel', pos: 'Iconic Waterfront', positioning: 'Creator of Dubai’s most iconic man-made destinations.', community: 'Palm Jumeirah, Palm Jebel Ali, Dubai Islands.', thesis: 'Landmark waterfront communities with enduring global prestige.',
-      launches: [ {n:'Palm Jebel Ali Villas', a:'Palm Jebel Ali', t:'Beachfront villas', price:'From AED 18M', plan:'80/20', ho:'2029'}, {n:'Bay Villas', a:'Dubai Islands', t:'Villas & townhouses', price:'From AED 4M', plan:'80/20', ho:'Q2 2027'}, {n:'Como Residences', a:'Palm Jumeirah', t:'Ultra-luxury apartments', price:'On request', plan:'Flexible', ho:''} ] },
+      launches: [ {n:'Palm Central Private Residences', a:'Palm Jebel Ali', t:'Beachfront apartments, townhouses & penthouses (1–5 BR)', price:'From AED 2.5M', plan:'20/50/30', ho:'Aug 2029', details:['1-bed apartment — from AED 2.5M','2-bed apartment — from AED 4.26M','3-bed residence — from AED 7.51M','4-bed apartment — from AED 12.62M','5-bed apartment — from AED 17.58M','4-bed townhouse — from AED 14.18M','5-bed penthouse — from AED 31.81M']}, {n:'Palm Jebel Ali Villas', a:'Palm Jebel Ali', t:'Beachfront villas (5–7 BR)', price:'From AED 18M', plan:'80/20', ho:'2029'}, {n:'Bay Villas', a:'Dubai Islands', t:'Villas & townhouses', price:'From AED 4M', plan:'80/20', ho:'Q2 2027'}, {n:'Como Residences', a:'Palm Jumeirah', t:'Ultra-luxury apartments', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Imtiaz', pos: 'Boutique Luxury', positioning: 'Fully-furnished, design-led boutique developments.', community: 'JVC, Meydan, Dubai Islands.', thesis: 'Turnkey product engineered for short-stay yield.',
       launches: [ {n:'Beach Walk Grand', a:'Dubai Islands', t:'Apartments', price:'From AED 2.1M', plan:'60/40', ho:'Q4 2026'}, {n:'Sunset Bay', a:'Dubai Islands', t:'Apartments', price:'From AED 1.7M', plan:'60/40', ho:'Q4 2026'}, {n:'Westwood Grande', a:'JVC', t:'Furnished apartments', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Object 1', pos: 'Modern Living', positioning: 'Contemporary residences with strong value engineering.', community: 'JVC, Al Furjan, Dubailand.', thesis: 'Accessible price points with compelling rental returns.',
@@ -1645,9 +1650,12 @@ body { color: var(--navy-ink); }
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
+      card.dataset.dev = d.name;
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
-        return `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span><span class="lp">${detail}</span></li>`;
+        const breakdown = (l.details && l.details.length)
+          ? '<ul class="lx">' + l.details.map(x => `<li>${x}</li>`).join('') + '</ul>' : '';
+        return `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span><span class="lp">${detail}</span>${breakdown}</li>`;
       }).join('');
       const wa = 'https://wa.me/971588801766?text=' +
         encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
@@ -1952,8 +1960,20 @@ body { color: var(--navy-ink); }
     li.addEventListener('click',()=>scrollTo('services'));
     li.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();scrollTo('services');} });
   });
+  function openDeveloper(label){
+    const cards = document.querySelectorAll('.dev-card[data-dev]');
+    let match = null;
+    const t = label.trim().toLowerCase();
+    cards.forEach(c=>{ const n=(c.dataset.dev||'').toLowerCase(); if(!match && (n.includes(t)||t.includes(n))) match=c; });
+    scrollTo('developers');
+    if(match){
+      document.querySelectorAll('.dev-card.is-open').forEach(c=>{ if(c!==match) c.classList.remove('is-open'); });
+      match.classList.add('is-open');
+      setTimeout(()=>match.scrollIntoView({behavior:'smooth', block:'center'}), 400);
+    }
+  }
   document.querySelectorAll('.trust__track span').forEach(s=>{
-    s.addEventListener('click',()=>scrollTo('developers'));
+    s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
 })();
 
