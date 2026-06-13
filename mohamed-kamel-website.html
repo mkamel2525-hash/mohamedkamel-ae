@@ -1109,20 +1109,21 @@ body { color: var(--navy-ink); }
    v16 — hero legibility: frosted panel + deeper navy labels
    ============================================================ */
 .hero__content {
-  background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.62) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.88) 100%);
   -webkit-backdrop-filter: blur(8px) saturate(120%); backdrop-filter: blur(8px) saturate(120%);
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255,255,255,0.75);
   border-radius: 20px;
   padding: clamp(1.5rem, 4.5vw, 2.8rem);
-  box-shadow: 0 30px 70px -42px rgba(27,53,86,0.4);
+  box-shadow: 0 30px 70px -42px rgba(27,53,86,0.45);
 }
-.hero__eyebrow { color: #15314F !important; font-weight: 600; }
-.hero__title { color: #16304E !important; -webkit-text-fill-color: #16304E !important; }
+.hero__eyebrow { color: #14314F !important; font-weight: 600; }
+.hero__title { color: #15304D !important; -webkit-text-fill-color: #15304D !important; }
 .hero__subtitle { color: #21456C; }
-.hero__role { color: #15314F !important; font-weight: 600; letter-spacing: 0.1em; font-size: 0.86rem; }
+/* Sales Manager line — bold deep navy on its own clear chip so it always reads */
+.hero__role { color: #12304C !important; font-weight: 700; letter-spacing: 0.05em; font-size: 0.92rem; text-transform: uppercase; background: var(--beige); border: 1px solid rgba(27,53,86,0.14); padding: 0.5rem 0.9rem; border-radius: 8px; }
 .hero__role::before { background: var(--gold); height: 2px; }
 .hero__status { color: #3A5070; font-weight: 500; }
-.hero__services li { font-weight: 600; color: #16304E; background: rgba(255,255,255,0.92); border-color: rgba(27,53,86,0.18); }
+.hero__services li { font-weight: 600; color: #16304E; background: rgba(255,255,255,0.96); border-color: rgba(27,53,86,0.2); }
 
 </style>
 
