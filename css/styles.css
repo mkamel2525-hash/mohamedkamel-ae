@@ -1113,3 +1113,20 @@ body { color: var(--navy-ink); }
   .hero__portrait { max-width: 150px; }
   .hero__title { font-size: 1.9rem; }
 }
+
+/* v18b — iPad & all touch devices: both orientations
+   Disable fixed background-attachment on touch (iOS renders it janky),
+   and let width breakpoints handle rotation automatically. */
+@media (hover: none), (pointer: coarse) {
+  .pm.section--dark, .trusted.section--dark, .consult.section--beige,
+  .services.section--beige, .about.section, .intel.section,
+  .devs.section, .process.section--beige, .faq.section {
+    background-attachment: scroll;
+  }
+}
+/* iPad portrait/landscape: comfortable hero + grids */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero__inner { grid-template-columns: 1.1fr 0.9fr; gap: 2.5rem; text-align: left; align-items: center; }
+  .hero__portrait { order: 0; max-width: 340px; }
+  .hero__services, .hero__cta { justify-content: flex-start; }
+}
