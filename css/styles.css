@@ -1085,3 +1085,6 @@ body { color: var(--navy-ink); }
 .hero__role::before { background: var(--gold); height: 2px; }
 .hero__status { color: #3A5070; font-weight: 500; }
 .hero__services li { font-weight: 600; color: #16304E; background: rgba(255,255,255,0.96); border-color: rgba(27,53,86,0.2); }
+
+/* v17 — About without the photo: single, centered column */
+.about__grid--solo { grid-template-columns: 1fr !important; max-width: 820px; }
