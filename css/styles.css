@@ -1159,3 +1159,8 @@ body { color: var(--navy-ink); }
 .listing-card__price { font-size:.9rem; font-weight:600; color:var(--gold-deep); margin-bottom:1.2rem; }
 .listing-card__cta { display:flex; flex-wrap:wrap; gap:.7rem; }
 .listing-card__cta .btn { flex:1 1 auto; font-size:.72rem; padding:.85rem 1rem; }
+
+/* v21 — RERA certified credential badge */
+.hero__rera { display:inline-flex; align-items:center; gap:.5rem; margin-top:.9rem; font-size:.74rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-deep); background:var(--cream); border:1px solid rgba(201,169,110,.4); padding:.45rem .85rem; border-radius:40px; }
+.hero__rera svg { color:var(--gold-deep); flex:0 0 auto; }
+.footer__rera { font-size:.78rem; letter-spacing:.05em; margin-top:.5rem; color:var(--gold); }
