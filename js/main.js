@@ -429,3 +429,19 @@
     card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
   });
 })();
+
+/* ============================================================
+   v11 — no dead presses: hero chips -> services, trust -> developers
+   ============================================================ */
+(function () {
+  'use strict';
+  function scrollTo(id){ const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth'}); }
+  document.querySelectorAll('.hero__services li').forEach(li=>{
+    li.setAttribute('role','button'); li.setAttribute('tabindex','0');
+    li.addEventListener('click',()=>scrollTo('services'));
+    li.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){e.preventDefault();scrollTo('services');} });
+  });
+  document.querySelectorAll('.trust__track span').forEach(s=>{
+    s.addEventListener('click',()=>scrollTo('developers'));
+  });
+})();

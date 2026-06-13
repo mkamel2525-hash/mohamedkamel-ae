@@ -170,8 +170,8 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .hero__eyebrow { color: var(--gold-deep); letter-spacing: 0.3em; text-transform: uppercase; font-size: 0.74rem; font-weight: 500; margin-bottom: 1.4rem; }
 .hero__title { font-size: clamp(3rem, 8vw, 6.5rem); color: var(--dark); font-weight: 600; line-height: 0.98; }
 .hero__subtitle { font-family: var(--serif); font-style: italic; font-size: clamp(1.3rem, 3vw, 2rem); color: var(--text); margin-top: 0.6rem; font-weight: 500; }
-.hero__role { margin-top: 0.7rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 0.6rem; }
-.hero__role::before { content: ''; width: 26px; height: 1px; background: var(--gold); }
+.hero__role { margin-top: 0.7rem; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dark); display: inline-flex; align-items: center; gap: 0.6rem; }
+.hero__role::before { content: ''; width: 26px; height: 2px; background: var(--gold); }
 .hero__services { display: flex; flex-wrap: wrap; gap: 0.6rem 0.5rem; margin-top: 2rem; }
 .hero__services li {
   font-size: 0.74rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text);
@@ -1007,3 +1007,8 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 /* Stronger, clearer body text everywhere */
 .section__sub, .about__text, .service-card p, .intel-card p { color: var(--soft); }
 .dev-card__toggle { color: var(--gold-deep); font-weight: 600; }
+
+/* v11 — everything pressable leads somewhere */
+.hero__services li { cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease); }
+.hero__services li:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
+.trust__track span { cursor: pointer; }
