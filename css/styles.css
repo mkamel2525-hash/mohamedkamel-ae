@@ -1042,3 +1042,17 @@ body { color: var(--navy-ink); }
 /* Hero name + subtitle clearly navy */
 .hero__title { color: #1B3556 !important; -webkit-text-fill-color: #1B3556 !important; }
 .hero__subtitle { color: #294063; }
+
+/* ============================================================
+   v13 — developer "Latest Launches" panel
+   ============================================================ */
+.dev-card.is-open .dev-card__body { max-height: 900px; }
+.dev-card__launches { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.dev-card__launches > b { display:block; font-family: var(--sans); font-weight:600; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color: var(--navy-ink); margin-bottom:.7rem; }
+.dev-card__launches ul { display:grid; gap:.6rem; margin:0 0 .9rem; }
+.dev-card__launches li { display:flex; flex-direction:column; gap:.1rem; padding:.55rem .8rem; background: var(--beige); border:1px solid var(--line); border-radius:8px; }
+.dev-card__launches .ln { font-family: var(--serif); font-size:1.1rem; color:#1B3556; }
+.dev-card__launches .la { font-size:.8rem; color:#3A5070; }
+.dev-card__pricing { font-size:.8rem; color:#3A5070; margin-bottom:.9rem; }
+.dev-card__wa { display:inline-flex; align-items:center; gap:.5rem; background:#25D366; color:#fff !important; font-size:.74rem; font-weight:600; letter-spacing:.06em; padding:.7rem 1.1rem; border-radius:40px; transition:transform .3s var(--ease), box-shadow .3s; }
+.dev-card__wa:hover { transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(37,211,102,.6); }

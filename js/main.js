@@ -129,16 +129,26 @@
 
   /* ---------- Developer cards ---------- */
   const developers = [
-    { name: 'Emaar', pos: 'Master Developer', positioning: 'The benchmark for iconic, large-scale destinations.', community: 'Downtown Dubai, Dubai Hills, Dubai Creek Harbour.', thesis: 'Blue-chip stability with consistent capital appreciation and liquidity.' },
-    { name: 'Omniyat', pos: 'Ultra-Luxury', positioning: 'Architecturally daring, collectible waterfront residences.', community: 'Business Bay, Palm Jumeirah, Marasi Bay.', thesis: 'Scarcity-driven trophy assets with strong international demand.' },
-    { name: 'Beyond by Omniyat', pos: 'Premium Lifestyle', positioning: 'Design-forward living from a celebrated luxury house.', community: 'Dubai Maritime City waterfront.', thesis: 'Branded waterfront product positioned for premium resale.' },
-    { name: 'Binghatti', pos: 'Branded Residences', positioning: 'Bold design and globally recognised brand partnerships.', community: 'Business Bay, JVC, Dubai Silicon Oasis.', thesis: 'High-velocity launches with attractive entry points and yields.' },
-    { name: 'Aldar', pos: 'Abu Dhabi Leader', positioning: 'Abu Dhabi’s premier master developer.', community: 'Yas Island, Saadiyat, Al Reem Island.', thesis: 'Capital-city exposure with strong fundamentals and end-user depth.' },
-    { name: 'Modon', pos: 'Destination Developer', positioning: 'Visionary lifestyle and waterfront destinations.', community: 'Hudayriyat Island and emerging Abu Dhabi fronts.', thesis: 'Early-cycle entry into landmark Abu Dhabi developments.' },
-    { name: 'Dubai Holding', pos: 'Government-Backed', positioning: 'Master communities shaping Dubai’s urban fabric.', community: 'Jumeirah Village, Madinat Jumeirah, City Walk.', thesis: 'Institutional-grade communities with reliable demand.' },
-    { name: 'Nakheel', pos: 'Iconic Waterfront', positioning: 'Creator of Dubai’s most iconic man-made destinations.', community: 'Palm Jumeirah, Palm Jebel Ali, Dubai Islands.', thesis: 'Landmark waterfront communities with enduring global prestige.' },
-    { name: 'Imtiaz', pos: 'Boutique Luxury', positioning: 'Fully-furnished, design-led boutique developments.', community: 'JVC, Meydan, Dubai Islands.', thesis: 'Turnkey product engineered for short-stay yield.' },
-    { name: 'Object 1', pos: 'Modern Living', positioning: 'Contemporary residences with strong value engineering.', community: 'JVC, Al Furjan, Dubailand.', thesis: 'Accessible price points with compelling rental returns.' }
+    { name: 'Emaar', pos: 'Master Developer', positioning: 'The benchmark for iconic, large-scale destinations.', community: 'Downtown Dubai, Dubai Hills, Dubai Creek Harbour.', thesis: 'Blue-chip stability with consistent capital appreciation and liquidity.',
+      launches: [ {n:'The Oasis', a:'Dubailand', t:'Waterfront villas & mansions'}, {n:'Dubai Creek Harbour', a:'Creek', t:'Branded apartments'}, {n:'The Valley / Emaar South', a:'Dubai', t:'Townhouses & villas'} ] },
+    { name: 'Omniyat', pos: 'Ultra-Luxury', positioning: 'Architecturally daring, collectible waterfront residences.', community: 'Business Bay, Palm Jumeirah, Marasi Bay.', thesis: 'Scarcity-driven trophy assets with strong international demand.',
+      launches: [ {n:'ORLA & ORLA Infinity', a:'Palm Jumeirah', t:'Ultra-luxury residences'}, {n:'VELA / VELA Viento', a:'Marasi Bay', t:'Branded waterfront'}, {n:'The Lana Residences', a:'Business Bay', t:'Dorchester Collection'} ] },
+    { name: 'Beyond by Omniyat', pos: 'Premium Lifestyle', positioning: 'Design-forward living from a celebrated luxury house.', community: 'Dubai Maritime City waterfront.', thesis: 'Branded waterfront product positioned for premium resale.',
+      launches: [ {n:'Mar Casa', a:'Dubai Maritime City', t:'Sea-view apartments'}, {n:'Bayline & Verso', a:'Dubai Maritime City', t:'Waterfront residences'} ] },
+    { name: 'Binghatti', pos: 'Branded Residences', positioning: 'Bold design and globally recognised brand partnerships.', community: 'Business Bay, JVC, Dubai Silicon Oasis.', thesis: 'High-velocity launches with attractive entry points and yields.',
+      launches: [ {n:'Bugatti Residences', a:'Business Bay', t:'Branded luxury'}, {n:'Burj Binghatti Jacob & Co', a:'Business Bay', t:'Hyper-tower residences'}, {n:'Binghatti Hills / Skyrise', a:'Al Barsha South / Business Bay', t:'Apartments'} ] },
+    { name: 'Aldar', pos: 'Abu Dhabi Leader', positioning: 'Abu Dhabi’s premier master developer.', community: 'Yas Island, Saadiyat, Al Reem Island.', thesis: 'Capital-city exposure with strong fundamentals and end-user depth.',
+      launches: [ {n:'Mandarin Oriental Residences', a:'Saadiyat Island', t:'Branded luxury'}, {n:'Nobu Residences', a:'Saadiyat Island', t:'Branded apartments'}, {n:'Haven / Athlon', a:'Dubai', t:'Wellness villas & townhouses'} ] },
+    { name: 'Modon', pos: 'Destination Developer', positioning: 'Visionary lifestyle and waterfront destinations.', community: 'Hudayriyat Island and emerging Abu Dhabi fronts.', thesis: 'Early-cycle entry into landmark Abu Dhabi developments.',
+      launches: [ {n:'Nawayef Homes', a:'Hudayriyat Island', t:'Luxury villas'}, {n:'Hudayriyat Residences', a:'Abu Dhabi', t:'Waterfront living'} ] },
+    { name: 'Dubai Holding', pos: 'Government-Backed', positioning: 'Master communities shaping Dubai’s urban fabric.', community: 'Jumeirah Village, Madinat Jumeirah, City Walk.', thesis: 'Institutional-grade communities with reliable demand.',
+      launches: [ {n:'Madinat Jumeirah Living', a:'Madinat Jumeirah', t:'Apartments'}, {n:'Bluewaters Bay', a:'Bluewaters Island', t:'Sea-view residences'}, {n:'Nad Al Sheba Gardens', a:'Nad Al Sheba', t:'Villas & townhouses'} ] },
+    { name: 'Nakheel', pos: 'Iconic Waterfront', positioning: 'Creator of Dubai’s most iconic man-made destinations.', community: 'Palm Jumeirah, Palm Jebel Ali, Dubai Islands.', thesis: 'Landmark waterfront communities with enduring global prestige.',
+      launches: [ {n:'Palm Jebel Ali Villas', a:'Palm Jebel Ali', t:'Beachfront villas'}, {n:'Bay Villas', a:'Dubai Islands', t:'Waterfront villas'}, {n:'Como Residences', a:'Palm Jumeirah', t:'Ultra-luxury apartments'} ] },
+    { name: 'Imtiaz', pos: 'Boutique Luxury', positioning: 'Fully-furnished, design-led boutique developments.', community: 'JVC, Meydan, Dubai Islands.', thesis: 'Turnkey product engineered for short-stay yield.',
+      launches: [ {n:'Westwood Grande', a:'JVC', t:'Furnished apartments'}, {n:'Cove Edition', a:'Dubai Islands', t:'Branded residences'} ] },
+    { name: 'Object 1', pos: 'Modern Living', positioning: 'Contemporary residences with strong value engineering.', community: 'JVC, Al Furjan, Dubailand.', thesis: 'Accessible price points with compelling rental returns.',
+      launches: [ {n:'Verdana', a:'Dubai Investment Park', t:'Apartments & townhouses'}, {n:'365 Residences', a:'JVC', t:'Furnished apartments'} ] }
   ];
   const grid = document.getElementById('devsGrid');
   if (grid) {
@@ -146,6 +156,10 @@
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
+      const launches = (d.launches || []).map(l =>
+        `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span></li>`).join('');
+      const wa = 'https://wa.me/971588801766?text=' +
+        encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
       card.innerHTML = `
         <div class="dev-card__top">
           <span class="dev-card__name">${d.name}</span>
@@ -155,8 +169,14 @@
           <div class="dev-card__row"><b>Brand Positioning</b><span>${d.positioning}</span></div>
           <div class="dev-card__row"><b>Community Expertise</b><span>${d.community}</span></div>
           <div class="dev-card__row"><b>Investment Thesis</b><span>${d.thesis}</span></div>
+          <div class="dev-card__launches">
+            <b>Latest Launches</b>
+            <ul>${launches}</ul>
+            <p class="dev-card__pricing">Current prices &amp; payment plans shared on request.</p>
+            <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get latest prices &amp; payment plans &rarr;</a>
+          </div>
         </div>
-        <span class="dev-card__toggle">Explore</span>`;
+        <span class="dev-card__toggle">View Launches</span>`;
       card.addEventListener('click', () => card.classList.toggle('is-open'));
       grid.appendChild(card);
     });
