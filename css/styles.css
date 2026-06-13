@@ -1012,3 +1012,33 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 .hero__services li { cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease); }
 .hero__services li:hover { background: var(--dark); color: #fff; border-color: var(--dark); }
 .trust__track span { cursor: pointer; }
+
+/* ============================================================
+   v12 — navy text everywhere on light sections
+   (dark navy sections keep light text so it stays readable)
+   ============================================================ */
+:root { --navy-ink: #1F4068; }
+
+/* Accent/label text that was gold on light backgrounds -> clear navy */
+.eyebrow:not(.eyebrow--gold),
+.hero__eyebrow,
+.service-card__index,
+.insight-card__tag,
+.insight-card__more,
+.dev-card__pos,
+.dev-card__toggle,
+.about__hi-num,
+.service-card__cue,
+.intel-card__cue { color: var(--navy-ink) !important; }
+
+/* Body / heading text -> deep navy on light */
+body { color: var(--navy-ink); }
+.section__title, .service-card h3, .intel-card h3, .faq__item summary,
+.dev-card__name, .about__lead, .process-step h3, .consult__portrait strong,
+.insight-card__title { color: #1B3556; }
+.section__sub, .about__text, .service-card p, .intel-card p,
+.consult__lead, .faq__item p, .process-step p, .insight-card__excerpt { color: #3A5070; }
+
+/* Hero name + subtitle clearly navy */
+.hero__title { color: #1B3556 !important; -webkit-text-fill-color: #1B3556 !important; }
+.hero__subtitle { color: #294063; }
