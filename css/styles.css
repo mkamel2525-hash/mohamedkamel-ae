@@ -1056,3 +1056,7 @@ body { color: var(--navy-ink); }
 .dev-card__pricing { font-size:.8rem; color:#3A5070; margin-bottom:.9rem; }
 .dev-card__wa { display:inline-flex; align-items:center; gap:.5rem; background:#25D366; color:#fff !important; font-size:.74rem; font-weight:600; letter-spacing:.06em; padding:.7rem 1.1rem; border-radius:40px; transition:transform .3s var(--ease), box-shadow .3s; }
 .dev-card__wa:hover { transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(37,211,102,.6); }
+
+/* v14 — launch price/plan line */
+.dev-card__launches .lp { font-size:.82rem; font-weight:600; color: var(--navy-ink); margin-top:.15rem; }
+.dev-card__note { font-size:.72rem; color:#6a7990; margin-top:.7rem; font-style:italic; }

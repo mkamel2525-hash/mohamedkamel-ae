@@ -130,25 +130,25 @@
   /* ---------- Developer cards ---------- */
   const developers = [
     { name: 'Emaar', pos: 'Master Developer', positioning: 'The benchmark for iconic, large-scale destinations.', community: 'Downtown Dubai, Dubai Hills, Dubai Creek Harbour.', thesis: 'Blue-chip stability with consistent capital appreciation and liquidity.',
-      launches: [ {n:'The Oasis', a:'Dubailand', t:'Waterfront villas & mansions'}, {n:'Dubai Creek Harbour', a:'Creek', t:'Branded apartments'}, {n:'The Valley / Emaar South', a:'Dubai', t:'Townhouses & villas'} ] },
+      launches: [ {n:'The Valley — Lillia', a:'Dubailand', t:'Townhouses & villas', price:'From AED 2.0M', plan:'90/10', ho:'Q1 2027'}, {n:'Emaar South — Fairway Villas 2', a:'Dubai South', t:'Villas', price:'From AED 3.2M', plan:'85/15', ho:'Q4 2026'}, {n:'Dubai Creek Harbour', a:'Creek', t:'Apartments', price:'From AED 1.2M', plan:'60/40', ho:''} ] },
     { name: 'Omniyat', pos: 'Ultra-Luxury', positioning: 'Architecturally daring, collectible waterfront residences.', community: 'Business Bay, Palm Jumeirah, Marasi Bay.', thesis: 'Scarcity-driven trophy assets with strong international demand.',
-      launches: [ {n:'ORLA & ORLA Infinity', a:'Palm Jumeirah', t:'Ultra-luxury residences'}, {n:'VELA / VELA Viento', a:'Marasi Bay', t:'Branded waterfront'}, {n:'The Lana Residences', a:'Business Bay', t:'Dorchester Collection'} ] },
+      launches: [ {n:'ORLA', a:'Palm Jumeirah', t:'Ultra-luxury residences', price:'From AED 24.1M', plan:'5/45/50', ho:'Q3 2027'}, {n:'Vela Viento', a:'Marasi Bay', t:'Branded waterfront', price:'From AED 27.7M', plan:'5/55/40', ho:'Q4 2026'} ] },
     { name: 'Beyond by Omniyat', pos: 'Premium Lifestyle', positioning: 'Design-forward living from a celebrated luxury house.', community: 'Dubai Maritime City waterfront.', thesis: 'Branded waterfront product positioned for premium resale.',
-      launches: [ {n:'Mar Casa', a:'Dubai Maritime City', t:'Sea-view apartments'}, {n:'Bayline & Verso', a:'Dubai Maritime City', t:'Waterfront residences'} ] },
+      launches: [ {n:'Orise', a:'Dubai Maritime City', t:'Beachfront apartments', price:'On request', plan:'Flexible', ho:''}, {n:'Saria', a:'Dubai Maritime City', t:'Waterfront residences', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Binghatti', pos: 'Branded Residences', positioning: 'Bold design and globally recognised brand partnerships.', community: 'Business Bay, JVC, Dubai Silicon Oasis.', thesis: 'High-velocity launches with attractive entry points and yields.',
-      launches: [ {n:'Bugatti Residences', a:'Business Bay', t:'Branded luxury'}, {n:'Burj Binghatti Jacob & Co', a:'Business Bay', t:'Hyper-tower residences'}, {n:'Binghatti Hills / Skyrise', a:'Al Barsha South / Business Bay', t:'Apartments'} ] },
+      launches: [ {n:'Bugatti Residences', a:'Business Bay', t:'Branded luxury', price:'From AED 19.1M', plan:'70/30', ho:''}, {n:'Mercedes-Benz Places', a:'Downtown Dubai', t:'Branded residences', price:'From AED 8.8M', plan:'70/30', ho:'Q4 2026'}, {n:'Binghatti Wraith', a:'Al Jaddaf', t:'Apartments', price:'From AED 0.8M', plan:'Flexible', ho:''} ] },
     { name: 'Aldar', pos: 'Abu Dhabi Leader', positioning: 'Abu Dhabi’s premier master developer.', community: 'Yas Island, Saadiyat, Al Reem Island.', thesis: 'Capital-city exposure with strong fundamentals and end-user depth.',
-      launches: [ {n:'Mandarin Oriental Residences', a:'Saadiyat Island', t:'Branded luxury'}, {n:'Nobu Residences', a:'Saadiyat Island', t:'Branded apartments'}, {n:'Haven / Athlon', a:'Dubai', t:'Wellness villas & townhouses'} ] },
+      launches: [ {n:'The Source', a:'Saadiyat Island', t:'Apartments', price:'From AED 2.51M', plan:'60/40', ho:'Q3 2026'}, {n:'Yas — The Sustainable City', a:'Yas Island', t:'Apartments & townhouses', price:'From AED 0.89M', plan:'35/65', ho:'Q1 2026'}, {n:'Mandarin Oriental Residences', a:'Saadiyat Island', t:'Branded luxury', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Modon', pos: 'Destination Developer', positioning: 'Visionary lifestyle and waterfront destinations.', community: 'Hudayriyat Island and emerging Abu Dhabi fronts.', thesis: 'Early-cycle entry into landmark Abu Dhabi developments.',
-      launches: [ {n:'Nawayef Homes', a:'Hudayriyat Island', t:'Luxury villas'}, {n:'Hudayriyat Residences', a:'Abu Dhabi', t:'Waterfront living'} ] },
+      launches: [ {n:'Nawayef West', a:'Hudayriyat Island', t:'Villas (4–5 BR)', price:'From AED 7.8M', plan:'40/60', ho:'2026'}, {n:'Nawayef West Heights', a:'Hudayriyat Island', t:'Villas (5–7 BR)', price:'From AED 19M', plan:'40/60', ho:'Q4 2026'} ] },
     { name: 'Dubai Holding', pos: 'Government-Backed', positioning: 'Master communities shaping Dubai’s urban fabric.', community: 'Jumeirah Village, Madinat Jumeirah, City Walk.', thesis: 'Institutional-grade communities with reliable demand.',
-      launches: [ {n:'Madinat Jumeirah Living', a:'Madinat Jumeirah', t:'Apartments'}, {n:'Bluewaters Bay', a:'Bluewaters Island', t:'Sea-view residences'}, {n:'Nad Al Sheba Gardens', a:'Nad Al Sheba', t:'Villas & townhouses'} ] },
+      launches: [ {n:'Bluewaters Bay', a:'Bluewaters Island', t:'Sea-view apartments', price:'From AED 2.56M', plan:'80/20', ho:'Q1 2027'}, {n:'Madinat Jumeirah Living', a:'Madinat Jumeirah', t:'Apartments', price:'From AED 1.91M', plan:'70/30', ho:'Q2 2026'}, {n:'Nad Al Sheba Gardens', a:'Nad Al Sheba', t:'Villas & townhouses', price:'From AED 4.18M', plan:'80/20', ho:'Q3 2027'} ] },
     { name: 'Nakheel', pos: 'Iconic Waterfront', positioning: 'Creator of Dubai’s most iconic man-made destinations.', community: 'Palm Jumeirah, Palm Jebel Ali, Dubai Islands.', thesis: 'Landmark waterfront communities with enduring global prestige.',
-      launches: [ {n:'Palm Jebel Ali Villas', a:'Palm Jebel Ali', t:'Beachfront villas'}, {n:'Bay Villas', a:'Dubai Islands', t:'Waterfront villas'}, {n:'Como Residences', a:'Palm Jumeirah', t:'Ultra-luxury apartments'} ] },
+      launches: [ {n:'Palm Jebel Ali Villas', a:'Palm Jebel Ali', t:'Beachfront villas', price:'From AED 18M', plan:'80/20', ho:'2029'}, {n:'Bay Villas', a:'Dubai Islands', t:'Villas & townhouses', price:'From AED 4M', plan:'80/20', ho:'Q2 2027'}, {n:'Como Residences', a:'Palm Jumeirah', t:'Ultra-luxury apartments', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Imtiaz', pos: 'Boutique Luxury', positioning: 'Fully-furnished, design-led boutique developments.', community: 'JVC, Meydan, Dubai Islands.', thesis: 'Turnkey product engineered for short-stay yield.',
-      launches: [ {n:'Westwood Grande', a:'JVC', t:'Furnished apartments'}, {n:'Cove Edition', a:'Dubai Islands', t:'Branded residences'} ] },
+      launches: [ {n:'Beach Walk Grand', a:'Dubai Islands', t:'Apartments', price:'From AED 2.1M', plan:'60/40', ho:'Q4 2026'}, {n:'Sunset Bay', a:'Dubai Islands', t:'Apartments', price:'From AED 1.7M', plan:'60/40', ho:'Q4 2026'}, {n:'Westwood Grande', a:'JVC', t:'Furnished apartments', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Object 1', pos: 'Modern Living', positioning: 'Contemporary residences with strong value engineering.', community: 'JVC, Al Furjan, Dubailand.', thesis: 'Accessible price points with compelling rental returns.',
-      launches: [ {n:'Verdana', a:'Dubai Investment Park', t:'Apartments & townhouses'}, {n:'365 Residences', a:'JVC', t:'Furnished apartments'} ] }
+      launches: [ {n:'VERDAN1A', a:'Dubailand (DLRC)', t:'Apartments & townhouses', price:'From AED 0.55M', plan:'20/40/40', ho:'Q3 2027'} ] }
   ];
   const grid = document.getElementById('devsGrid');
   if (grid) {
@@ -156,8 +156,10 @@
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
-      const launches = (d.launches || []).map(l =>
-        `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span></li>`).join('');
+      const launches = (d.launches || []).map(l => {
+        const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
+        return `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span><span class="lp">${detail}</span></li>`;
+      }).join('');
       const wa = 'https://wa.me/971588801766?text=' +
         encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
       card.innerHTML = `
@@ -172,7 +174,7 @@
           <div class="dev-card__launches">
             <b>Latest Launches</b>
             <ul>${launches}</ul>
-            <p class="dev-card__pricing">Current prices &amp; payment plans shared on request.</p>
+            <p class="dev-card__pricing">Indicative starting prices &amp; payment plans — confirm the latest with Mohamed.</p>
             <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get latest prices &amp; payment plans &rarr;</a>
           </div>
         </div>
