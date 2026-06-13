@@ -102,6 +102,7 @@
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#developers">Developers</a>
+        <a href="#calculator">Calculator</a>
         <a href="#consultation">Contact</a>
       </nav>
       <a href="#consultation" class="nav__cta magnetic">Book Consultation</a>
@@ -282,6 +283,55 @@
   </section>
 
   <!-- ============ SECTION 9 — TRUSTED BY INVESTORS ============ -->
+
+  <!-- ============ HOLIDAY HOME INCOME CALCULATOR ============ -->
+  <section class="calc section section--beige" id="calculator">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="eyebrow reveal">Holiday Home Income</p>
+        <h2 class="section__title reveal">Estimate Your Short-Stay Returns</h2>
+        <p class="section__sub reveal">An indicative projection of your annual holiday-home (Airbnb) income in Dubai — based on location and property value.</p>
+      </header>
+
+      <div class="calc__card reveal">
+        <div class="calc__fields">
+          <div class="field">
+            <input type="text" id="calcValue" inputmode="numeric" placeholder=" " autocomplete="off" />
+            <label for="calcValue">Property Value (AED)</label>
+          </div>
+          <div class="field">
+            <select id="calcZone" required>
+              <option value="" disabled selected></option>
+              <option value="22:28">Palm Jumeirah / Downtown / Marina / JBR — Prime</option>
+              <option value="18:23">Business Bay / Creek Harbour / Dubai Hills — High demand</option>
+              <option value="15:20">JVC / Al Furjan / Dubailand — Value</option>
+              <option value="11:16">Other / Emerging communities</option>
+            </select>
+            <label for="calcZone">Location</label>
+          </div>
+        </div>
+        <button type="button" id="calcBtn" class="btn btn--gold btn--block magnetic">Calculate Expected Income</button>
+
+        <div class="calc__result" id="calcResult" hidden>
+          <div class="calc__row">
+            <span class="calc__lbl">Estimated Gross Income / year</span>
+            <span class="calc__val" id="calcGross">—</span>
+          </div>
+          <div class="calc__row">
+            <span class="calc__lbl">Estimated Net Income / year <small>(after ~25% costs)</small></span>
+            <span class="calc__val calc__val--gold" id="calcNet">—</span>
+          </div>
+          <div class="calc__row calc__row--sub">
+            <span class="calc__lbl">Approx. Net / month</span>
+            <span class="calc__val" id="calcMonth">—</span>
+          </div>
+          <a class="btn btn--dark btn--block magnetic" id="calcCta" href="https://wa.me/971588801766" target="_blank" rel="noopener" style="margin-top:1rem;">Get a tailored projection on WhatsApp</a>
+        </div>
+
+        <p class="calc__note">Indicative gross estimate only. Actual returns vary with occupancy, nightly rate, season, fees &amp; management — and are not guaranteed. Figures shown before purchase costs. Book a private consultation for a property-specific projection.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ SECTION 10 — CONSULTATION ============ -->
   <section class="consult section section--beige" id="consultation">

@@ -1170,6 +1170,22 @@ body { color: var(--navy-ink); }
   .hero__services, .hero__cta { justify-content: flex-start; }
 }
 
+/* ============================================================
+   v19 — Holiday Home income calculator
+   ============================================================ */
+.calc__card { max-width: 620px; margin: 0 auto; background: var(--white); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(1.6rem, 4vw, 2.6rem); box-shadow: var(--shadow-md); }
+.calc__fields { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem; }
+.calc__result { margin-top: 1.6rem; border-top: 1px solid var(--line); padding-top: 1.2rem; animation: fadeUp .5s var(--ease); }
+@keyframes fadeUp { from { opacity:0; transform: translateY(10px);} to { opacity:1; transform:none; } }
+.calc__row { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+.calc__row--sub { border-bottom: 0; }
+.calc__lbl { font-size: .9rem; color: var(--soft); }
+.calc__lbl small { font-size: .72rem; opacity: .8; }
+.calc__val { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--navy-ink); white-space: nowrap; }
+.calc__val--gold { color: var(--gold-deep); }
+.calc__note { max-width: 620px; margin: 1rem auto 0; text-align: center; font-size: .76rem; color: var(--soft); line-height: 1.6; }
+@media (max-width: 600px) { .calc__fields { grid-template-columns: 1fr; } .calc__val { font-size: 1.25rem; } }
+
 </style>
 
   <!-- Visitor tracking (Google Analytics 4) — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -1236,6 +1252,7 @@ body { color: var(--navy-ink); }
         <a href="#about">About</a>
         <a href="#services">Services</a>
         <a href="#developers">Developers</a>
+        <a href="#calculator">Calculator</a>
         <a href="#consultation">Contact</a>
       </nav>
       <a href="#consultation" class="nav__cta magnetic">Book Consultation</a>
@@ -1416,6 +1433,55 @@ body { color: var(--navy-ink); }
   </section>
 
   <!-- ============ SECTION 9 — TRUSTED BY INVESTORS ============ -->
+
+  <!-- ============ HOLIDAY HOME INCOME CALCULATOR ============ -->
+  <section class="calc section section--beige" id="calculator">
+    <div class="container">
+      <header class="section__head section__head--center">
+        <p class="eyebrow reveal">Holiday Home Income</p>
+        <h2 class="section__title reveal">Estimate Your Short-Stay Returns</h2>
+        <p class="section__sub reveal">An indicative projection of your annual holiday-home (Airbnb) income in Dubai — based on location and property value.</p>
+      </header>
+
+      <div class="calc__card reveal">
+        <div class="calc__fields">
+          <div class="field">
+            <input type="text" id="calcValue" inputmode="numeric" placeholder=" " autocomplete="off" />
+            <label for="calcValue">Property Value (AED)</label>
+          </div>
+          <div class="field">
+            <select id="calcZone" required>
+              <option value="" disabled selected></option>
+              <option value="22:28">Palm Jumeirah / Downtown / Marina / JBR — Prime</option>
+              <option value="18:23">Business Bay / Creek Harbour / Dubai Hills — High demand</option>
+              <option value="15:20">JVC / Al Furjan / Dubailand — Value</option>
+              <option value="11:16">Other / Emerging communities</option>
+            </select>
+            <label for="calcZone">Location</label>
+          </div>
+        </div>
+        <button type="button" id="calcBtn" class="btn btn--gold btn--block magnetic">Calculate Expected Income</button>
+
+        <div class="calc__result" id="calcResult" hidden>
+          <div class="calc__row">
+            <span class="calc__lbl">Estimated Gross Income / year</span>
+            <span class="calc__val" id="calcGross">—</span>
+          </div>
+          <div class="calc__row">
+            <span class="calc__lbl">Estimated Net Income / year <small>(after ~25% costs)</small></span>
+            <span class="calc__val calc__val--gold" id="calcNet">—</span>
+          </div>
+          <div class="calc__row calc__row--sub">
+            <span class="calc__lbl">Approx. Net / month</span>
+            <span class="calc__val" id="calcMonth">—</span>
+          </div>
+          <a class="btn btn--dark btn--block magnetic" id="calcCta" href="https://wa.me/971588801766" target="_blank" rel="noopener" style="margin-top:1rem;">Get a tailored projection on WhatsApp</a>
+        </div>
+
+        <p class="calc__note">Indicative gross estimate only. Actual returns vary with occupancy, nightly rate, season, fees &amp; management — and are not guaranteed. Figures shown before purchase costs. Book a private consultation for a property-specific projection.</p>
+      </div>
+    </div>
+  </section>
 
   <!-- ============ SECTION 10 — CONSULTATION ============ -->
   <section class="consult section section--beige" id="consultation">
@@ -2030,6 +2096,44 @@ body { color: var(--navy-ink); }
   document.querySelectorAll('.trust__track span').forEach(s=>{
     s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
+})();
+
+/* ============================================================
+   v19 — Holiday Home (Airbnb) income calculator
+   ============================================================ */
+(function () {
+  'use strict';
+  const valEl = document.getElementById('calcValue');
+  const zoneEl = document.getElementById('calcZone');
+  const btn = document.getElementById('calcBtn');
+  if (!valEl || !zoneEl || !btn) return;
+  const COST = 0.25; // ~25% operating costs (management, cleaning, permits, fees)
+  const fmt = n => 'AED ' + Math.round(n).toLocaleString('en-US');
+
+  // Live-format the value field with thousands separators
+  valEl.addEventListener('input', () => {
+    const digits = valEl.value.replace(/[^0-9]/g, '');
+    valEl.value = digits ? Number(digits).toLocaleString('en-US') : '';
+  });
+
+  function calc() {
+    const value = Number(valEl.value.replace(/[^0-9]/g, ''));
+    const zone = zoneEl.value;
+    if (!value || !zone) { valEl.value ? zoneEl.focus() : valEl.focus(); return; }
+    const [lo, hi] = zone.split(':').map(Number);            // gross yield % range
+    const grossLo = value * lo / 100, grossHi = value * hi / 100;
+    const netLo = grossLo * (1 - COST), netHi = grossHi * (1 - COST);
+    document.getElementById('calcGross').textContent = fmt(grossLo) + ' – ' + fmt(grossHi);
+    document.getElementById('calcNet').textContent = fmt(netLo) + ' – ' + fmt(netHi);
+    document.getElementById('calcMonth').textContent = fmt(netLo/12) + ' – ' + fmt(netHi/12);
+    const msg = encodeURIComponent('Hi Mohamed, I used the holiday-home calculator (property value AED ' +
+      value.toLocaleString('en-US') + '). Please send me a tailored short-stay income projection.');
+    document.getElementById('calcCta').href = 'https://wa.me/971588801766?text=' + msg;
+    const res = document.getElementById('calcResult');
+    res.hidden = false; res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  btn.addEventListener('click', calc);
+  valEl.addEventListener('keydown', e => { if (e.key === 'Enter') calc(); });
 })();
 
 </script>

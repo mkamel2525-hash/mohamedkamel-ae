@@ -482,3 +482,41 @@
     s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
 })();
+
+/* ============================================================
+   v19 — Holiday Home (Airbnb) income calculator
+   ============================================================ */
+(function () {
+  'use strict';
+  const valEl = document.getElementById('calcValue');
+  const zoneEl = document.getElementById('calcZone');
+  const btn = document.getElementById('calcBtn');
+  if (!valEl || !zoneEl || !btn) return;
+  const COST = 0.25; // ~25% operating costs (management, cleaning, permits, fees)
+  const fmt = n => 'AED ' + Math.round(n).toLocaleString('en-US');
+
+  // Live-format the value field with thousands separators
+  valEl.addEventListener('input', () => {
+    const digits = valEl.value.replace(/[^0-9]/g, '');
+    valEl.value = digits ? Number(digits).toLocaleString('en-US') : '';
+  });
+
+  function calc() {
+    const value = Number(valEl.value.replace(/[^0-9]/g, ''));
+    const zone = zoneEl.value;
+    if (!value || !zone) { valEl.value ? zoneEl.focus() : valEl.focus(); return; }
+    const [lo, hi] = zone.split(':').map(Number);            // gross yield % range
+    const grossLo = value * lo / 100, grossHi = value * hi / 100;
+    const netLo = grossLo * (1 - COST), netHi = grossHi * (1 - COST);
+    document.getElementById('calcGross').textContent = fmt(grossLo) + ' – ' + fmt(grossHi);
+    document.getElementById('calcNet').textContent = fmt(netLo) + ' – ' + fmt(netHi);
+    document.getElementById('calcMonth').textContent = fmt(netLo/12) + ' – ' + fmt(netHi/12);
+    const msg = encodeURIComponent('Hi Mohamed, I used the holiday-home calculator (property value AED ' +
+      value.toLocaleString('en-US') + '). Please send me a tailored short-stay income projection.');
+    document.getElementById('calcCta').href = 'https://wa.me/971588801766?text=' + msg;
+    const res = document.getElementById('calcResult');
+    res.hidden = false; res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+  btn.addEventListener('click', calc);
+  valEl.addEventListener('keydown', e => { if (e.key === 'Enter') calc(); });
+})();
