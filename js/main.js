@@ -414,3 +414,18 @@
   });
   wrap.addEventListener('mouseleave', () => { frame.style.transform = ''; });
 })();
+
+/* ============================================================
+   v10 — make service & market-intelligence cards lead somewhere
+   ============================================================ */
+(function () {
+  'use strict';
+  const target = document.getElementById('consultation');
+  document.querySelectorAll('.service-card, .intel-card').forEach(card => {
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    const go = () => { if (target) target.scrollIntoView({ behavior: 'smooth' }); };
+    card.addEventListener('click', go);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+  });
+})();

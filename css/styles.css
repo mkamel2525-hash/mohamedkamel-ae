@@ -11,8 +11,8 @@
   --gold-deep: #B08D4F;
   --dark: #4B76A0;
   --dark-2: #5985AE;
-  --text: #2C2420;
-  --soft: #7A6E68;
+  --text: #22303f;
+  --soft: #44566b;
   --line: rgba(44, 36, 32, 0.12);
   --line-light: rgba(255, 255, 255, 0.14);
 
@@ -994,3 +994,16 @@ h1, h2, h3 { font-feature-settings: "ss01","dlig"; }
 .article__disclaimer { font-size: .8rem; color: var(--soft); margin-top: 2rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 @media (max-width:1024px){ .insights__grid{ grid-template-columns: repeat(2,1fr);} }
 @media (max-width:768px){ .insights__grid{ grid-template-columns: 1fr;} }
+
+/* ============================================================
+   v10 — clarity + clickable cards
+   ============================================================ */
+.glass-card__value--sm { font-size: 1.05rem !important; line-height: 1.25; -webkit-text-fill-color: var(--dark); }
+/* Make interactive cards clearly pressable */
+.service-card, .intel-card, .dev-card { cursor: pointer; }
+.service-card:focus-visible, .intel-card:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+/* Clearer "read more" cue on cards that lead somewhere */
+.service-card__cue, .intel-card__cue { margin-top: 1rem; font-size: .7rem; letter-spacing: .14em; text-transform: uppercase; color: var(--gold-deep); font-weight: 600; }
+/* Stronger, clearer body text everywhere */
+.section__sub, .about__text, .service-card p, .intel-card p { color: var(--soft); }
+.dev-card__toggle { color: var(--gold-deep); font-weight: 600; }
