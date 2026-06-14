@@ -153,14 +153,14 @@
   const grid = document.getElementById('devsGrid');
   if (grid) {
     const LOGO = {
-      'Emaar':'emaar.com','Omniyat':'omniyat.com','Beyond by Omniyat':'omniyat.com',
+      'Emaar':'emaar.com','Omniyat':'omniyat.com',
       'Binghatti':'binghatti.com','Aldar':'aldar.com','Modon':'modon.ae',
       'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
       'Imtiaz':'imtiazdevelopments.com','Object 1':'object1.ae'
     };
     const FILE = {
       'Emaar':'assets/logos/emaar.png',
-      'Omniyat':'assets/logos/omniyat.jpg','Beyond by Omniyat':'assets/logos/beyond.jpg',
+      'Omniyat':'assets/logos/omniyat.jpg',
       'Modon':'assets/logos/modon.jpg','Nakheel':'assets/logos/nakheel.jpg',
       'Imtiaz':'assets/logos/imtiaz.png'
     };
