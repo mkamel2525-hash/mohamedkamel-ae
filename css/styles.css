@@ -1161,3 +1161,14 @@ body { color: var(--navy-ink); }
 .hero__rera { display:inline-flex; align-items:center; gap:.5rem; margin-top:.9rem; font-size:.74rem; font-weight:600; letter-spacing:.06em; text-transform:uppercase; color:var(--gold-deep); background:var(--cream); border:1px solid rgba(201,169,110,.4); padding:.45rem .85rem; border-radius:40px; }
 .hero__rera svg { color:var(--gold-deep); flex:0 0 auto; }
 .footer__rera { font-size:.78rem; letter-spacing:.05em; margin-top:.5rem; color:var(--gold); }
+
+/* ============================================================
+   v22 — developer logos (trust bar chips + dev cards)
+   ============================================================ */
+.trust__logo { display: inline-flex; align-items: center; justify-content: center; height: 64px; min-width: 120px; padding: 0 22px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
+.trust__logo img { max-height: 38px; max-width: 130px; object-fit: contain; display: block; }
+.trust__logo b { font-family: var(--serif); font-size: 1.3rem; color: var(--dark); font-weight: 600; }
+.trust__track { align-items: center; gap: 2.4rem; }
+
+/* Developer card logo */
+.dev-card__logo { max-height: 44px; max-width: 150px; object-fit: contain; margin-bottom: .9rem; display: block; }

@@ -152,11 +152,19 @@
   ];
   const grid = document.getElementById('devsGrid');
   if (grid) {
+    const LOGO = {
+      'Emaar':'emaar.com','Omniyat':'omniyat.com','Beyond by Omniyat':'omniyat.com',
+      'Binghatti':'binghatti.com','Aldar':'aldar.com','Modon':'modon.ae',
+      'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
+      'Imtiaz':'imtiazdevelopments.com','Object 1':'object1.ae'
+    };
     developers.forEach((d, i) => {
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
       card.dataset.dev = d.name;
+      const dom = LOGO[d.name];
+      const logo = dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.remove()" />` : '';
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
         const breakdown = (l.details && l.details.length)
@@ -166,6 +174,7 @@
       const wa = 'https://wa.me/971588801766?text=' +
         encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
       card.innerHTML = `
+        ${logo}
         <div class="dev-card__top">
           <span class="dev-card__name">${d.name}</span>
           <span class="dev-card__pos">${d.pos}</span>

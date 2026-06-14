@@ -1201,6 +1201,17 @@ body { color: var(--navy-ink); }
 .hero__rera svg { color:var(--gold-deep); flex:0 0 auto; }
 .footer__rera { font-size:.78rem; letter-spacing:.05em; margin-top:.5rem; color:var(--gold); }
 
+/* ============================================================
+   v22 — developer logos (trust bar chips + dev cards)
+   ============================================================ */
+.trust__logo { display: inline-flex; align-items: center; justify-content: center; height: 64px; min-width: 120px; padding: 0 22px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
+.trust__logo img { max-height: 38px; max-width: 130px; object-fit: contain; display: block; }
+.trust__logo b { font-family: var(--serif); font-size: 1.3rem; color: var(--dark); font-weight: 600; }
+.trust__track { align-items: center; gap: 2.4rem; }
+
+/* Developer card logo */
+.dev-card__logo { max-height: 44px; max-width: 150px; object-fit: contain; margin-bottom: .9rem; display: block; }
+
 </style>
 
   <!-- Visitor tracking (Google Analytics 4) — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -1349,11 +1360,9 @@ body { color: var(--navy-ink); }
     <p class="trust__label">Trusted access to the region's leading developers</p>
     <div class="trust__marquee">
       <div class="trust__track">
-        <span>Emaar</span><span>Omniyat</span><span>Beyond</span><span>Binghatti</span>
-        <span>Aldar</span><span>Modon</span><span>Dubai Holding</span><span>Nakheel</span><span>Imtiaz</span><span>Object 1</span>
+        <span class="trust__logo"><img src="https://logo.clearbit.com/emaar.com?size=90" alt="Emaar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Emaar</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/omniyat.com?size=90" alt="Omniyat" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Omniyat</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/omniyat.com?size=90" alt="Beyond" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Beyond</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/binghatti.com?size=90" alt="Binghatti" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Binghatti</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/aldar.com?size=90" alt="Aldar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Aldar</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/modon.ae?size=90" alt="Modon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Modon</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/dubaiholding.com?size=90" alt="Dubai Holding" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Dubai Holding</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/nakheel.com?size=90" alt="Nakheel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Nakheel</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/imtiazdevelopments.com?size=90" alt="Imtiaz" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Imtiaz</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/object1.ae?size=90" alt="Object 1" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Object 1</b></span>
         <!-- duplicate for seamless loop -->
-        <span>Emaar</span><span>Omniyat</span><span>Beyond</span><span>Binghatti</span>
-        <span>Aldar</span><span>Modon</span><span>Dubai Holding</span><span>Nakheel</span><span>Imtiaz</span><span>Object 1</span>
+        <span class="trust__logo"><img src="https://logo.clearbit.com/emaar.com?size=90" alt="Emaar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Emaar</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/omniyat.com?size=90" alt="Omniyat" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Omniyat</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/omniyat.com?size=90" alt="Beyond" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Beyond</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/binghatti.com?size=90" alt="Binghatti" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Binghatti</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/aldar.com?size=90" alt="Aldar" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Aldar</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/modon.ae?size=90" alt="Modon" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Modon</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/dubaiholding.com?size=90" alt="Dubai Holding" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Dubai Holding</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/nakheel.com?size=90" alt="Nakheel" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Nakheel</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/imtiazdevelopments.com?size=90" alt="Imtiaz" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Imtiaz</b></span><span class="trust__logo"><img src="https://logo.clearbit.com/object1.ae?size=90" alt="Object 1" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='inline'"><b style="display:none">Object 1</b></span>
       </div>
     </div>
   </section>
@@ -1813,11 +1822,19 @@ body { color: var(--navy-ink); }
   ];
   const grid = document.getElementById('devsGrid');
   if (grid) {
+    const LOGO = {
+      'Emaar':'emaar.com','Omniyat':'omniyat.com','Beyond by Omniyat':'omniyat.com',
+      'Binghatti':'binghatti.com','Aldar':'aldar.com','Modon':'modon.ae',
+      'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
+      'Imtiaz':'imtiazdevelopments.com','Object 1':'object1.ae'
+    };
     developers.forEach((d, i) => {
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
       card.dataset.dev = d.name;
+      const dom = LOGO[d.name];
+      const logo = dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.remove()" />` : '';
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
         const breakdown = (l.details && l.details.length)
@@ -1827,6 +1844,7 @@ body { color: var(--navy-ink); }
       const wa = 'https://wa.me/971588801766?text=' +
         encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
       card.innerHTML = `
+        ${logo}
         <div class="dev-card__top">
           <span class="dev-card__name">${d.name}</span>
           <span class="dev-card__pos">${d.pos}</span>
