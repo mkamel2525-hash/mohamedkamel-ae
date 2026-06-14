@@ -164,7 +164,11 @@
       card.dataset.delay = (i % 3) * 80;
       card.dataset.dev = d.name;
       const dom = LOGO[d.name];
-      const logo = dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.remove()" />` : '';
+      const initials = d.name.split(/\s+/).filter(w => !['by','&'].includes(w.toLowerCase()))
+        .map(w => w[0]).join('').slice(0, 2).toUpperCase();
+      const logo = `<div class="dev-card__brand">`
+        + (dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">` : '')
+        + `<span class="dev-card__mono"${dom ? ' style="display:none"' : ''}>${initials}</span></div>`;
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
         const breakdown = (l.details && l.details.length)

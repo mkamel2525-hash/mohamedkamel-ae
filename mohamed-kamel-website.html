@@ -1212,6 +1212,11 @@ body { color: var(--navy-ink); }
 /* Developer card logo */
 .dev-card__logo { max-height: 44px; max-width: 150px; object-fit: contain; margin-bottom: .9rem; display: block; }
 
+/* v23 — developer card brand emblem (logo or monogram fallback) */
+.dev-card__brand { display: flex; align-items: center; min-height: 50px; margin-bottom: .9rem; }
+.dev-card__logo { max-height: 46px; max-width: 150px; object-fit: contain; object-position: left center; display: block; }
+.dev-card__mono { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px; background: var(--dark); color: var(--gold); font-family: var(--serif); font-weight: 700; font-size: 1.3rem; letter-spacing: .02em; }
+
 </style>
 
   <!-- Visitor tracking (Google Analytics 4) — replace G-XXXXXXXXXX with your Measurement ID -->
@@ -1834,7 +1839,11 @@ body { color: var(--navy-ink); }
       card.dataset.delay = (i % 3) * 80;
       card.dataset.dev = d.name;
       const dom = LOGO[d.name];
-      const logo = dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.remove()" />` : '';
+      const initials = d.name.split(/\s+/).filter(w => !['by','&'].includes(w.toLowerCase()))
+        .map(w => w[0]).join('').slice(0, 2).toUpperCase();
+      const logo = `<div class="dev-card__brand">`
+        + (dom ? `<img class="dev-card__logo" src="https://logo.clearbit.com/${dom}?size=120" alt="${d.name} logo" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='grid'">` : '')
+        + `<span class="dev-card__mono"${dom ? ' style="display:none"' : ''}>${initials}</span></div>`;
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
         const breakdown = (l.details && l.details.length)
