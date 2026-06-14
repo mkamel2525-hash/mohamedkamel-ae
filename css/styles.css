@@ -1166,7 +1166,7 @@ body { color: var(--navy-ink); }
    v22 — developer logos (trust bar chips + dev cards)
    ============================================================ */
 .trust__logo { display: inline-flex; align-items: center; justify-content: center; height: 64px; min-width: 120px; padding: 0 22px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
-.trust__logo img { max-height: 38px; max-width: 130px; object-fit: contain; display: block; }
+.trust__logo img { max-height: 40px; max-width: 120px; object-fit: contain; display: block; }
 .trust__logo b { font-family: var(--serif); font-size: 1.3rem; color: var(--dark); font-weight: 600; }
 .trust__track { align-items: center; gap: 2.4rem; }
 
@@ -1175,5 +1175,5 @@ body { color: var(--navy-ink); }
 
 /* v23 — developer card brand emblem (logo or monogram fallback) */
 .dev-card__brand { display: flex; align-items: center; min-height: 50px; margin-bottom: .9rem; }
-.dev-card__logo { max-height: 46px; max-width: 150px; object-fit: contain; object-position: left center; display: block; }
+.dev-card__logo { width: 34px; height: 34px; object-fit: contain; object-position: left center; display: block; border-radius: 6px; }
 .dev-card__mono { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px; background: var(--dark); color: var(--gold); font-family: var(--serif); font-weight: 700; font-size: 1.3rem; letter-spacing: .02em; }
