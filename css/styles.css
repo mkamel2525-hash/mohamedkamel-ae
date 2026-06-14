@@ -1165,15 +1165,15 @@ body { color: var(--navy-ink); }
 /* ============================================================
    v22 — developer logos (trust bar chips + dev cards)
    ============================================================ */
-.trust__logo { display: inline-flex; align-items: center; justify-content: center; height: 64px; min-width: 120px; padding: 0 22px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
-.trust__logo img { max-height: 40px; max-width: 120px; object-fit: contain; display: block; }
-.trust__logo b { font-family: var(--serif); font-size: 1.3rem; color: var(--dark); font-weight: 600; }
+.trust__logo { display: inline-flex; align-items: center; gap: .7rem; height: 60px; padding: 0 20px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
+.trust__logo img { max-height: 30px; max-width: 90px; object-fit: contain; display: block; }
+.trust__logo b { font-family: var(--serif); font-size: 1.2rem; color: var(--dark); font-weight: 600; white-space: nowrap; }
 .trust__track { align-items: center; gap: 2.4rem; }
 
 /* Developer card logo */
 .dev-card__logo { max-height: 44px; max-width: 150px; object-fit: contain; margin-bottom: .9rem; display: block; }
 
 /* v23 — developer card brand emblem (logo or monogram fallback) */
-.dev-card__brand { display: inline-flex; align-items: center; justify-content: center; width: 58px; height: 58px; padding: 9px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); margin-bottom: 1rem; }
-.dev-card__logo { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+.dev-card__brand { display: inline-flex; align-items: center; justify-content: center; height: 56px; padding: 8px 16px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: var(--shadow-sm); margin-bottom: 1rem; }
+.dev-card__logo { max-height: 36px; max-width: 180px; object-fit: contain; display: block; }
 .dev-card__mono { display: grid; place-items: center; width: 50px; height: 50px; border-radius: 12px; background: var(--dark); color: var(--gold); font-family: var(--serif); font-weight: 700; font-size: 1.3rem; letter-spacing: .02em; }

@@ -158,17 +158,26 @@
       'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
       'Imtiaz':'imtiazdevelopments.com','Object 1':'object1.ae'
     };
+    const FILE = {
+      'Emaar':'assets/logos/emaar.png',
+      'Omniyat':'assets/logos/omniyat.jpg','Beyond by Omniyat':'assets/logos/beyond.jpg',
+      'Modon':'assets/logos/modon.jpg','Nakheel':'assets/logos/nakheel.jpg',
+      'Imtiaz':'assets/logos/imtiaz.png'
+    };
     developers.forEach((d, i) => {
       const card = document.createElement('article');
       card.className = 'dev-card reveal';
       card.dataset.delay = (i % 3) * 80;
       card.dataset.dev = d.name;
       const dom = LOGO[d.name];
-      const logo = dom
-        ? `<div class="dev-card__brand"><img class="dev-card__logo" alt="${d.name}" loading="lazy"`
-          + ` src="https://www.google.com/s2/favicons?domain=${dom}&sz=256"`
-          + ` data-fb="https://logo.clearbit.com/${dom}?size=160"`
-          + ` onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.dataset.fb='';}else{this.closest('.dev-card__brand').style.display='none';}"></div>`
+      const file = FILE[d.name];
+      const src = file || (dom ? `https://www.google.com/s2/favicons?domain=${dom}&sz=256` : '');
+      const fb = (!file && dom) ? `https://logo.clearbit.com/${dom}?size=160` : '';
+      const logo = src
+        ? `<div class="dev-card__brand"><img class="dev-card__logo" alt="${d.name}" loading="lazy" src="${src}"`
+          + (fb ? ` data-fb="${fb}" onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.dataset.fb='';}else{this.closest('.dev-card__brand').style.display='none';}"`
+                : ` onerror="this.closest('.dev-card__brand').style.display='none'"`)
+          + `></div>`
         : '';
       const launches = (d.launches || []).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
