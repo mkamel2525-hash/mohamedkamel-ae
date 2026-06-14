@@ -166,7 +166,7 @@
       const dom = LOGO[d.name];
       const logo = dom
         ? `<div class="dev-card__brand"><img class="dev-card__logo" alt="${d.name}" loading="lazy"`
-          + ` src="https://www.google.com/s2/favicons?domain=${dom}&sz=128"`
+          + ` src="https://www.google.com/s2/favicons?domain=${dom}&sz=256"`
           + ` data-fb="https://logo.clearbit.com/${dom}?size=160"`
           + ` onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.dataset.fb='';}else{this.closest('.dev-card__brand').style.display='none';}"></div>`
         : '';
