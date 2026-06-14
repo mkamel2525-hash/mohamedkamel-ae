@@ -156,7 +156,7 @@
       'Emaar':'emaar.com','Omniyat':'omniyat.com',
       'Binghatti':'binghatti.com','Aldar':'aldar.com','Modon':'modon.ae',
       'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
-      'Imtiaz':'imtiazdevelopments.com','Object 1':'object1.ae'
+      'Imtiaz':'imtiazdevelopments.com'
     };
     const FILE = {
       'Emaar':'assets/logos/emaar.png',
