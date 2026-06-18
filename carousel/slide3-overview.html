@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Slide 3 – Project Overview</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    background: #ffffff;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* TOP IMAGE */
+  .top-image {
+    height: 480px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0 0 0 0;
+  }
+
+  .aerial-scene {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      160deg,
+      #2AB8E8 0%,
+      #1AA8E0 20%,
+      #0898D0 35%,
+      #18B0E8 50%,
+      #3AC0EE 60%,
+      #88D8F8 75%,
+      #C0EEF8 85%,
+      #D8C8A8 90%,
+      #C8B898 100%
+    );
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Palm island shape top-down */
+  .palm-island {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 700px;
+    height: 280px;
+    background: linear-gradient(135deg, #D4C090, #C8B080, #B8A070);
+    border-radius: 50% 50% 30% 30% / 40% 40% 20% 20%;
+    box-shadow: 0 0 40px rgba(0,0,0,0.3);
+  }
+
+  /* Fronds */
+  .frond {
+    position: absolute;
+    background: linear-gradient(90deg, #C8B880, #B8A870);
+    border-radius: 50%;
+  }
+
+  /* Building cluster */
+  .building-cluster {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    align-items: flex-end;
+  }
+  .bld {
+    background: linear-gradient(180deg, #F5F0E8, #E8E0D0);
+    border-radius: 4px 4px 0 0;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Wave overlay */
+  .wave-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 100%;
+    background: repeating-linear-gradient(
+      105deg,
+      transparent 0px,
+      transparent 28px,
+      rgba(255,255,255,0.04) 28px,
+      rgba(255,255,255,0.04) 30px
+    );
+  }
+
+  /* Image overlay gradient */
+  .img-gradient {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 140px;
+    background: linear-gradient(transparent, rgba(0,60,100,0.3));
+  }
+
+  /* Header over image */
+  .img-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 40px 60px 30px;
+    background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, transparent);
+  }
+  .img-header-line {
+    width: 50px; height: 2px;
+    background: linear-gradient(90deg, #C8972A, #F0C84E);
+    margin-bottom: 12px;
+  }
+  .img-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 700;
+    letter-spacing: 7px;
+    color: #ffffff;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+    text-transform: uppercase;
+  }
+  .img-brand-sub {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 5px;
+    color: #F0C84E;
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    flex: 1;
+    padding: 40px 60px 20px;
+    position: relative;
+  }
+
+  .overview-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 700;
+    color: #C8972A;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .overview-title::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #C8972A, transparent);
+  }
+
+  .bullet-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .bullet-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #2a3a4a;
+    line-height: 1.5;
+  }
+  .bullet-dot {
+    width: 10px; height: 10px;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+
+  /* STATS ROW */
+  .stats-row {
+    display: flex;
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .stat-box {
+    flex: 1;
+    background: linear-gradient(135deg, #0A7AAE, #0891CC);
+    border-radius: 16px;
+    padding: 22px 16px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0,130,180,0.35);
+    position: relative;
+    overflow: hidden;
+  }
+  .stat-box::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .stat-icon {
+    width: 36px; height: 36px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    font-size: 16px;
+  }
+  .stat-value {
+    font-size: 15px;
+    font-weight: 800;
+    color: #F0C84E;
+    letter-spacing: 1px;
+    line-height: 1.2;
+  }
+  .stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 5px;
+  }
+
+  /* BOTTOM BAR */
+  .bottom-bar {
+    background: linear-gradient(90deg, #0A6E9E, #0891CC, #0A6E9E);
+    padding: 22px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 40px 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,120,180,0.4);
+  }
+  .logo-box {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: #1a2a3a;
+    letter-spacing: 1px;
+  }
+  .bottom-text {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .bottom-dot { color: #F0C84E; margin: 0 8px; }
+
+  .slide-num {
+    position: absolute;
+    top: 46px; right: 52px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a2a3a;
+    z-index: 20;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="slide-num">3</div>
+
+  <!-- TOP AERIAL IMAGE -->
+  <div class="top-image">
+    <div class="aerial-scene">
+      <div class="wave-overlay"></div>
+
+      <!-- Fronds of the palm -->
+      <div class="frond" style="bottom:80px; left:20%; width:180px; height:60px; transform:rotate(-30deg);"></div>
+      <div class="frond" style="bottom:90px; left:10%; width:150px; height:50px; transform:rotate(-50deg);"></div>
+      <div class="frond" style="bottom:100px; right:20%; width:160px; height:55px; transform:rotate(25deg);"></div>
+      <div class="frond" style="bottom:85px; right:12%; width:130px; height:45px; transform:rotate(45deg);"></div>
+      <div class="frond" style="bottom:70px; left:35%; width:120px; height:40px; transform:rotate(-15deg);"></div>
+      <div class="frond" style="bottom:70px; right:32%; width:120px; height:40px; transform:rotate(12deg);"></div>
+
+      <!-- Palm island body -->
+      <div class="palm-island"></div>
+
+      <!-- Buildings on island -->
+      <div class="building-cluster">
+        <div class="bld" style="width:40px; height:50px;"></div>
+        <div class="bld" style="width:55px; height:70px;"></div>
+        <div class="bld" style="width:48px; height:60px;"></div>
+        <div class="bld" style="width:60px; height:80px;"></div>
+        <div class="bld" style="width:52px; height:65px;"></div>
+        <div class="bld" style="width:45px; height:55px;"></div>
+      </div>
+
+      <div class="img-gradient"></div>
+    </div>
+    <div class="img-header">
+      <div class="img-header-line"></div>
+      <div class="img-brand">Palm Central</div>
+      <div class="img-brand-sub">Private Residences</div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <div class="overview-title">Project Overview</div>
+
+    <ul class="bullet-list">
+      <li>
+        <div class="bullet-dot"></div>
+        <span>Located between Fronds M and N on the iconic Palm Spine</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>Developed by Nakheel Properties, creator of Palm Jumeirah and Dubai Islands</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>A low-rise G+6 development consisting of <strong>212 residences</strong></span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>Elegant contemporary design inspired by Dubai's modern beachfront architecture</span>
+      </li>
+      <li>
+        <div class="bullet-dot"></div>
+        <span>Part of a cluster of 14 coves forming the heart of Palm Jebel Ali's apartment zone</span>
+      </li>
+    </ul>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-box">
+        <div class="stat-icon">📍</div>
+        <div class="stat-value">Palm<br>Jebel Ali</div>
+        <div class="stat-label">Location</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">💰</div>
+        <div class="stat-value">20%<br>Down Payment</div>
+        <div class="stat-label">On Booking</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-icon">🏗️</div>
+        <div class="stat-value">Sep<br>2030</div>
+        <div class="stat-label">Handover</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="logo-box">E7</div>
+    <div class="bottom-text">
+      NAKHEEL <span class="bottom-dot">|</span> PALM JEBEL ALI
+    </div>
+    <div style="width:42px;"></div>
+  </div>
+</div>
+</body>
+</html>

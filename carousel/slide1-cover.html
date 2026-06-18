@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide 1 – Cover</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;600;700;800&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    width: 1080px;
+    height: 1350px;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+    background: #fff;
+  }
+
+  .slide {
+    width: 1080px;
+    height: 1350px;
+    position: relative;
+    background: linear-gradient(160deg, #e8f7ff 0%, #ffffff 40%, #fff8e8 100%);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* TOP HEADER */
+  .header {
+    text-align: center;
+    padding: 52px 60px 36px;
+    position: relative;
+    z-index: 10;
+  }
+  .header-line {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #C8972A, #F0C84E);
+    margin: 0 auto 18px;
+  }
+  .brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 62px;
+    font-weight: 700;
+    letter-spacing: 8px;
+    color: #1a2a3a;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  .brand-sub {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 6px;
+    color: #C8972A;
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+
+  /* MAIN IMAGE AREA */
+  .image-container {
+    flex: 1;
+    position: relative;
+    margin: 0 40px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,120,180,0.25);
+  }
+
+  /* Simulated sky gradient background */
+  .img-bg {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      #43B8E8 0%,
+      #78D0F0 20%,
+      #B2E8F8 35%,
+      #22A8D8 38%,
+      #0A8FC2 42%,
+      #0AA8D8 50%,
+      #0897C8 65%,
+      #D4B896 70%,
+      #C4A880 80%,
+      #B8996C 100%
+    );
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  /* Decorative water shimmer */
+  .water-shimmer {
+    position: absolute;
+    bottom: 180px;
+    left: 0; right: 0;
+    height: 220px;
+    background: linear-gradient(180deg, transparent, rgba(0,160,220,0.6) 40%, rgba(0,140,200,0.8));
+  }
+
+  /* Balcony/building silhouette */
+  .building-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 280px;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(210,180,130,0.4) 30%,
+      rgba(190,160,110,0.85) 70%,
+      rgba(170,145,95,1) 100%
+    );
+  }
+
+  /* Skyline buildings right side */
+  .skyline {
+    position: absolute;
+    bottom: 185px;
+    right: 60px;
+    display: flex;
+    gap: 6px;
+    align-items: flex-end;
+  }
+  .sky-bld {
+    background: rgba(255,255,255,0.35);
+    border-radius: 3px 3px 0 0;
+    backdrop-filter: blur(2px);
+  }
+
+  /* Balcony railing */
+  .balcony {
+    position: absolute;
+    bottom: 20px;
+    left: 0; right: 0;
+    height: 160px;
+  }
+  .railing {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 100%;
+    background: linear-gradient(
+      180deg,
+      transparent 0%,
+      rgba(180,150,100,0.3) 40%,
+      rgba(160,130,80,0.7) 100%
+    );
+  }
+  /* Railing bars */
+  .railing::before {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 8px;
+    background: rgba(200,165,110,0.9);
+    border-radius: 4px;
+  }
+  .railing::after {
+    content: '';
+    position: absolute;
+    bottom: 40px; left: 0; right: 0;
+    height: 4px;
+    background: rgba(200,165,110,0.7);
+  }
+
+  /* Palm trees */
+  .palms {
+    position: absolute;
+    bottom: 160px;
+    left: 30px;
+    width: 120px;
+    height: 200px;
+  }
+  .palm-trunk {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 14px;
+    height: 140px;
+    background: linear-gradient(180deg, #8B6914, #A0832A);
+    border-radius: 7px;
+  }
+  .palm-leaves {
+    position: absolute;
+    bottom: 120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90px;
+    height: 60px;
+    background: radial-gradient(ellipse, #2DB85C, #1A9940);
+    border-radius: 50%;
+    filter: blur(1px);
+  }
+
+  /* Lounge furniture */
+  .furniture {
+    position: absolute;
+    bottom: 25px;
+    right: 120px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+  }
+  .chair {
+    width: 80px;
+    height: 55px;
+    background: linear-gradient(145deg, #F5E8D0, #E8D5B8);
+    border-radius: 8px 8px 4px 4px;
+    position: relative;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .chair::after {
+    content: '';
+    position: absolute;
+    top: -20px; left: 5px; right: 5px;
+    height: 28px;
+    background: linear-gradient(145deg, #F8EDD8, #ECD9BC);
+    border-radius: 6px 6px 0 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .table {
+    width: 50px;
+    height: 45px;
+    background: linear-gradient(145deg, #C8972A, #B8872A);
+    border-radius: 50%;
+    position: relative;
+    top: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+
+  /* Sun glare top right */
+  .sun-glare {
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(255,230,100,0.6) 0%, transparent 70%);
+    border-radius: 50%;
+  }
+
+  /* Cloud elements */
+  .cloud {
+    position: absolute;
+    background: rgba(255,255,255,0.7);
+    border-radius: 50px;
+    filter: blur(2px);
+  }
+
+  /* BOTTOM BAR */
+  .bottom-bar {
+    background: linear-gradient(90deg, #0A6E9E, #0891CC, #0A6E9E);
+    padding: 26px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 16px 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,120,180,0.4);
+  }
+  .bottom-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .logo-box {
+    width: 46px; height: 46px;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: #1a2a3a;
+    letter-spacing: 1px;
+  }
+  .bottom-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+  .bottom-dot {
+    color: #F0C84E;
+    margin: 0 8px;
+  }
+
+  /* SLIDE NUMBER */
+  .slide-num {
+    position: absolute;
+    top: 48px;
+    right: 52px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #C8972A, #F0C84E);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a2a3a;
+    z-index: 20;
+  }
+
+  /* DECORATIVE CORNER */
+  .corner-accent {
+    position: absolute;
+    top: 0; left: 0;
+    width: 120px; height: 120px;
+    background: linear-gradient(135deg, rgba(200,151,42,0.15) 0%, transparent 60%);
+    border-radius: 0 0 120px 0;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div class="corner-accent"></div>
+  <div class="slide-num">1</div>
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-line"></div>
+    <div class="brand-name">Palm Central</div>
+    <div class="brand-sub">Private Residences</div>
+  </div>
+
+  <!-- MAIN IMAGE -->
+  <div class="image-container">
+    <div class="img-bg">
+      <!-- Sun glow -->
+      <div class="sun-glare"></div>
+
+      <!-- Clouds -->
+      <div class="cloud" style="top:40px; left:80px; width:140px; height:40px;"></div>
+      <div class="cloud" style="top:70px; left:50px; width:80px; height:30px;"></div>
+      <div class="cloud" style="top:55px; right:200px; width:110px; height:35px;"></div>
+
+      <!-- Water shimmer -->
+      <div class="water-shimmer"></div>
+
+      <!-- Skyline buildings -->
+      <div class="skyline">
+        <div class="sky-bld" style="width:22px; height:80px;"></div>
+        <div class="sky-bld" style="width:16px; height:55px;"></div>
+        <div class="sky-bld" style="width:28px; height:110px;"></div>
+        <div class="sky-bld" style="width:18px; height:70px;"></div>
+        <div class="sky-bld" style="width:24px; height:95px;"></div>
+        <div class="sky-bld" style="width:14px; height:48px;"></div>
+        <div class="sky-bld" style="width:20px; height:65px;"></div>
+        <div class="sky-bld" style="width:32px; height:120px;"></div>
+        <div class="sky-bld" style="width:16px; height:52px;"></div>
+      </div>
+
+      <!-- Palm trees -->
+      <div class="palms">
+        <div class="palm-trunk"></div>
+        <div class="palm-leaves"></div>
+      </div>
+      <div class="palms" style="left:80px; bottom:150px; transform:scale(0.7);">
+        <div class="palm-trunk"></div>
+        <div class="palm-leaves"></div>
+      </div>
+
+      <!-- Building overlay -->
+      <div class="building-overlay"></div>
+
+      <!-- Balcony -->
+      <div class="balcony">
+        <div class="railing"></div>
+      </div>
+
+      <!-- Furniture -->
+      <div class="furniture">
+        <div class="chair"></div>
+        <div class="table"></div>
+        <div class="chair" style="transform:scaleX(-1);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM BAR -->
+  <div class="bottom-bar">
+    <div class="bottom-logo">
+      <div class="logo-box">E7</div>
+    </div>
+    <div class="bottom-text">
+      NAKHEEL <span class="bottom-dot">|</span> PALM JEBEL ALI
+    </div>
+    <div style="width:46px;"></div>
+  </div>
+</div>
+</body>
+</html>
