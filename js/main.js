@@ -197,17 +197,17 @@
           <span class="dev-card__pos">${d.pos}</span>
         </div>
         <div class="dev-card__body">
-          <div class="dev-card__row"><b>Brand Positioning</b><span>${d.positioning}</span></div>
-          <div class="dev-card__row"><b>Community Expertise</b><span>${d.community}</span></div>
-          <div class="dev-card__row"><b>Investment Thesis</b><span>${d.thesis}</span></div>
+          <div class="dev-card__row"><b data-i18n="dev.lbl.positioning">Brand Positioning</b><span>${d.positioning}</span></div>
+          <div class="dev-card__row"><b data-i18n="dev.lbl.community">Community Expertise</b><span>${d.community}</span></div>
+          <div class="dev-card__row"><b data-i18n="dev.lbl.thesis">Investment Thesis</b><span>${d.thesis}</span></div>
           <div class="dev-card__launches">
-            <b>Latest Launches</b>
+            <b data-i18n="dev.lbl.launches">Latest Launches</b>
             <ul>${launches}</ul>
-            <p class="dev-card__pricing">Indicative starting prices &amp; payment plans — confirm the latest with Mohamed.</p>
-            <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()">Get latest prices &amp; payment plans &rarr;</a>
+            <p class="dev-card__pricing" data-i18n="dev.pricing">Indicative starting prices &amp; payment plans — confirm the latest with Mohamed.</p>
+            <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="dev.wa">Get latest prices &amp; payment plans &rarr;</a>
           </div>
         </div>
-        <span class="dev-card__toggle">View Launches</span>`;
+        <span class="dev-card__toggle" data-i18n="dev.toggle">View Launches</span>`;
       card.addEventListener('click', () => card.classList.toggle('is-open'));
       grid.appendChild(card);
     });
@@ -220,6 +220,8 @@
     } else {
       grid.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
     }
+    // apply the active language to the freshly-built developer cards
+    if (window.MKi18n) window.MKi18n.refresh(grid);
   }
 
   /* ---------- Process timeline interactivity ---------- */

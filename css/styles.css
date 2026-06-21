@@ -1189,3 +1189,76 @@ body { color: var(--navy-ink); }
 .listing-card--rent .listing-card__badge { background: var(--gold-deep); }
 .listing-card__b { padding: 1.5rem 1.6rem 1.7rem; }
 .listing-card.has-cover .listing-card__tag { display:none; }
+
+/* ============================================================
+   v30 — Language switcher (EN · العربية · Русский) + RTL
+   ============================================================ */
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 .6rem;
+  padding: 3px;
+  border: 1px solid rgba(127, 127, 127, .32);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .04);
+}
+.lang-opt {
+  font-family: 'Montserrat', sans-serif;
+  font-size: .68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  line-height: 1;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  border-radius: 999px;
+  padding: .34rem .52rem;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.lang-opt[lang="ar"] { font-size: .82rem; padding: .26rem .5rem; }
+.lang-opt:hover { color: var(--gold, #C9A96E); }
+.lang-opt.is-active {
+  background: var(--gold, #C9A96E);
+  color: #fff;
+}
+@media (max-width: 900px) {
+  .lang-switch { margin: 0 .4rem; order: 2; }
+}
+@media (max-width: 480px) {
+  .lang-switch { margin: 0 .3rem; padding: 2px; }
+  .lang-opt { padding: .3rem .42rem; font-size: .64rem; }
+}
+
+/* ---------- Right-to-left (Arabic) ---------- */
+html.rtl { direction: rtl; }
+html.rtl body {
+  font-family: 'Tajawal', 'Geeza Pro', 'Segoe UI', Tahoma, sans-serif;
+}
+html.rtl .hero__title,
+html.rtl .section__title,
+html.rtl .nav__name,
+html.rtl h1, html.rtl h2, html.rtl h3, html.rtl h4 {
+  font-family: 'Tajawal', 'Geeza Pro', 'Segoe UI', Tahoma, sans-serif;
+  letter-spacing: 0;
+}
+/* keep brand monograms, marquee, numbers & prices left-to-right */
+html.rtl .nav__monogram,
+html.rtl .preloader__mark,
+html.rtl .footer__monogram,
+html.rtl .glass-card__value,
+html.rtl .about__hi-num,
+html.rtl .service-card__index,
+html.rtl .dev-card__pricing,
+html.rtl .dev-card__launches .lp,
+html.rtl .dev-card__launches .lx,
+html.rtl .listing-card__price,
+html.rtl .calc__val,
+html.rtl .trust__track {
+  direction: ltr;
+  unicode-bidi: embed;
+}
+/* re-align list paddings flipped by RTL */
+html.rtl .hero__services { padding-right: 0; }
+html.rtl .eyebrow { }
