@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en" color-scheme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mohamed Kamel — Entrepreneur & Builder. A showcase of business ideas from concept to launch." />
+  <title>Mohamed Kamel — Business Ideas</title>
+  <style>
+    :root {
+      --bg-base:      #09090B;
+      --bg-card:      rgba(255,255,255,0.04);
+      --bg-card-hover:rgba(255,255,255,0.07);
+      --border:       rgba(255,255,255,0.08);
+      --border-hover: rgba(255,255,255,0.18);
+      --text-primary: #FAFAFA;
+      --text-muted:   #A1A1AA;
+      --text-dimmed:  #52525B;
+      --accent-blue:  #3B82F6;
+      --accent-violet:#8B5CF6;
+      --accent-emerald:#10B981;
+      --accent-amber: #F59E0B;
+      --card-radius:  20px;
+      --transition:   200ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+
+    html { color-scheme: dark; scroll-behavior: smooth; }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── Background mesh gradient ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(59,130,246,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(139,92,246,0.10) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 50;
+      background: rgba(9,9,11,0.8);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      white-space: nowrap;
+    }
+
+    .nav-logo {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--text-primary); }
+
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 180px 0 100px;
+      text-align: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-blue);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .hero-eyebrow-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-blue);
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.4; transform: scale(0.8); }
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 700;
+      letter-spacing: -2.5px;
+      line-height: 1.0;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 .gradient-text {
+      background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero h1 .accent-text {
+      background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-violet) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-tagline {
+      font-size: clamp(16px, 2vw, 20px);
+      color: var(--text-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 48px;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stat {
+      text-align: center;
+    }
+
+    .hero-stat-number {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      color: var(--text-primary);
+    }
+
+    .hero-stat-label {
+      font-size: 13px;
+      color: var(--text-dimmed);
+      margin-top: 4px;
+    }
+
+    /* ── Section ── */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+      max-width: 360px;
+      line-height: 1.6;
+      text-align: right;
+    }
+
+    /* ── Bento Grid ── */
+    .bento-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-auto-rows: 200px;
+      gap: 16px;
+    }
+
+    /* ── Card ── */
+    .card {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 28px;
+      overflow: hidden;
+      cursor: pointer;
+      transition:
+        background var(--transition),
+        border-color var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    }
+
+    .card:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 2px;
+    }
+
+    /* Glow accent bar at top */
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--card-glow, rgba(59,130,246,0.6)), transparent);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    /* Grid spans */
+    .card-lg   { grid-column: span 8; grid-row: span 2; }
+    .card-md   { grid-column: span 4; grid-row: span 2; }
+    .card-wide { grid-column: span 6; grid-row: span 1; }
+    .card-sm   { grid-column: span 3; grid-row: span 1; }
+    .card-tall { grid-column: span 4; grid-row: span 2; }
+    .card-sq   { grid-column: span 4; grid-row: span 1; }
+
+    /* Card glow colors per idea */
+    .glow-blue   { --card-glow: rgba(59,130,246,0.8); }
+    .glow-violet { --card-glow: rgba(139,92,246,0.8); }
+    .glow-emerald{ --card-glow: rgba(16,185,129,0.8); }
+    .glow-amber  { --card-glow: rgba(245,158,11,0.8); }
+    .glow-rose   { --card-glow: rgba(244,63,94,0.8); }
+    .glow-cyan   { --card-glow: rgba(6,182,212,0.8); }
+
+    /* Card internals */
+    .card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .icon-blue    { background: rgba(59,130,246,0.15); color: var(--accent-blue); }
+    .icon-violet  { background: rgba(139,92,246,0.15); color: var(--accent-violet); }
+    .icon-emerald { background: rgba(16,185,129,0.15); color: var(--accent-emerald); }
+    .icon-amber   { background: rgba(245,158,11,0.15);  color: var(--accent-amber); }
+    .icon-rose    { background: rgba(244,63,94,0.15);   color: #F43F5E; }
+    .icon-cyan    { background: rgba(6,182,212,0.15);   color: #06B6D4; }
+
+    .card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+    }
+
+    .badge-launched {
+      background: rgba(16,185,129,0.15);
+      color: var(--accent-emerald);
+      border: 1px solid rgba(16,185,129,0.25);
+    }
+    .badge-launched .badge-dot { background: var(--accent-emerald); }
+
+    .badge-progress {
+      background: rgba(59,130,246,0.15);
+      color: var(--accent-blue);
+      border: 1px solid rgba(59,130,246,0.25);
+    }
+    .badge-progress .badge-dot {
+      background: var(--accent-blue);
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    .badge-concept {
+      background: rgba(245,158,11,0.12);
+      color: var(--accent-amber);
+      border: 1px solid rgba(245,158,11,0.2);
+    }
+    .badge-concept .badge-dot { background: var(--accent-amber); }
+
+    .card-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .card-lg .card-title { font-size: 32px; letter-spacing: -1px; margin-bottom: 14px; }
+
+    .card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .card-lg .card-desc { font-size: 16px; max-width: 480px; }
+
+    /* Card with bg illustration */
+    .card-featured {
+      background:
+        radial-gradient(ellipse 120% 80% at 80% 120%, rgba(59,130,246,0.15) 0%, transparent 60%),
+        var(--bg-card);
+    }
+
+    .card-stat {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -3px;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .card-stat-label {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* Tags row */
+    .card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: var(--text-dimmed);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 10px;
+    }
+
+    /* Divider line */
+    .card-divider {
+      height: 1px;
+      background: var(--border);
+      margin: 16px 0;
+    }
+
+    /* ── About Section ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--card-radius);
+      padding: 40px;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+
+    .about-card h3 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 16px;
+    }
+
+    .about-card p {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .values-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .values-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .values-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--accent-emerald);
+      flex-shrink: 0;
+      margin-top: 2px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 60px 0 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-brand {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--text-primary); }
+
+    .footer-links a:focus-visible {
+      outline: 2px solid var(--accent-blue);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .footer-copy {
+      font-size: 13px;
+      color: var(--text-dimmed);
+      width: 100%;
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .card-lg   { grid-column: span 12; }
+      .card-md   { grid-column: span 6; }
+      .card-wide { grid-column: span 6; }
+      .card-tall { grid-column: span 6; }
+      .card-sq   { grid-column: span 6; }
+      .card-sm   { grid-column: span 6; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 10px 20px; gap: 20px; }
+      .nav-links { gap: 16px; }
+      .hero { padding: 140px 0 80px; }
+      .hero-stats { gap: 32px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .section-header { flex-direction: column; align-items: flex-start; }
+      .section-subtitle { text-align: left; }
+
+      .bento-grid { grid-auto-rows: 180px; }
+      .card-lg   { grid-column: span 12; grid-row: span 2; }
+      .card-md   { grid-column: span 12; grid-row: span 1; }
+      .card-wide { grid-column: span 12; }
+      .card-tall { grid-column: span 12; grid-row: span 1; }
+      .card-sq   { grid-column: span 12; }
+      .card-sm   { grid-column: span 12; }
+    }
+
+    @media (max-width: 480px) {
+      .container { padding: 0 16px; }
+      nav { width: calc(100% - 32px); border-radius: 16px; top: 12px; }
+      .nav-links { display: none; }
+      .hero h1 { letter-spacing: -1.5px; }
+      .card { padding: 20px; }
+      .card-lg .card-title { font-size: 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav role="navigation" aria-label="Main navigation">
+    <span class="nav-logo">MK</span>
+    <ul class="nav-links">
+      <li><a href="#ideas">Ideas</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <div class="container">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+        Building the future
+      </div>
+      <h1 id="hero-heading">
+        <span class="gradient-text">Mohamed</span><br>
+        <span class="accent-text">Kamel</span>
+      </h1>
+      <p class="hero-tagline">
+        Entrepreneur &amp; builder turning ambitious ideas into ventures that matter. Here's what I'm working on.
+      </p>
+      <div class="hero-stats" role="list">
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-number">6+</div>
+          <div class="hero-stat-label">Ideas in the Pipeline</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-number">2</div>
+          <div class="hero-stat-label">Launched</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-number">3</div>
+          <div class="hero-stat-label">In Progress</div>
+        </div>
+        <div class="hero-stat" role="listitem">
+          <div class="hero-stat-number">UAE</div>
+          <div class="hero-stat-label">Based In</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ideas Grid -->
+  <section class="section" id="ideas" aria-labelledby="ideas-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="ideas-heading">The Ideas</h2>
+        <p class="section-subtitle">From raw concept to market-ready product — every stage of the journey.</p>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- FEATURED — PropTech Platform -->
+        <article class="card card-lg card-featured glow-blue" tabindex="0" aria-label="PropTech Intelligence Platform — Launched">
+          <div class="card-header">
+            <div class="card-icon icon-blue" aria-hidden="true">
+              <!-- Building icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-4h6v4"/>
+              </svg>
+            </div>
+            <span class="badge badge-launched" aria-label="Status: Launched">
+              <span class="badge-dot" aria-hidden="true"></span>Launched
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">PropTech Intelligence Platform</h3>
+            <p class="card-desc">AI-powered real estate analytics for the UAE market — predictive pricing, investment scoring, and off-plan opportunity discovery. Helping buyers and investors navigate the market with data, not guesswork.</p>
+            <div class="card-tags">
+              <span class="tag">Real Estate</span>
+              <span class="tag">AI / ML</span>
+              <span class="tag">UAE Market</span>
+              <span class="tag">B2C &amp; B2B</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- EdTech Arabic -->
+        <article class="card card-md glow-violet" tabindex="0" aria-label="Arabic EdTech — In Progress">
+          <div class="card-header">
+            <div class="card-icon icon-violet" aria-hidden="true">
+              <!-- Book icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 19.5A2.5 2.5 0 016.5 17H20M4 19.5A2.5 2.5 0 014 17V5a1 1 0 011-1h14a1 1 0 011 1v12"/>
+              </svg>
+            </div>
+            <span class="badge badge-progress">
+              <span class="badge-dot" aria-hidden="true"></span>In Progress
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Arabic EdTech for the Next Generation</h3>
+            <p class="card-desc">Gamified Arabic language learning for kids in diaspora communities. Native-quality content, adaptive curriculum.</p>
+          </div>
+        </article>
+
+        <!-- SaaS Analytics -->
+        <article class="card card-wide glow-emerald" tabindex="0" aria-label="B2B SaaS Analytics — In Progress">
+          <div class="card-header">
+            <div class="card-icon icon-emerald" aria-hidden="true">
+              <!-- Chart icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+              </svg>
+            </div>
+            <span class="badge badge-progress">
+              <span class="badge-dot" aria-hidden="true"></span>In Progress
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Revenue Intelligence for SMEs</h3>
+            <p class="card-desc">Real-time revenue analytics and forecasting dashboard built for SMEs in the GCC — no data team required.</p>
+          </div>
+        </article>
+
+        <!-- Stat card -->
+        <article class="card card-wide glow-amber" tabindex="0" aria-label="Market focus — GCC">
+          <div class="card-header">
+            <div class="card-icon icon-amber" aria-hidden="true">
+              <!-- Globe icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="2" y1="12" x2="22" y2="12"/>
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+              </svg>
+            </div>
+            <span class="badge badge-concept">
+              <span class="badge-dot" aria-hidden="true"></span>Concept
+            </span>
+          </div>
+          <div class="card-body">
+            <div class="card-stat" aria-label="GCC region focus">GCC</div>
+            <div class="card-stat-label">Primary Market Focus — 60M+ consumers</div>
+          </div>
+        </article>
+
+        <!-- Digital Health -->
+        <article class="card card-tall glow-rose" tabindex="0" aria-label="Digital Health Platform — Launched">
+          <div class="card-header">
+            <div class="card-icon icon-rose" aria-hidden="true">
+              <!-- Heart icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+              </svg>
+            </div>
+            <span class="badge badge-launched">
+              <span class="badge-dot" aria-hidden="true"></span>Launched
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Digital Health &amp; Wellness Platform</h3>
+            <p class="card-desc">Connecting patients to licensed specialists in the MENA region via telehealth — mental health, nutrition, and chronic disease management.</p>
+            <div class="card-tags">
+              <span class="tag">HealthTech</span>
+              <span class="tag">MENA</span>
+              <span class="tag">Telehealth</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Sustainable Delivery -->
+        <article class="card card-sq glow-cyan" tabindex="0" aria-label="Sustainable Logistics — Concept">
+          <div class="card-header">
+            <div class="card-icon icon-cyan" aria-hidden="true">
+              <!-- Truck icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="1" y="3" width="15" height="13" rx="1"/>
+                <path d="M16 8h4l3 3v5h-7V8z"/>
+                <circle cx="5.5" cy="18.5" r="2.5"/>
+                <circle cx="18.5" cy="18.5" r="2.5"/>
+              </svg>
+            </div>
+            <span class="badge badge-concept">
+              <span class="badge-dot" aria-hidden="true"></span>Concept
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">EV Last-Mile Logistics</h3>
+            <p class="card-desc">Zero-emission delivery network for urban UAE — electric fleet, route optimization AI.</p>
+          </div>
+        </article>
+
+        <!-- Smart Home Hub -->
+        <article class="card card-sq glow-violet" tabindex="0" aria-label="Smart Home Integration Hub — In Progress">
+          <div class="card-header">
+            <div class="card-icon icon-violet" aria-hidden="true">
+              <!-- Home icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg>
+            </div>
+            <span class="badge badge-progress">
+              <span class="badge-dot" aria-hidden="true"></span>In Progress
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Smart Home Integration Hub</h3>
+            <p class="card-desc">Unified IoT platform for smart homes in the Gulf — one app, all devices, AI energy optimization.</p>
+          </div>
+        </article>
+
+        <!-- FinTech Concept -->
+        <article class="card card-tall glow-amber" tabindex="0" aria-label="FinTech Platform — Concept">
+          <div class="card-header">
+            <div class="card-icon icon-amber" aria-hidden="true">
+              <!-- Credit card icon -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <span class="badge badge-concept">
+              <span class="badge-dot" aria-hidden="true"></span>Concept
+            </span>
+          </div>
+          <div class="card-body">
+            <h3 class="card-title">Embedded Finance for SME Marketplaces</h3>
+            <p class="card-desc">BNPL and working capital financing embedded directly into B2B marketplace checkouts — enabling SME growth without traditional bank friction.</p>
+            <div class="card-divider" aria-hidden="true"></div>
+            <div class="card-tags">
+              <span class="tag">FinTech</span>
+              <span class="tag">B2B</span>
+              <span class="tag">Embedded Finance</span>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /bento-grid -->
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title" id="about-heading">The Philosophy</h2>
+      </div>
+      <div class="about-grid">
+        <div class="about-card">
+          <h3>Building with conviction</h3>
+          <p>
+            I'm Mohamed Kamel — entrepreneur based in the UAE, focused on building technology ventures that solve real problems in the MENA region and beyond. I look for ideas at the intersection of underserved markets and emerging technology.
+          </p>
+          <p style="margin-top:16px;">
+            Every idea here started with a question: <em style="color:var(--text-primary);">why hasn't this been built yet?</em>
+          </p>
+        </div>
+        <div class="about-card">
+          <h3>What I believe</h3>
+          <ul class="values-list">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Markets matter more than ideas — find the pull, then build
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Solve for the 80% underserved, not the 20% already catered to
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Speed of learning beats speed of building
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              The GCC is one of the most exciting startup ecosystems on earth
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Great ideas die in isolation — share, iterate, build in public
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-inner">
+        <span class="footer-brand">Mohamed Kamel</span>
+        <ul class="footer-links" aria-label="Footer links">
+          <li><a href="mailto:hello@mohamedkamel.ae">hello@mohamedkamel.ae</a></li>
+          <li><a href="https://linkedin.com/in/mohamedkamel" rel="noopener noreferrer" target="_blank">LinkedIn</a></li>
+          <li><a href="https://twitter.com/mohamedkamel" rel="noopener noreferrer" target="_blank">X / Twitter</a></li>
+        </ul>
+      </div>
+      <p class="footer-copy">© 2026 Mohamed Kamel · mohamedkamel.ae</p>
+    </div>
+  </footer>
+
+</body>
+</html>
