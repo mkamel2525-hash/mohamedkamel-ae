@@ -1201,7 +1201,7 @@ body { color: var(--navy-ink); }
   padding: 3px;
   border: 1px solid rgba(127, 127, 127, .32);
   border-radius: 999px;
-  background: rgba(255, 255, 255, .04);
+  background: rgba(255, 255, 255, .55);
 }
 .lang-opt {
   font-family: 'Montserrat', sans-serif;
@@ -1209,7 +1209,7 @@ body { color: var(--navy-ink); }
   font-weight: 600;
   letter-spacing: .04em;
   line-height: 1;
-  color: inherit;
+  color: var(--navy-ink, #1E3C63);
   background: transparent;
   border: 0;
   border-radius: 999px;
@@ -1223,12 +1223,20 @@ body { color: var(--navy-ink); }
   background: var(--gold, #C9A96E);
   color: #fff;
 }
-@media (max-width: 900px) {
-  .lang-switch { margin: 0 .4rem; order: 2; }
+/* Always keep the switcher visible — even on mobile where the menu collapses */
+@media (max-width: 768px) {
+  .lang-switch {
+    display: inline-flex !important;
+    order: 0;
+    margin: 0 .55rem 0 auto;       /* push to the right, just left of the hamburger */
+    background: rgba(255, 255, 255, .9);
+    box-shadow: 0 1px 4px rgba(0,0,0,.08);
+  }
 }
 @media (max-width: 480px) {
-  .lang-switch { margin: 0 .3rem; padding: 2px; }
-  .lang-opt { padding: .3rem .42rem; font-size: .64rem; }
+  .lang-switch { margin-left: auto; padding: 2px; gap: 1px; }
+  .lang-opt { padding: .3rem .4rem; font-size: .62rem; }
+  .lang-opt[lang="ar"] { font-size: .74rem; }
 }
 
 /* ---------- Right-to-left (Arabic) ---------- */
