@@ -1165,9 +1165,9 @@ body { color: var(--navy-ink); }
 /* ============================================================
    v22 — developer logos (trust bar chips + dev cards)
    ============================================================ */
-.trust__logo { display: inline-flex; align-items: center; gap: .7rem; height: 60px; padding: 0 20px; background: #fff; border-radius: 12px; box-shadow: 0 6px 18px -8px rgba(0,0,0,.35); }
-.trust__logo img { max-height: 30px; max-width: 90px; object-fit: contain; display: block; }
-.trust__logo b { font-family: var(--serif); font-size: 1.2rem; color: var(--dark); font-weight: 600; white-space: nowrap; }
+.trust__logo { display: inline-flex; align-items: center; gap: .85rem; height: 80px; padding: 0 28px; background: #fff; border-radius: 14px; box-shadow: 0 8px 22px -8px rgba(0,0,0,.4); }
+.trust__logo img { max-height: 42px; max-width: 120px; object-fit: contain; display: block; }
+.trust__logo b { font-family: var(--serif); font-size: 1.5rem; color: var(--dark); font-weight: 600; white-space: nowrap; }
 .trust__track { align-items: center; gap: 2.4rem; }
 
 /* Developer card logo */
