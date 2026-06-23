@@ -152,7 +152,9 @@
     { name: 'Imtiaz', pos: 'Boutique Luxury', positioning: 'Fully-furnished, design-led boutique developments.', community: 'Sheikh Zayed Road, JVC, Meydan, Dubai Islands.', thesis: 'Turnkey product engineered for short-stay yield.',
       launches: [ {n:'RAW District', a:'Sheikh Zayed Road', t:'Furnished studios, 1–3 BR, offices & retail (direct metro)', price:'From AED 649K', plan:'50/50 or 60/40 post-handover', ho:'Q1 2029', details:['Studio — from AED 649K','1BR Executive — from AED 889K','1BR Standard — from AED 1.06M','2BR — from AED 1.48M','3BR — from AED 1.95M','Office spaces — from AED 1.2M','Retail — from AED 2.5M','Plan A: 50/50 — 50% during construction · 50% on completion','Plan B: 60/40 post-handover — 60% during construction · 40% over 3 years','Handover: Q1 2029','Fully furnished with integrated appliances & smart-home features','Direct metro access — minutes to Dubai Marina, Expo City & Al Maktoum Airport','Integrated community: residences, offices, retail, cafés & co-working']}, {n:'Beach Walk Grand', a:'Dubai Islands', t:'Apartments', price:'From AED 2.1M', plan:'60/40', ho:'Q4 2026'}, {n:'Sunset Bay', a:'Dubai Islands', t:'Apartments', price:'From AED 1.7M', plan:'60/40', ho:'Q4 2026'}, {n:'Westwood Grande', a:'JVC', t:'Furnished apartments', price:'On request', plan:'Flexible', ho:''} ] },
     { name: 'Object 1', pos: 'Modern Living', positioning: 'Contemporary residences with strong value engineering.', community: 'JVC, Al Furjan, Dubailand.', thesis: 'Accessible price points with compelling rental returns.',
-      launches: [ {n:'VERDAN1A', a:'Dubailand (DLRC)', t:'Apartments & townhouses', price:'From AED 0.55M', plan:'20/40/40', ho:'Q3 2027'} ] }
+      launches: [ {n:'VERDAN1A', a:'Dubailand (DLRC)', t:'Apartments & townhouses', price:'From AED 0.55M', plan:'20/40/40', ho:'Q3 2027'} ] },
+    { name: 'Ellington', pos: 'Design-Led Boutique', positioning: 'Dubai’s leading design-led boutique developer, known for craftsmanship and detail.', community: 'Business Bay, Jaddaf Waterfront, JVC, Dubai Islands, Palm Jumeirah.', thesis: 'Design-driven product with strong end-user appeal, premium resale and investor-friendly plans.',
+      launches: [ {n:'The Crestmark', a:'Business Bay', t:'1–4 BR apartments (canal-side)', price:'From AED 1.5M', plan:'70/30', ho:'Q1 2026', details:['Canal-facing 1–4 BR residences','Plan: 70% during construction · 30% on handover','Handover: Q1 2026','Signature Ellington design & amenities']}, {n:'Art Bay (East & West)', a:'Jaddaf Waterfront', t:'Studios & 1–3 BR apartments', price:'From AED 1.05M', plan:'70/30', ho:'Q3 2026', details:['Art Bay East — from AED 1.05M','Art Bay West — from AED 1.98M','Plan: 70% during construction · 30% on handover','Waterfront living minutes from Downtown & DIFC']}, {n:'Upper House', a:'Jumeirah Lake Towers (JLT)', t:'Studios, 1–3 BR apartments', price:'From AED 750K', plan:'70/30', ho:'Q1 2026', details:['Entry from AED 750K','Plan: 70/30','Twin-tower lifestyle community in JLT']}, {n:'Ellington Meriva Residences', a:'Dubai Islands', t:'Beachfront apartments', price:'From AED 2.9M', plan:'70/30', ho:''} ] }
   ];
   const grid = document.getElementById('devsGrid');
   if (grid) {
@@ -161,6 +163,7 @@
       'Binghatti':'binghatti.com','DAMAC':'damacproperties.com','Aldar':'aldar.com','Modon':'modon.ae',
       'Dubai Holding':'dubaiholding.com','Nakheel':'nakheel.com',
       'Dubai Properties':'dp.ae',
+      'Ellington':'ellingtonproperties.ae',
       'Imtiaz':'imtiazdevelopments.com'
     };
     const FILE = {
