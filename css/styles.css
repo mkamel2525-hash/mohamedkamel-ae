@@ -1327,3 +1327,36 @@ html.rtl .eyebrow { }
   }
   .nav__links-cta::after { display: none !important; }
 }
+
+/* ============================================================
+   v48 — use the hamburger menu up to 1024px (tablets + landscape phones)
+   so the top nav never crowds / clips the Book Consultation button
+   ============================================================ */
+@media (max-width: 1024px) {
+  .nav__links {
+    position: fixed; inset: 0 0 0 auto; width: min(82vw, 360px); background: var(--dark);
+    flex-direction: column; justify-content: center; gap: 1.6rem; padding: 3rem; transform: translateX(100%);
+    transition: transform .6s var(--ease); display: flex; z-index: 950;
+  }
+  .nav__links.is-open { transform: translateX(0); box-shadow: -20px 0 60px rgba(0,0,0,0.4); }
+  .nav__links a { color: #fff !important; font-size: 1rem; }
+  .nav__cta { display: none; }
+  .nav__toggle {
+    display: flex !important; flex: 0 0 auto; z-index: 970;
+    padding: 8px 4px; margin-left: .15rem;
+  }
+  .nav.is-menu-open .nav__toggle span:nth-child(1) { transform: translateY(7px) rotate(45deg); background: #fff; }
+  .nav.is-menu-open .nav__toggle span:nth-child(2) { opacity: 0; }
+  .nav.is-menu-open .nav__toggle span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: #fff; }
+  .nav:not(.is-scrolled) .nav__toggle span { background: var(--dark); }
+  .nav__inner { gap: .5rem; }
+  .lang-switch { margin: 0 .35rem 0 auto; }
+  .nav__links-cta {
+    display: block; margin-top: 1.4rem; text-align: center;
+    background: var(--gold); color: #fff !important;
+    padding: .95rem 1.6rem; border-radius: 4px;
+    font-family: 'Montserrat', sans-serif; font-size: .9rem;
+    letter-spacing: .14em; text-transform: uppercase;
+  }
+  .nav__links-cta::after { display: none !important; }
+}
