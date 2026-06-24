@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - claude/adoring-turing-8xh56t
+      - main
   workflow_dispatch:
 
 permissions:
