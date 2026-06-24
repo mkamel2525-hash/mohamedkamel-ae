@@ -569,10 +569,11 @@
     marquee.addEventListener('pointerdown', (e) => {
       dragging = true; pauseAnim();
       startX = e.clientX; startOffset = offset; moved = 0;
-      try { marquee.setPointerCapture(e.pointerId); } catch (err) {}
       marquee.style.cursor = 'grabbing';
     });
-    marquee.addEventListener('pointermove', (e) => {
+    // listen on window so a drag keeps working even if the pointer leaves the bar,
+    // and so normal clicks still reach the developer chips (no pointer capture)
+    window.addEventListener('pointermove', (e) => {
       if (!dragging) return;
       const dx = e.clientX - startX;
       moved = Math.max(moved, Math.abs(dx));
@@ -584,11 +585,10 @@
       if (moved > 8) { suppressClick = true; setTimeout(() => { suppressClick = false; }, 80); }
       resumeAnim();
     };
-    marquee.addEventListener('pointerup', endDrag);
-    marquee.addEventListener('pointercancel', endDrag);
-    marquee.addEventListener('pointerleave', endDrag);
+    window.addEventListener('pointerup', endDrag);
+    window.addEventListener('pointercancel', endDrag);
 
-    // a genuine drag shouldn't also open a developer card
+    // a genuine drag shouldn't also open a developer card (a plain click still does)
     marquee.addEventListener('click', (e) => {
       if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
     }, true);
