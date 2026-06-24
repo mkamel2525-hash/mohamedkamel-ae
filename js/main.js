@@ -172,61 +172,85 @@
       'Modon':'assets/logos/modon.jpg','Nakheel':'assets/logos/nakheel.jpg',
       'Imtiaz':'assets/logos/imtiaz.png'
     };
-    developers.forEach((d, i) => {
-      const card = document.createElement('article');
-      card.className = 'dev-card reveal';
-      card.dataset.delay = (i % 3) * 80;
-      card.dataset.dev = d.name;
-      const dom = LOGO[d.name];
-      const file = FILE[d.name];
-      const src = file || (dom ? `https://www.google.com/s2/favicons?domain=${dom}&sz=256` : '');
-      const fb = (!file && dom) ? `https://logo.clearbit.com/${dom}?size=160` : '';
-      const logo = src
-        ? `<div class="dev-card__brand"><img class="dev-card__logo" alt="${d.name}" loading="lazy" src="${src}"`
-          + (fb ? ` data-fb="${fb}" onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.dataset.fb='';}else{this.closest('.dev-card__brand').style.display='none';}"`
-                : ` onerror="this.closest('.dev-card__brand').style.display='none'"`)
-          + `></div>`
-        : '';
-      const launches = (d.launches || []).slice(0, 3).map(l => {
-        const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
-        const breakdown = (l.details && l.details.length)
-          ? '<ul class="lx">' + l.details.map(x => `<li>${x}</li>`).join('') + '</ul>' : '';
-        return `<li><span class="ln">${l.n}</span><span class="la">${l.a} &middot; ${l.t}</span><span class="lp">${detail}</span>${breakdown}</li>`;
-      }).join('');
-      const wa = 'https://wa.me/971588801766?text=' +
-        encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
-      card.innerHTML = `
-        ${logo}
-        <div class="dev-card__top">
-          <span class="dev-card__name">${d.name}</span>
-          <span class="dev-card__pos">${d.pos}</span>
-        </div>
-        <div class="dev-card__body">
-          <div class="dev-card__row"><b data-i18n="dev.lbl.positioning">Brand Positioning</b><span>${d.positioning}</span></div>
-          <div class="dev-card__row"><b data-i18n="dev.lbl.community">Community Expertise</b><span>${d.community}</span></div>
-          <div class="dev-card__row"><b data-i18n="dev.lbl.thesis">Investment Thesis</b><span>${d.thesis}</span></div>
-          <div class="dev-card__launches">
-            <b data-i18n="dev.lbl.launches">Latest Launches</b>
-            <ul>${launches}</ul>
-            <p class="dev-card__pricing" data-i18n="dev.pricing">Indicative starting prices &amp; payment plans — confirm the latest with Mohamed.</p>
-            <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="dev.wa">Get latest prices &amp; payment plans &rarr;</a>
+    const dt = (s) => {
+      const l = (window.MKi18n && window.MKi18n.current) ? window.MKi18n.current() : 'en';
+      if (l === 'en' || !window.DEV_T || !window.DEV_T[l]) return s;
+      return window.DEV_T[l][s] || s;
+    };
+    const locPrice = (p, l) => {
+      if (!p) return '';
+      if (l === 'en') return p;
+      if (p === 'On request') return dt('On request');
+      return p.replace(/^From\s+/, dt('From') + ' ');
+    };
+
+    function renderDevs() {
+      const l = (window.MKi18n && window.MKi18n.current) ? window.MKi18n.current() : 'en';
+      grid.innerHTML = '';
+      developers.forEach((d, i) => {
+        const card = document.createElement('article');
+        card.className = 'dev-card reveal';
+        card.dataset.delay = (i % 3) * 80;
+        card.dataset.dev = d.name;
+        const dom = LOGO[d.name];
+        const file = FILE[d.name];
+        const src = file || (dom ? `https://www.google.com/s2/favicons?domain=${dom}&sz=256` : '');
+        const fb = (!file && dom) ? `https://logo.clearbit.com/${dom}?size=160` : '';
+        const logo = src
+          ? `<div class="dev-card__brand"><img class="dev-card__logo" alt="${d.name}" loading="lazy" src="${src}"`
+            + (fb ? ` data-fb="${fb}" onerror="if(this.dataset.fb){this.src=this.dataset.fb;this.dataset.fb='';}else{this.closest('.dev-card__brand').style.display='none';}"`
+                  : ` onerror="this.closest('.dev-card__brand').style.display='none'"`)
+            + `></div>`
+          : '';
+        const planWord = dt('plan'), hoWord = dt('Handover');
+        const launches = (d.launches || []).slice(0, 3).map(ln => {
+          const detail = [
+            locPrice(ln.price, l),
+            (ln.plan ? (ln.plan === 'Flexible' ? dt('Flexible') : ln.plan) + ' ' + planWord : ''),
+            (ln.ho ? hoWord + ' ' + ln.ho : '')
+          ].filter(Boolean).join('  ·  ');
+          const breakdown = (l === 'en' && ln.details && ln.details.length)
+            ? '<ul class="lx">' + ln.details.map(x => `<li>${x}</li>`).join('') + '</ul>' : '';
+          return `<li><span class="ln">${ln.n}</span><span class="la">${dt(ln.a)} &middot; ${dt(ln.t)}</span><span class="lp">${detail}</span>${breakdown}</li>`;
+        }).join('');
+        const wa = 'https://wa.me/971588801766?text=' +
+          encodeURIComponent('Hi Mohamed, please share the latest ' + d.name + ' launches with current prices and payment plans.');
+        card.innerHTML = `
+          ${logo}
+          <div class="dev-card__top">
+            <span class="dev-card__name">${d.name}</span>
+            <span class="dev-card__pos">${dt(d.pos)}</span>
           </div>
-        </div>
-        <span class="dev-card__toggle" data-i18n="dev.toggle">View Launches</span>`;
-      card.addEventListener('click', () => card.classList.toggle('is-open'));
-      grid.appendChild(card);
-    });
-    // re-observe newly added reveals
-    if ('IntersectionObserver' in window && !prefersReduced) {
-      const io2 = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('is-in'), e.target.dataset.delay || 0); io2.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      grid.querySelectorAll('.reveal').forEach(el => io2.observe(el));
-    } else {
-      grid.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+          <div class="dev-card__body">
+            <div class="dev-card__row"><b data-i18n="dev.lbl.positioning">Brand Positioning</b><span>${dt(d.positioning)}</span></div>
+            <div class="dev-card__row"><b data-i18n="dev.lbl.community">Community Expertise</b><span>${dt(d.community)}</span></div>
+            <div class="dev-card__row"><b data-i18n="dev.lbl.thesis">Investment Thesis</b><span>${dt(d.thesis)}</span></div>
+            <div class="dev-card__launches">
+              <b data-i18n="dev.lbl.launches">Latest Launches</b>
+              <ul>${launches}</ul>
+              <p class="dev-card__pricing" data-i18n="dev.pricing">Indicative starting prices &amp; payment plans — confirm the latest with Mohamed.</p>
+              <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="dev.wa">Get latest prices &amp; payment plans &rarr;</a>
+            </div>
+          </div>
+          <span class="dev-card__toggle" data-i18n="dev.toggle">View Launches</span>`;
+        card.addEventListener('click', () => card.classList.toggle('is-open'));
+        grid.appendChild(card);
+      });
+      // re-observe newly added reveals
+      if ('IntersectionObserver' in window && !prefersReduced) {
+        const io2 = new IntersectionObserver((entries) => {
+          entries.forEach(e => { if (e.isIntersecting) { setTimeout(() => e.target.classList.add('is-in'), e.target.dataset.delay || 0); io2.unobserve(e.target); } });
+        }, { threshold: 0.12 });
+        grid.querySelectorAll('.reveal').forEach(el => io2.observe(el));
+      } else {
+        grid.querySelectorAll('.reveal').forEach(el => el.classList.add('is-in'));
+      }
+      // apply the active language to the freshly-built developer-card labels
+      if (window.MKi18n) window.MKi18n.refresh(grid);
     }
-    // apply the active language to the freshly-built developer cards
-    if (window.MKi18n) window.MKi18n.refresh(grid);
+
+    renderDevs();
+    document.addEventListener('mk:langchange', renderDevs);
   }
 
   /* ---------- Process timeline interactivity ---------- */

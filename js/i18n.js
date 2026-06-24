@@ -235,6 +235,7 @@
     for (var i = 0; i < opts.length; i++) {
       opts[i].classList.toggle('is-active', opts[i].getAttribute('data-lang') === lang);
     }
+    try { document.dispatchEvent(new CustomEvent('mk:langchange', { detail: lang })); } catch (e) {}
   }
 
   function stored() {
