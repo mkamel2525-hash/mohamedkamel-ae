@@ -209,8 +209,8 @@
             (ln.plan ? (ln.plan === 'Flexible' ? dt('Flexible') : ln.plan) + ' ' + planWord : ''),
             (ln.ho ? hoWord + ' ' + ln.ho : '')
           ].filter(Boolean).join('  ·  ');
-          const breakdown = (l === 'en' && ln.details && ln.details.length)
-            ? '<ul class="lx">' + ln.details.map(x => `<li>${x}</li>`).join('') + '</ul>' : '';
+          const breakdown = (ln.details && ln.details.length)
+            ? '<ul class="lx">' + ln.details.map(x => `<li>${dt(x)}</li>`).join('') + '</ul>' : '';
           return `<li><span class="ln">${ln.n}</span><span class="la">${dt(ln.a)} &middot; ${dt(ln.t)}</span><span class="lp">${detail}</span>${breakdown}</li>`;
         }).join('');
         const wa = 'https://wa.me/971588801766?text=' +
