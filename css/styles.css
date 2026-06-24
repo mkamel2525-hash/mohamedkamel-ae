@@ -132,6 +132,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .nav__name { font-family: var(--serif); font-size: 1.4rem; font-weight: 600; letter-spacing: 0.04em; color: var(--dark); }
 .nav.is-scrolled .nav__name { color: var(--dark); }
 .nav__links { display: flex; gap: 2rem; }
+.nav__links a { white-space: nowrap; }
 .nav__links a {
   font-size: 0.85rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--dark); position: relative;
   display: inline-flex; align-items: center; min-height: 44px; opacity: 1;
@@ -139,7 +140,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .nav__links a::after { content: ''; position: absolute; left: 0; bottom: 8px; width: 0; height: 1px; background: var(--gold); transition: width .4s var(--ease); }
 .nav__links a:hover { opacity: 1; }
 .nav__links a:hover::after { width: 100%; }
-.nav__cta { font-size: 0.76rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dark); border: 1px solid var(--gold); padding: 0.7rem 1.3rem; border-radius: 2px; transition: background .4s var(--ease), color .4s var(--ease); }
+.nav__cta { white-space: nowrap; font-size: 0.76rem; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: var(--dark); border: 1px solid var(--gold); padding: 0.7rem 1.3rem; border-radius: 2px; transition: background .4s var(--ease), color .4s var(--ease); }
 .nav__cta:hover { background: var(--gold); color: #fff; }
 .nav__toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
 .nav__toggle span { width: 26px; height: 2px; background: var(--text); transition: transform .4s var(--ease), opacity .3s; }
@@ -1359,4 +1360,12 @@ html.rtl .eyebrow { }
     letter-spacing: .14em; text-transform: uppercase;
   }
   .nav__links-cta::after { display: none !important; }
+}
+
+/* v49 — tighten desktop nav spacing on narrower laptops so nothing wraps/overflows */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .nav__links { gap: 1.3rem; }
+  .nav__inner { gap: 1rem; }
+  .nav__cta { padding: 0.6rem 1rem; }
+  .lang-switch { margin: 0 .35rem; }
 }
