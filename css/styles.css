@@ -1292,3 +1292,38 @@ html.rtl .eyebrow { }
     animation-iteration-count: infinite !important;
   }
 }
+
+/* ============================================================
+   v47 — mobile nav: keep the ☰ menu fully visible + in-menu CTA
+   ============================================================ */
+.nav__links-cta { display: none; }
+@media (max-width: 768px) {
+  .nav__inner { gap: .4rem; padding-inline: 1rem; }
+  .nav__brand .nav__name { font-size: .95rem; }
+  .lang-switch { margin: 0 .35rem 0 auto; }
+  /* make sure the hamburger is always visible and tappable on the right */
+  .nav__toggle {
+    display: flex !important;
+    flex: 0 0 auto;
+    padding: 8px 4px;
+    margin-left: .15rem;
+    position: relative;
+    z-index: 970;
+  }
+  .nav:not(.is-scrolled) .nav__toggle span { background: var(--dark); }
+  /* Book Consultation button inside the slide-in menu */
+  .nav__links-cta {
+    display: block;
+    margin-top: 1.4rem;
+    text-align: center;
+    background: var(--gold);
+    color: #fff !important;
+    padding: .95rem 1.6rem;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: .9rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .nav__links-cta::after { display: none !important; }
+}
