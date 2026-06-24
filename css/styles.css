@@ -1280,4 +1280,15 @@ html.rtl .eyebrow { }
   touch-action: pan-y;            /* vertical scroll the page; horizontal drag handled in JS */
 }
 .trust__marquee--drag:active { cursor: grabbing; }
-.trust__marquee--drag .trust__track { animation: none !important; will-change: transform; }
+.trust__drag { width: max-content; will-change: transform; }
+/* Keep the developer line gliding LEFT even when the device has Reduce Motion on */
+.trust__track {
+  animation: marquee 30s linear infinite !important;
+  animation-iteration-count: infinite !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .trust__track {
+    animation: marquee 30s linear infinite !important;
+    animation-iteration-count: infinite !important;
+  }
+}
