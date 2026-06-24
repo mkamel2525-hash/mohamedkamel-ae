@@ -277,6 +277,7 @@
       fd.append('Location', data.get('location'));
       fd.append('Objective', data.get('objective'));
       fd.append('Message', data.get('message') || '-');
+      fd.append('_replyto', data.get('email'));   // tapping "Reply" goes straight to the client
       fd.append('_subject', 'New Private Consultation Request — ' + (data.get('name') || ''));
       fd.append('_template', 'table');
       fd.append('_captcha', 'false');
