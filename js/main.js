@@ -544,7 +544,6 @@
 
     marquee.classList.add('trust__marquee--drag');   // CSS: scrollable + hidden scrollbar
     track.style.animation = 'none';                   // hand control to JS
-    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let half = 0;
     const measure = () => { half = track.scrollWidth / 2; };
@@ -557,9 +556,10 @@
       else if (marquee.scrollLeft < 0) marquee.scrollLeft += half;
     };
 
-    let auto = !reduce, resumeT;
+    // Always keep moving (like before); pause only while the user is interacting.
+    let auto = true, resumeT;
     const pause = () => { auto = false; clearTimeout(resumeT); };
-    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { auto = !reduce; }, 1400); };
+    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { auto = true; }, 1400); };
 
     const SPEED = 0.5;
     const loop = () => { if (auto) { marquee.scrollLeft += SPEED; wrap(); } requestAnimationFrame(loop); };
