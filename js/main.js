@@ -187,7 +187,7 @@
                 : ` onerror="this.closest('.dev-card__brand').style.display='none'"`)
           + `></div>`
         : '';
-      const launches = (d.launches || []).map(l => {
+      const launches = (d.launches || []).slice(0, 3).map(l => {
         const detail = [l.price, (l.plan && l.plan !== 'Flexible' ? l.plan + ' plan' : (l.plan ? 'Flexible plan' : '')), (l.ho ? 'Handover ' + l.ho : '')].filter(Boolean).join('  ·  ');
         const breakdown = (l.details && l.details.length)
           ? '<ul class="lx">' + l.details.map(x => `<li>${x}</li>`).join('') + '</ul>' : '';

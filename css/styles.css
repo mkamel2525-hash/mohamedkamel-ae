@@ -1046,7 +1046,7 @@ body { color: var(--navy-ink); }
 /* ============================================================
    v13 — developer "Latest Launches" panel
    ============================================================ */
-.dev-card.is-open .dev-card__body { max-height: 900px; }
+.dev-card.is-open .dev-card__body { max-height: 2600px; }
 .dev-card__launches { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
 .dev-card__launches > b { display:block; font-family: var(--sans); font-weight:600; font-size:.7rem; letter-spacing:.14em; text-transform:uppercase; color: var(--navy-ink); margin-bottom:.7rem; }
 .dev-card__launches ul { display:grid; gap:.6rem; margin:0 0 .9rem; }
