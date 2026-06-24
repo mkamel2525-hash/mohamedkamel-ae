@@ -1270,3 +1270,19 @@ html.rtl .trust__track {
 /* re-align list paddings flipped by RTL */
 html.rtl .hero__services { padding-right: 0; }
 html.rtl .eyebrow { }
+
+/* ============================================================
+   v37 — draggable / swipeable developer marquee
+   ============================================================ */
+.trust__marquee--drag {
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  touch-action: pan-x;
+  scrollbar-width: none;          /* Firefox */
+  -ms-overflow-style: none;       /* IE/Edge */
+  -webkit-overflow-scrolling: touch;
+}
+.trust__marquee--drag::-webkit-scrollbar { display: none; }
+.trust__marquee--drag:active { cursor: grabbing; }
+.trust__marquee--drag .trust__track { animation: none !important; }

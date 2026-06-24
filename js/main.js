@@ -256,6 +256,8 @@
 
   /* ---------- Consultation form ---------- */
   const form = document.getElementById('consultForm');
+  // FormSubmit.co delivers each lead to this inbox (no backend needed).
+  const LEAD_EMAIL_ENDPOINT = 'https://formsubmit.co/Mohamed@Deluxehomes.ae';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
@@ -264,7 +266,24 @@
     for (const f of required) {
       if (!data.get(f)) { form.querySelector(`[name="${f}"]`)?.focus(); return; }
     }
-    // Compose a WhatsApp message — frictionless, no backend required.
+
+    // 1) Email the lead automatically — fires even as we navigate to WhatsApp.
+    try {
+      const fd = new FormData();
+      fd.append('Name', data.get('name'));
+      fd.append('WhatsApp', data.get('whatsapp'));
+      fd.append('Email', data.get('email'));
+      fd.append('Budget', data.get('budget'));
+      fd.append('Location', data.get('location'));
+      fd.append('Objective', data.get('objective'));
+      fd.append('Message', data.get('message') || '-');
+      fd.append('_subject', 'New Private Consultation Request — ' + (data.get('name') || ''));
+      fd.append('_template', 'table');
+      fd.append('_captcha', 'false');
+      fetch(LEAD_EMAIL_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true }).catch(() => {});
+    } catch (err) {}
+
+    // 2) WhatsApp message — client taps send and Mohamed receives it instantly.
     const msg = `Private Consultation Request%0A%0A` +
       `Name: ${data.get('name')}%0A` +
       `WhatsApp: ${data.get('whatsapp')}%0A` +
@@ -273,12 +292,14 @@
       `Location: ${data.get('location')}%0A` +
       `Objective: ${data.get('objective')}%0A` +
       `Message: ${data.get('message') || '-'}`;
+    const waUrl = `https://wa.me/971588801766?text=${msg}`;
+    try { window.open(waUrl, '_blank', 'noopener'); } catch (err) {}
 
     form.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:2rem 0;">
         <div style="font-family:var(--serif);font-size:2rem;color:var(--gold);margin-bottom:0.6rem;">Thank you, ${name.split(' ')[0] || 'investor'}.</div>
-        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request is ready. Confirm via WhatsApp and Mohamed will respond to you personally.</p>
-        <a href="https://wa.me/971588801766?text=${msg}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Send via WhatsApp</a>
+        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request has been sent to Mohamed by email. To confirm on WhatsApp too, tap below — he will respond personally.</p>
+        <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Confirm via WhatsApp</a>
       </div>`;
     form.classList.add('is-sent');
   });
@@ -514,6 +535,71 @@
   document.querySelectorAll('.trust__track span').forEach(s=>{
     s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
+
+  /* ---------- Draggable / swipeable developer marquee ---------- */
+  (function(){
+    const marquee = document.querySelector('.trust__marquee');
+    const track = marquee && marquee.querySelector('.trust__track');
+    if (!marquee || !track) return;
+
+    marquee.classList.add('trust__marquee--drag');   // CSS: scrollable + hidden scrollbar
+    track.style.animation = 'none';                   // hand control to JS
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    let half = 0;
+    const measure = () => { half = track.scrollWidth / 2; };
+    measure();
+    window.addEventListener('resize', measure);
+
+    const wrap = () => {
+      if (!half) return;
+      if (marquee.scrollLeft >= half) marquee.scrollLeft -= half;
+      else if (marquee.scrollLeft < 0) marquee.scrollLeft += half;
+    };
+
+    let auto = !reduce, resumeT;
+    const pause = () => { auto = false; clearTimeout(resumeT); };
+    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { auto = !reduce; }, 1400); };
+
+    const SPEED = 0.5;
+    const loop = () => { if (auto) { marquee.scrollLeft += SPEED; wrap(); } requestAnimationFrame(loop); };
+    requestAnimationFrame(loop);
+
+    // mouse drag-to-scroll (touch uses native horizontal scrolling)
+    let isMouseDrag = false, startX = 0, startScroll = 0, moved = 0, suppressClick = false;
+    marquee.addEventListener('pointerdown', (e) => {
+      pause();
+      if (e.pointerType === 'mouse') {
+        isMouseDrag = true; startX = e.clientX; startScroll = marquee.scrollLeft; moved = 0;
+        marquee.style.cursor = 'grabbing'; e.preventDefault();
+      }
+    });
+    window.addEventListener('pointermove', (e) => {
+      if (!isMouseDrag) return;
+      const dx = e.clientX - startX;
+      moved = Math.max(moved, Math.abs(dx));
+      marquee.scrollLeft = startScroll - dx;
+    });
+    window.addEventListener('pointerup', () => {
+      if (isMouseDrag) {
+        isMouseDrag = false; marquee.style.cursor = 'grab';
+        if (moved > 8) { suppressClick = true; setTimeout(() => { suppressClick = false; }, 60); }
+        wrap();
+      }
+      resumeSoon();
+    });
+    // a real drag shouldn't also open a developer card
+    marquee.addEventListener('click', (e) => {
+      if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
+    }, true);
+
+    // touch: pause auto while the finger is interacting, keep the loop seamless
+    marquee.addEventListener('touchstart', pause, { passive: true });
+    marquee.addEventListener('touchend', resumeSoon, { passive: true });
+    marquee.addEventListener('scroll', wrap, { passive: true });
+    marquee.addEventListener('mouseenter', pause);
+    marquee.addEventListener('mouseleave', () => { if (!isMouseDrag) resumeSoon(); });
+  })();
 })();
 
 /* ============================================================
