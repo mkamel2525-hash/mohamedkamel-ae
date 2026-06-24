@@ -536,82 +536,71 @@
     s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
 
-  /* ---------- Draggable / swipeable developer marquee ---------- */
+  /* ---------- Auto-moving + draggable developer marquee ---------- */
   (function(){
     const marquee = document.querySelector('.trust__marquee');
     const track = marquee && marquee.querySelector('.trust__track');
     if (!marquee || !track) return;
 
-    marquee.classList.add('trust__marquee--drag');   // CSS: scrollable + hidden scrollbar
-    track.style.animation = 'none';                   // hand control to JS
+    marquee.classList.add('trust__marquee--drag');
+    track.style.animation = 'none';          // drive it with transform instead of CSS keyframes
+    track.style.willChange = 'transform';
 
     let half = 0;
-    const measure = () => { half = track.scrollWidth / 2; };
+    const measure = () => { half = track.scrollWidth / 2; };   // content is duplicated → one set = half
     measure();
     window.addEventListener('resize', measure);
-    // remeasure once images/fonts settle (scrollWidth grows as logos load)
     window.addEventListener('load', measure);
-    setTimeout(measure, 1200);
+    setTimeout(measure, 1500);
 
-    // Always keep moving (like before); pause only while the user is interacting.
-    let auto = true, resumeT;
-    let pos = 0;                       // float position — scrollLeft itself rounds to ints
+    let offset = 0;            // current translateX in px (float — transform handles sub-pixels)
+    const SPEED = 0.6;         // px per frame ≈ same pace as before
+    let auto = true, dragging = false, startX = 0, startOffset = 0, moved = 0, suppressClick = false, resumeT;
+
+    const norm = () => { if (half) { while (offset <= -half) offset += half; while (offset > 0) offset -= half; } };
+    const render = () => { track.style.transform = `translate3d(${offset}px,0,0)`; };
+
+    const frame = () => {
+      if (auto && half) { offset -= SPEED; norm(); render(); }
+      requestAnimationFrame(frame);
+    };
+    requestAnimationFrame(frame);
+
     const pause = () => { auto = false; clearTimeout(resumeT); };
-    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { pos = marquee.scrollLeft; auto = true; }, 1400); };
+    const resumeSoon = (delay) => { clearTimeout(resumeT); resumeT = setTimeout(() => { auto = true; }, delay || 1400); };
 
-    const wrap = () => {
-      if (!half) return;
-      if (auto) {
-        if (pos >= half) pos -= half; else if (pos < 0) pos += half;
-      } else {
-        // user is driving the scroll — keep the loop seamless and stay in sync
-        if (marquee.scrollLeft >= half) marquee.scrollLeft -= half;
-        else if (marquee.scrollLeft < 0) marquee.scrollLeft += half;
-        pos = marquee.scrollLeft;
-      }
-    };
-
-    const SPEED = 0.6;
-    const loop = () => {
-      if (auto) { pos += SPEED; wrap(); marquee.scrollLeft = pos; }
-      requestAnimationFrame(loop);
-    };
-    requestAnimationFrame(loop);
-
-    // mouse drag-to-scroll (touch uses native horizontal scrolling)
-    let isMouseDrag = false, startX = 0, startScroll = 0, moved = 0, suppressClick = false;
+    // unified pointer drag (works for both finger and mouse)
     marquee.addEventListener('pointerdown', (e) => {
-      pause();
-      if (e.pointerType === 'mouse') {
-        isMouseDrag = true; startX = e.clientX; startScroll = marquee.scrollLeft; moved = 0;
-        marquee.style.cursor = 'grabbing'; e.preventDefault();
-      }
+      dragging = true; pause();
+      startX = e.clientX; startOffset = offset; moved = 0;
+      try { marquee.setPointerCapture(e.pointerId); } catch (err) {}
+      marquee.style.cursor = 'grabbing';
     });
-    window.addEventListener('pointermove', (e) => {
-      if (!isMouseDrag) return;
+    marquee.addEventListener('pointermove', (e) => {
+      if (!dragging) return;
       const dx = e.clientX - startX;
       moved = Math.max(moved, Math.abs(dx));
-      marquee.scrollLeft = startScroll - dx;
+      offset = startOffset + dx;
+      norm(); render();
     });
-    window.addEventListener('pointerup', () => {
-      if (isMouseDrag) {
-        isMouseDrag = false; marquee.style.cursor = 'grab';
-        if (moved > 8) { suppressClick = true; setTimeout(() => { suppressClick = false; }, 60); }
-        wrap();
-      }
+    const endDrag = () => {
+      if (!dragging) return;
+      dragging = false; marquee.style.cursor = 'grab';
+      if (moved > 8) { suppressClick = true; setTimeout(() => { suppressClick = false; }, 80); }
       resumeSoon();
-    });
-    // a real drag shouldn't also open a developer card
+    };
+    marquee.addEventListener('pointerup', endDrag);
+    marquee.addEventListener('pointercancel', endDrag);
+    marquee.addEventListener('pointerleave', endDrag);
+
+    // a genuine drag shouldn't also open a developer card
     marquee.addEventListener('click', (e) => {
       if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
     }, true);
 
-    // touch: pause auto while the finger is interacting, keep the loop seamless
-    marquee.addEventListener('touchstart', pause, { passive: true });
-    marquee.addEventListener('touchend', resumeSoon, { passive: true });
-    marquee.addEventListener('scroll', wrap, { passive: true });
-    marquee.addEventListener('mouseenter', pause);
-    marquee.addEventListener('mouseleave', () => { if (!isMouseDrag) resumeSoon(); });
+    // desktop hover pause (resumes shortly after)
+    marquee.addEventListener('mouseenter', () => { if (!dragging) pause(); });
+    marquee.addEventListener('mouseleave', () => { if (!dragging) resumeSoon(300); });
   })();
 })();
 
