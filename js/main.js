@@ -549,20 +549,33 @@
     const measure = () => { half = track.scrollWidth / 2; };
     measure();
     window.addEventListener('resize', measure);
-
-    const wrap = () => {
-      if (!half) return;
-      if (marquee.scrollLeft >= half) marquee.scrollLeft -= half;
-      else if (marquee.scrollLeft < 0) marquee.scrollLeft += half;
-    };
+    // remeasure once images/fonts settle (scrollWidth grows as logos load)
+    window.addEventListener('load', measure);
+    setTimeout(measure, 1200);
 
     // Always keep moving (like before); pause only while the user is interacting.
     let auto = true, resumeT;
+    let pos = 0;                       // float position — scrollLeft itself rounds to ints
     const pause = () => { auto = false; clearTimeout(resumeT); };
-    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { auto = true; }, 1400); };
+    const resumeSoon = () => { clearTimeout(resumeT); resumeT = setTimeout(() => { pos = marquee.scrollLeft; auto = true; }, 1400); };
 
-    const SPEED = 0.5;
-    const loop = () => { if (auto) { marquee.scrollLeft += SPEED; wrap(); } requestAnimationFrame(loop); };
+    const wrap = () => {
+      if (!half) return;
+      if (auto) {
+        if (pos >= half) pos -= half; else if (pos < 0) pos += half;
+      } else {
+        // user is driving the scroll — keep the loop seamless and stay in sync
+        if (marquee.scrollLeft >= half) marquee.scrollLeft -= half;
+        else if (marquee.scrollLeft < 0) marquee.scrollLeft += half;
+        pos = marquee.scrollLeft;
+      }
+    };
+
+    const SPEED = 0.6;
+    const loop = () => {
+      if (auto) { pos += SPEED; wrap(); marquee.scrollLeft = pos; }
+      requestAnimationFrame(loop);
+    };
     requestAnimationFrame(loop);
 
     // mouse drag-to-scroll (touch uses native horizontal scrolling)
