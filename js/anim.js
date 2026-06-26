@@ -69,4 +69,29 @@
       });
     });
   }
+
+  /* 5) Smooth momentum scrolling (desktop) via Lenis — native on touch.
+     Falls back to normal scrolling if the library doesn't load. */
+  try {
+    if (fine && window.Lenis) {
+      var lenis = new window.Lenis({
+        duration: 1.1,
+        smoothWheel: true,
+        smoothTouch: false,
+        easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); }
+      });
+      var lraf = function (time) { lenis.raf(time); requestAnimationFrame(lraf); };
+      requestAnimationFrame(lraf);
+      // smooth anchor jumps with offset for the fixed nav
+      document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+        a.addEventListener('click', function (e) {
+          var id = a.getAttribute('href');
+          if (id && id.length > 1) {
+            var el = document.querySelector(id);
+            if (el) { e.preventDefault(); lenis.scrollTo(el, { offset: -68 }); }
+          }
+        });
+      });
+    }
+  } catch (err) {}
 })();
