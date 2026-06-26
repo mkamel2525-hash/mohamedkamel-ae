@@ -1468,3 +1468,20 @@ html.lenis, html.lenis body { height: auto; }
 .section__head .section__title.is-in {
   clip-path: inset(0 0 -18% 0);
 }
+
+/* ============================================================
+   v54 — mobile / iPad stability: calm heavy background motion on
+   touch devices (keeps the look, drops continuous GPU work)
+   ============================================================ */
+@media (hover: none) {
+  /* hero glow stays, but no constant blur animation on touch */
+  .hero__aura::before,
+  .hero__aura::after { animation: none; opacity: .13; filter: blur(55px); }
+  /* luxury texture stays visible but stops the slow drift loop */
+  .trust::before,
+  .footer::before { animation: none; transform: scale(1.06); }
+  /* gold button shine: calmer, less frequent on touch */
+  .btn--gold::after { animation-duration: 9s; }
+  /* never allow a stray decorative layer to create horizontal scroll */
+  .hero, .trust, .footer { overflow: hidden; }
+}
