@@ -1427,3 +1427,24 @@ html.rtl .eyebrow { }
   transition:width 1s cubic-bezier(.2,.7,.2,1) .15s;
 }
 .section__head .section__title.is-in::after{ width:120px; }
+
+/* ============================================================
+   v52 — cinematic luxury texture accent (decorative)
+   ============================================================ */
+.trust::before,
+.footer::before{
+  content:""; position:absolute; inset:-6%; z-index:0;
+  background:url('../assets/texture-luxury.jpg') center/cover no-repeat;
+  mix-blend-mode:screen; pointer-events:none;
+  animation:texDrift 34s ease-in-out infinite alternate;
+}
+.trust::before{ opacity:.55; }
+.footer::before{ opacity:.40; }
+@keyframes texDrift{
+  from{ transform:scale(1.06) translate3d(0,0,0); }
+  to{ transform:scale(1.2) translate3d(-2.5%,-2.5%,0); }
+}
+/* keep all real content crisp above the texture */
+.trust__label, .trust__marquee{ position:relative; z-index:1; }
+.footer .container, .footer__bar{ position:relative; z-index:1; }
+.footer{ overflow:hidden; }
