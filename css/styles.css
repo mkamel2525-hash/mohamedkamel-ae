@@ -1497,3 +1497,30 @@ html.lenis, html.lenis body { height: auto; }
   padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0);
   white-space: nowrap; border: 0;
 }
+
+/* ============================================================
+   v57 — contact channels as branded clickable icon buttons
+   ============================================================ */
+.consult__channels--icons{ display:flex; flex-wrap:wrap; gap:.7rem; }
+.consult__channels--icons .chan{
+  display:inline-flex; align-items:center; gap:.55rem;
+  padding:.62rem 1.05rem; border:1px solid var(--line);
+  border-radius:40px; background:#fff; color:var(--navy-ink);
+  font-family:'Montserrat',sans-serif; font-size:.84rem; font-weight:600;
+  letter-spacing:.02em; text-decoration:none; cursor:pointer;
+  transition:transform .25s var(--ease), box-shadow .25s var(--ease), background .25s, color .25s, border-color .25s;
+}
+.consult__channels--icons .chan svg{ width:20px; height:20px; flex:0 0 auto; transition:color .25s; }
+.consult__channels--icons .chan:hover{ transform:translateY(-3px); box-shadow:var(--shadow-md); }
+/* brand-coloured icons */
+.chan--wa svg{ color:#25D366; }
+.chan--phone svg, .chan--mail svg{ color:var(--gold-deep); }
+.chan--ig svg{ color:#E1306C; }
+.chan--li svg{ color:#0A66C2; }
+/* fill with brand colour on hover */
+.chan--wa:hover{ background:#25D366; border-color:#25D366; color:#fff; }
+.chan--phone:hover, .chan--mail:hover{ background:var(--gold); border-color:var(--gold); color:#3a2c12; }
+.chan--ig:hover{ background:linear-gradient(45deg,#F58529,#DD2A7B,#8134AF); border-color:transparent; color:#fff; }
+.chan--li:hover{ background:#0A66C2; border-color:#0A66C2; color:#fff; }
+.consult__channels--icons .chan:hover svg{ color:#fff; }
+.chan--phone:hover svg, .chan--mail:hover svg{ color:#3a2c12; }
