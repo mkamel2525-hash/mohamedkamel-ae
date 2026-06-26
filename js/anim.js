@@ -37,15 +37,11 @@
   /* 3) Gentle hero parallax on scroll (desktop) */
   if (fine) {
     var hbg = document.querySelector('.hero__bg');
-    var hp = document.querySelector('.hero__portrait');
     var sY = 0, pRaf = 0;
     window.addEventListener('scroll', function () {
       sY = window.scrollY || 0;
       if (!pRaf) pRaf = requestAnimationFrame(function () {
-        if (sY < 1000) {
-          if (hbg) hbg.style.transform = 'translateY(' + (sY * 0.12) + 'px) scale(1.06)';
-          if (hp) hp.style.transform = 'translateY(' + (sY * -0.04) + 'px)';
-        }
+        if (sY < 1000 && hbg) hbg.style.transform = 'translateY(' + (sY * 0.12) + 'px) scale(1.06)';
         pRaf = 0;
       });
     }, { passive: true });

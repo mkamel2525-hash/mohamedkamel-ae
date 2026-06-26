@@ -467,8 +467,8 @@
   if (prefersReduced || !window.matchMedia('(pointer:fine)').matches) return;
 
   const heroInner = document.querySelector('.hero__inner');
-  const portrait = document.querySelector('.hero__portrait');
-  const cards = [];  /* cards keep their gentle CSS float; not pointer-driven */
+  const portrait = document.querySelector('.hero__portrait-frame');  /* tilt the photo only — keep stat cards steady */
+  const cards = [];
   if (!heroInner) return;
 
   let raf = null, tx = 0, ty = 0, cx = 0, cy = 0;
