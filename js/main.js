@@ -225,7 +225,7 @@
         card.innerHTML = `
           ${logo}
           <div class="dev-card__top">
-            <span class="dev-card__name">${d.name}</span>
+            <span class="dev-card__name">${d.name.replace(/ (\d+)$/, ' $1')}</span>
             <span class="dev-card__pos">${dt(d.pos)}</span>
           </div>
           <div class="dev-card__body">
