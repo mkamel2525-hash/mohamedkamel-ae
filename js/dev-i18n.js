@@ -254,3 +254,47 @@ Object.assign(window.DEV_T.ru, {
   'Plan: 10% / 50% / 40%':'План: 10% / 50% / 40%',
   'Golf-facing towers at Sobha One, Ras Al Khor':'Башни с видом на гольф в Sobha One, Ras Al Khor'
 });
+
+/* ---- Meraas (latest projects) translations ---- */
+Object.assign(window.DEV_T.ar, {
+  'Lifestyle Master Developer':'مطوّر وجهات حياتية',
+  'Creator of Dubai’s most vibrant lifestyle destinations.':'صانع أكثر الوجهات الحيوية والنابضة بالحياة في دبي.',
+  'City Walk, Bluewaters, Design District (d3), Port de La Mer, La Mer.':'سيتي ووك، بلوواترز، حي التصميم (d3)، بورت دو لا مير، لا مير.',
+  'Destination-led communities with strong rental demand and a lasting lifestyle premium.':'مجتمعات قائمة على الوجهات بطلب إيجاري قوي وقيمة أسلوب حياة دائمة.',
+  '1–4 BR urban apartments & luxury penthouses':'شقق حضرية 1–4 غرف وبنتهاوس فاخرة',
+  '1–4 BR apartments & duplexes':'شقق ودوبلكس 1–4 غرف',
+  '4–5 BR waterfront villas & grand penthouses':'فلل على الواجهة المائية 4–5 غرف وبنتهاوس فخمة',
+  '1–4 BR urban apartments & luxury penthouses — from AED 2.0M':'شقق حضرية 1–4 غرف وبنتهاوس فاخرة — من AED 2.0M',
+  'Plan: 20% on booking · 55% during construction (10% instalments) · 25% on handover':'الخطة: 20% عند الحجز · 55% أثناء الإنشاء (أقساط 10%) · 25% عند التسليم',
+  'Handover: June 2030':'التسليم: يونيو 2030',
+  'Iconic tower within the 18M sq ft Dubai Design District Waterfront Masterplan':'برج أيقوني ضمن مخطط واجهة حي دبي للتصميم البالغ 18 مليون قدم²',
+  'Modern 1–4 BR apartments & duplexes — from AED 2.62M':'شقق ودوبلكس عصرية 1–4 غرف — من AED 2.62M',
+  'Plan: 20% on booking · 55% during construction · 25% on handover':'الخطة: 20% عند الحجز · 55% أثناء الإنشاء · 25% عند التسليم',
+  'Handover: late 2028 to mid-2029':'التسليم: أواخر 2028 إلى منتصف 2029',
+  'Pedestrian-friendly mid-rise towers facing lush urban parks':'أبراج متوسطة الارتفاع صديقة للمشاة تطل على حدائق حضرية غنّاء',
+  'Ultra-premium 4–5 BR waterfront villas & grand penthouses — from AED 13.8M':'فلل فائقة الفخامة 4–5 غرف على الواجهة المائية وبنتهاوس فخمة — من AED 13.8M',
+  'Plan: 20% on booking · 40% during construction · 40% on handover':'الخطة: 20% عند الحجز · 40% أثناء الإنشاء · 40% عند التسليم',
+  'Handover: Q3 2029':'التسليم: الربع الثالث 2029',
+  'Ultra-exclusive private seafront enclave on La Mer, Jumeirah':'مجمّع خاص فائق الحصرية على واجهة بحرية في لا مير، جميرا'
+});
+Object.assign(window.DEV_T.ru, {
+  'Lifestyle Master Developer':'Девелопер lifestyle-проектов',
+  'Creator of Dubai’s most vibrant lifestyle destinations.':'Создатель самых ярких lifestyle-направлений Дубая.',
+  'City Walk, Bluewaters, Design District (d3), Port de La Mer, La Mer.':'City Walk, Bluewaters, Design District (d3), Port de La Mer, La Mer.',
+  'Destination-led communities with strong rental demand and a lasting lifestyle premium.':'Сообщества-направления с высоким арендным спросом и устойчивой lifestyle-премией.',
+  '1–4 BR urban apartments & luxury penthouses':'Городские апартаменты 1–4 спальни и люкс-пентхаусы',
+  '1–4 BR apartments & duplexes':'Апартаменты и дуплексы 1–4 спальни',
+  '4–5 BR waterfront villas & grand penthouses':'Виллы у воды 4–5 спален и гранд-пентхаусы',
+  '1–4 BR urban apartments & luxury penthouses — from AED 2.0M':'Городские апартаменты 1–4 спальни и люкс-пентхаусы — от AED 2.0M',
+  'Plan: 20% on booking · 55% during construction (10% instalments) · 25% on handover':'План: 20% при бронировании · 55% в ходе строительства (платежи по 10%) · 25% при передаче',
+  'Handover: June 2030':'Передача: июнь 2030',
+  'Iconic tower within the 18M sq ft Dubai Design District Waterfront Masterplan':'Знаковая башня в мастер-плане набережной Dubai Design District площадью 18 млн кв.фт',
+  'Modern 1–4 BR apartments & duplexes — from AED 2.62M':'Современные апартаменты и дуплексы 1–4 спальни — от AED 2.62M',
+  'Plan: 20% on booking · 55% during construction · 25% on handover':'План: 20% при бронировании · 55% в ходе строительства · 25% при передаче',
+  'Handover: late 2028 to mid-2029':'Передача: конец 2028 – середина 2029',
+  'Pedestrian-friendly mid-rise towers facing lush urban parks':'Пешеходные среднеэтажные башни с видом на зелёные городские парки',
+  'Ultra-premium 4–5 BR waterfront villas & grand penthouses — from AED 13.8M':'Ультра-премиальные виллы у воды 4–5 спален и гранд-пентхаусы — от AED 13.8M',
+  'Plan: 20% on booking · 40% during construction · 40% on handover':'План: 20% при бронировании · 40% в ходе строительства · 40% при передаче',
+  'Handover: Q3 2029':'Передача: 3 кв. 2029',
+  'Ultra-exclusive private seafront enclave on La Mer, Jumeirah':'Ультра-эксклюзивный частный анклав на берегу La Mer, Джумейра'
+});
