@@ -1573,3 +1573,11 @@ html.lenis, html.lenis body { height: auto; }
   .dev-card { padding: 2.6rem 2.1rem; }
   .dev-card__name { font-size: 2.1rem; }
 }
+
+/* ============================================================
+   v62 — developer card name gets full width (pos label below)
+   guarantees short names like "Object 1" stay on one line
+   ============================================================ */
+.dev-card__top { flex-direction: column; align-items: flex-start; gap: .45rem; }
+.dev-card__name { white-space: nowrap; }
+@media (max-width: 480px){ .dev-card__name { white-space: normal; } }
