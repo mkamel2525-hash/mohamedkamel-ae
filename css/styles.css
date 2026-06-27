@@ -1557,3 +1557,19 @@ html.lenis, html.lenis body { height: auto; }
   .dev-card__name { font-size: 2rem; }
   .dev-card { padding: 2.4rem 2rem; }
 }
+
+/* ============================================================
+   v61 — developer cards a touch larger again
+   ============================================================ */
+.devs__grid { gap: 2rem; }
+.dev-card { padding: 3.4rem 2.8rem; }
+.dev-card__name { font-size: 2.5rem; }
+.dev-card__pos { font-size: .82rem; }
+.dev-card__toggle { margin-top: 1.9rem; font-size: .9rem; }
+.dev-card__toggle::after { font-size: 1.4rem; }
+.dev-card__brand { height: 74px; padding: 12px 22px; margin-bottom: 1.4rem; }
+.dev-card__brand .dev-card__logo { max-height: 50px; max-width: 230px; }
+@media (max-width: 1024px) {
+  .dev-card { padding: 2.6rem 2.1rem; }
+  .dev-card__name { font-size: 2.1rem; }
+}
