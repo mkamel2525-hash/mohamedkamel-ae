@@ -298,3 +298,15 @@ Object.assign(window.DEV_T.ru, {
   'Handover: Q3 2029':'Передача: 3 кв. 2029',
   'Ultra-exclusive private seafront enclave on La Mer, Jumeirah':'Ультра-эксклюзивный частный анклав на берегу La Mer, Джумейра'
 });
+
+/* ---- Meraas latest: full-number price bullets ---- */
+Object.assign(window.DEV_T.ar, {
+  'Starting price — AED 13,800,000':'سعر البداية — AED 13,800,000',
+  '1–4 BR urban apartments & luxury penthouses — from AED 2,000,000':'شقق حضرية 1–4 غرف وبنتهاوس فاخرة — من AED 2,000,000',
+  'Modern 1–4 BR apartments & duplexes — from AED 2,620,000':'شقق ودوبلكس عصرية 1–4 غرف — من AED 2,620,000'
+});
+Object.assign(window.DEV_T.ru, {
+  'Starting price — AED 13,800,000':'Стартовая цена — AED 13,800,000',
+  '1–4 BR urban apartments & luxury penthouses — from AED 2,000,000':'Городские апартаменты 1–4 спальни и люкс-пентхаусы — от AED 2,000,000',
+  'Modern 1–4 BR apartments & duplexes — from AED 2,620,000':'Современные апартаменты и дуплексы 1–4 спальни — от AED 2,620,000'
+});
