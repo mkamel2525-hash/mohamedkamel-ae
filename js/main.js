@@ -595,6 +595,9 @@
     const resumeAnim = (delay) => { clearTimeout(resumeT); resumeT = setTimeout(() => { track.style.animationPlayState = 'running'; }, delay || 1200); };
 
     marquee.addEventListener('pointerdown', (e) => {
+      // Only the mouse can drag. On touch, leave it auto-scrolling so
+      // scrolling the page over the bar never disturbs it (no shake).
+      if (e.pointerType !== 'mouse') return;
       dragging = true; pauseAnim();
       startX = e.clientX; startOffset = offset; moved = 0;
       marquee.style.cursor = 'grabbing';
