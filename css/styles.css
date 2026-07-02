@@ -1461,7 +1461,10 @@ html.lenis, html.lenis body { height: auto; }
 /* premium "wipe up" reveal on key headings (triggered by existing .is-in) */
 .hero__title,
 .section__head .section__title {
-  clip-path: inset(0 0 115% 0);
+  /* keep ≥12% of the box unclipped — a fully-clipped element never
+     intersects in modern Chromium, so .is-in would never fire
+     (.reveal's opacity keeps the sliver invisible until then) */
+  clip-path: inset(0 0 80% 0);
   transition: clip-path 1.1s cubic-bezier(.19,1,.22,1) .06s;
 }
 .hero__title.is-in,
