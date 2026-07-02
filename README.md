@@ -45,8 +45,8 @@ placeholders:
 ## Design
 
 - **Aesthetic:** Luxury editorial (≈80% light luxury / 20% dark luxury contrast)
-- **Typography:** Cormorant Garamond (headings) · Montserrat (body)
-- **Palette:** Warm White · Soft Beige · Warm Cream · Ukrainian Blue `#0057B7` · Golden Yellow `#D9A50D` · Deep Contrast
+- **Typography:** Playfair Display (headings) · Jost (body)
+- **Palette:** Warm White · Soft Beige · Warm Cream · Deep Emerald `#12503D` · Copper `#C1795A` (Playfair Display + Jost) · Deep Contrast
 - **Languages:** English · العربية (RTL) · Русский — via `js/i18n.js`
 - **Motion:** Scroll reveal, parallax, floating glass cards, magnetic CTAs,
   animated counters — all gated behind `prefers-reduced-motion`.
