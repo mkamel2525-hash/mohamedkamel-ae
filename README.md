@@ -46,7 +46,7 @@ placeholders:
 
 - **Aesthetic:** Luxury editorial (≈80% light luxury / 20% dark luxury contrast)
 - **Typography:** Cormorant Garamond (headings) · Montserrat (body)
-- **Palette:** Warm White · Soft Beige · Warm Cream · Luxury Gold `#C9A96E` · Deep Contrast
+- **Palette:** Warm White · Soft Beige · Warm Cream · Rose Gold `#B4737E` · Deep Bordeaux `#5A1F33` · Deep Contrast
 - **Languages:** English · العربية (RTL) · Русский — via `js/i18n.js`
 - **Motion:** Scroll reveal, parallax, floating glass cards, magnetic CTAs,
   animated counters — all gated behind `prefers-reduced-motion`.
@@ -68,7 +68,7 @@ design-system/      Design documentation
 
 ## The portrait
 
-Viktoria's studio portrait lives at `assets/portrait.jpg` (hero) and
-`assets/portrait-consult.jpg` (round avatar in the consultation section).
+Viktoria's studio portrait lives at `assets/portrait.png` (hero) and
+`assets/portrait-consult.png` (round avatar in the consultation section).
 To swap it, replace those two files — if they're ever missing the site
 gracefully falls back to a styled frame, so nothing looks broken.

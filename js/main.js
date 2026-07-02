@@ -442,7 +442,7 @@
         const tw = (Math.sin(t * 1.6 + p.tw) + 1) / 2;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(201,169,110,${(p.a * (0.45 + 0.55 * tw)).toFixed(3)})`;
+        ctx.fillStyle = `rgba(180,115,126,${(p.a * (0.45 + 0.55 * tw)).toFixed(3)})`;
         ctx.fill();
       }
       if (running) raf = requestAnimationFrame(draw);
@@ -470,7 +470,7 @@
   if (prefersReduced || !window.matchMedia('(pointer:fine)').matches) return;
 
   const heroInner = document.querySelector('.hero__inner');
-  const portrait = document.querySelector('.hero__portrait-frame');  /* tilt the photo only — keep stat cards steady */
+  const portrait = null;  /* photo kept fully stable — no pointer tilt */
   const cards = [];
   if (!heroInner) return;
 
