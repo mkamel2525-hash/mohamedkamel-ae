@@ -17,7 +17,6 @@ placeholders:
 | Title / company | `Luxury Property Consultant · Deluxe Homes Real Estate` | `index.html`, `js/i18n.js`, `card/index.html` |
 | Instagram / LinkedIn | empty links (`https://instagram.com/`) | `index.html`, `card/index.html` |
 | Career stats | `AED 150M+ Career Sales`, `10+ Developer Partners` | `index.html`, `js/i18n.js` |
-| Photo | none yet — the site shows an elegant fallback | add `assets/portrait.png` and `assets/portrait-consult.png` (transparent PNG cutouts) |
 | Social preview image | none yet | add `assets/og-image.jpg` (1200×630) |
 | Listings | Mohamed's Property Finder listings | `index.html` `#listings` section |
 | Domain | `viktoriaivanova.ae` (sample) | `index.html`, `card/index.html`, `sitemap.xml`, `robots.txt` |
@@ -69,6 +68,7 @@ design-system/      Design documentation
 
 ## The portrait
 
-The hero and consultation sections expect transparent PNG cutouts at
-`assets/portrait.png` and `assets/portrait-consult.png`. Until those are added
-the site gracefully falls back to a styled monogram — nothing looks broken.
+Viktoria's studio portrait lives at `assets/portrait.jpg` (hero) and
+`assets/portrait-consult.jpg` (round avatar in the consultation section).
+To swap it, replace those two files — if they're ever missing the site
+gracefully falls back to a styled frame, so nothing looks broken.

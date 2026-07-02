@@ -185,6 +185,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .hero__portrait-frame { position: relative; }
 .hero__portrait-frame img {
   width: 100%; filter: drop-shadow(0 30px 45px rgba(44,36,32,0.35)); position: relative; z-index: 2;
+  border-radius: 6px;
 }
 .hero__portrait-frame img.is-fallback { background: linear-gradient(160deg, #36537E, #24406B); min-height: 480px; border-radius: 6px; }
 /* Clean portrait in front of the skyline — no panel; subtle gold keyline only */
