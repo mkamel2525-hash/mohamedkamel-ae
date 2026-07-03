@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#5c452c" />
+  <meta name="theme-color" content="#2b1e66" />
   <title>Obriy Consulting | Business Setup & Investment Advisory — Dubai</title>
   <meta name="description" content="Obriy Consulting — Dubai-based consultancy for company formation, UAE residency and Golden Visa, real estate investment and relocation. Led by founder & CEO Victoria Ivanova." />
   <meta name="author" content="Obriy Consulting" />
@@ -12,130 +12,169 @@
   <meta property="og:title" content="Obriy Consulting | New Horizons for Your Business in Dubai" />
   <meta property="og:description" content="Company formation, residency, investment and relocation advisory in the UAE." />
   <meta property="og:url" content="https://obriyconsulting.ae/" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%235c452c'/><circle cx='50' cy='54' r='22' fill='none' stroke='%23b0783f' stroke-width='5'/><path d='M18 54h64' stroke='%235c452c' stroke-width='10'/><path d='M22 60h56' stroke='%23b0783f' stroke-width='5'/></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%23FF9A3D'/><stop offset='.5' stop-color='%23FF5E7A'/><stop offset='1' stop-color='%238B5CF6'/></linearGradient></defs><rect width='100' height='100' rx='24' fill='%232b1e66'/><circle cx='50' cy='56' r='24' fill='url(%23g)'/><rect x='14' y='56' width='72' height='30' fill='%232b1e66'/><path d='M18 60h64' stroke='url(%23g)' stroke-width='6' stroke-linecap='round'/></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --ivory:#faf7f1; --sand:#f1e9db; --sand-2:#f0e7d4;
-      --bronze:#b0783f; --bronze-deep:#8f5f2e; --bronze-soft:#d9b280;
-      --ink:#3f3325; --espresso:#5c452c; --espresso-deep:#241a10;
-      --soft:#8a7a64; --line:rgba(63,51,37,.14);
-      --serif:'Playfair Display',Georgia,serif; --sans:'Jost',-apple-system,sans-serif;
+      --ink:#241b52; --deep:#2b1e66; --deep-2:#3b2a8c;
+      --violet:#8b5cf6; --violet-deep:#6d28d9;
+      --coral:#ff5e7a; --orange:#ff9a3d; --cyan:#22d3ee;
+      --bg:#f6f5ff; --card:#ffffff; --soft:#6c6494;
+      --grad:linear-gradient(120deg,#ff9a3d 0%,#ff5e7a 45%,#8b5cf6 100%);
+      --grad-soft:linear-gradient(120deg,rgba(255,154,61,.16),rgba(255,94,122,.16),rgba(139,92,246,.16));
+      --display:'Sora',-apple-system,sans-serif; --body:'Manrope',-apple-system,sans-serif;
       --maxw:1180px; --pad:clamp(1.25rem,5vw,4.5rem); --ease:cubic-bezier(.22,1,.36,1);
+      --r:26px;
     }
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{font-family:var(--sans);color:var(--ink);background:var(--ivory);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+    body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.7;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
     img{max-width:100%;display:block;} a{color:inherit;text-decoration:none;} ul{list-style:none;}
-    ::selection{background:var(--bronze);color:#fff;}
-    :focus-visible{outline:2px solid var(--bronze);outline-offset:3px;border-radius:2px;}
+    ::selection{background:var(--violet);color:#fff;}
+    :focus-visible{outline:3px solid var(--violet);outline-offset:3px;border-radius:6px;}
     .container{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);}
-    h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;color:var(--espresso);}
-    .eyebrow{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bronze);font-weight:500;display:flex;align-items:center;gap:.8rem;}
-    .eyebrow::before{content:'';width:30px;height:2px;background:var(--bronze);}
-    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 2rem;border-radius:999px;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;font-weight:500;transition:all .35s var(--ease);border:1px solid transparent;}
-    .btn--bronze{background:linear-gradient(135deg,var(--bronze),var(--bronze-deep));color:#fff;box-shadow:0 14px 30px -14px rgba(143,95,46,.55);}
-    .btn--bronze:hover{transform:translateY(-2px);box-shadow:0 20px 38px -14px rgba(143,95,46,.65);}
-    .btn--ghost{border-color:var(--line);color:var(--espresso);}
-    .btn--ghost:hover{background:var(--espresso);color:var(--ivory);border-color:var(--espresso);}
+    h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.12;color:var(--deep);letter-spacing:-.015em;}
+    .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .chip{display:inline-flex;align-items:center;gap:.55rem;background:#fff;border:1px solid rgba(139,92,246,.25);box-shadow:0 8px 24px -12px rgba(43,30,102,.25);border-radius:999px;padding:.5rem 1.1rem;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--violet-deep);}
+    .chip::before{content:'';width:10px;height:10px;border-radius:50%;background:var(--grad);}
+
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;padding:1.05rem 2.1rem;border-radius:18px;font-family:var(--display);font-size:.9rem;font-weight:600;transition:all .3s var(--ease);position:relative;}
+    .btn--grad{background:var(--grad);color:#fff;box-shadow:0 12px 28px -10px rgba(255,94,122,.55), 0 24px 50px -20px rgba(139,92,246,.5), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -3px 0 rgba(0,0,0,.15);}
+    .btn--grad:hover{transform:translateY(-3px) scale(1.01);box-shadow:0 18px 36px -10px rgba(255,94,122,.6), 0 30px 60px -20px rgba(139,92,246,.55), inset 0 2px 0 rgba(255,255,255,.35), inset 0 -3px 0 rgba(0,0,0,.15);}
+    .btn--grad:active{transform:translateY(0) scale(.99);}
+    .btn--glass{background:rgba(255,255,255,.75);backdrop-filter:blur(10px);border:1px solid rgba(139,92,246,.3);color:var(--deep);box-shadow:0 10px 26px -14px rgba(43,30,102,.35), inset 0 1px 0 #fff;}
+    .btn--glass:hover{transform:translateY(-3px);border-color:var(--violet);}
 
     /* Nav */
-    .nav{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(250,247,241,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line);}
-    .nav__inner{max-width:var(--maxw);margin-inline:auto;padding:.9rem var(--pad);display:flex;align-items:center;gap:2rem;}
+    .nav{position:fixed;inset-inline:0;top:0;z-index:50;background:rgba(246,245,255,.82);backdrop-filter:blur(14px);border-bottom:1px solid rgba(139,92,246,.15);}
+    .nav__inner{max-width:var(--maxw);margin-inline:auto;padding:.85rem var(--pad);display:flex;align-items:center;gap:2rem;}
     .logo{display:flex;align-items:center;gap:.7rem;}
-    .logo svg{width:40px;height:40px;}
-    .logo b{font-family:var(--serif);font-size:1.3rem;color:var(--espresso);letter-spacing:.02em;font-weight:600;white-space:nowrap;}
-    .logo span{display:block;font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--bronze);font-weight:500;}
-    .nav__links{margin-left:auto;display:flex;gap:1.6rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;font-weight:500;}
-    .nav__links a{opacity:.75;transition:.3s;} .nav__links a:hover{opacity:1;color:var(--bronze-deep);}
+    .logo svg{width:42px;height:42px;filter:drop-shadow(0 6px 12px rgba(139,92,246,.45));}
+    .logo b{font-family:var(--display);font-size:1.15rem;color:var(--deep);font-weight:800;white-space:nowrap;letter-spacing:-.01em;}
+    .logo span{display:block;font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;font-weight:700;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .nav__links{margin-left:auto;display:flex;gap:1.5rem;font-size:.82rem;font-weight:700;}
+    .nav__links a{opacity:.7;transition:.3s;} .nav__links a:hover{opacity:1;color:var(--violet-deep);}
     @media(max-width:840px){.nav__links{display:none;}}
 
+    /* 3D orbs */
+    .orb{position:absolute;border-radius:50%;pointer-events:none;
+      background:radial-gradient(circle at 32% 28%, rgba(255,255,255,.95) 0%, rgba(255,255,255,.25) 18%, transparent 40%),
+                 radial-gradient(circle at 65% 70%, var(--o2,#ff5e7a) 0%, var(--o1,#8b5cf6) 75%);
+      box-shadow:inset -14px -18px 34px rgba(0,0,0,.22), inset 8px 10px 24px rgba(255,255,255,.35),
+                 0 30px 50px -18px var(--osh,rgba(139,92,246,.55));
+      animation:bob 7s ease-in-out infinite;}
+    @keyframes bob{0%,100%{transform:translateY(0) rotate(0deg);}50%{transform:translateY(-16px) rotate(3deg);}}
+    .ring{position:absolute;border-radius:50%;border:14px solid transparent;pointer-events:none;
+      background:linear-gradient(var(--bg),var(--bg)) padding-box, var(--grad) border-box;
+      filter:drop-shadow(0 18px 30px rgba(255,94,122,.35));animation:spin 16s linear infinite;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    @media(prefers-reduced-motion:reduce){.orb,.ring{animation:none;}}
+
     /* Hero */
-    .hero{position:relative;padding:9.5rem 0 5rem;background:
-      radial-gradient(120% 90% at 85% 10%, #f5eedd 0%, rgba(245,238,221,0) 55%),
-      linear-gradient(160deg,#faf7f1 0%,#f1e9db 55%,#f0e7d4 100%);}
-    .hero__inner{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;}
+    .hero{position:relative;padding:9rem 0 5.5rem;overflow:hidden;
+      background:radial-gradient(90% 70% at 15% 0%, rgba(255,154,61,.18) 0%, transparent 55%),
+                 radial-gradient(80% 60% at 95% 15%, rgba(139,92,246,.22) 0%, transparent 60%),
+                 radial-gradient(70% 50% at 60% 100%, rgba(34,211,238,.14) 0%, transparent 60%), var(--bg);}
+    .hero__inner{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--pad);display:grid;grid-template-columns:1.12fr .88fr;gap:3.5rem;align-items:center;position:relative;}
     @media(max-width:900px){.hero__inner{grid-template-columns:1fr;}}
-    .hero h1{font-size:clamp(2.6rem,5.6vw,4.6rem);margin-top:1.2rem;text-wrap:balance;}
-    .hero__sub{font-family:var(--serif);font-style:italic;font-size:clamp(1.15rem,2.4vw,1.6rem);color:var(--bronze-deep);margin-top:1rem;}
-    .hero__text{margin-top:1.2rem;color:var(--soft);max-width:54ch;}
+    .hero h1{font-size:clamp(2.6rem,5.8vw,4.4rem);font-weight:800;margin-top:1.4rem;text-wrap:balance;}
+    .hero__sub{font-size:1.1rem;color:var(--soft);font-weight:600;margin-top:.9rem;}
+    .hero__text{margin-top:1rem;color:var(--soft);max-width:54ch;}
     .hero__cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2.2rem;}
-    .hero__points{display:flex;gap:1.6rem;flex-wrap:wrap;margin-top:2.4rem;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);}
-    .hero__points li{display:flex;align-items:center;gap:.5rem;}
-    .hero__points li::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--bronze);}
-    .hero__visual{position:relative;display:flex;justify-content:center;}
-    .arch{position:relative;width:min(340px,80vw);}
-    .arch__frame{border-radius:999px 999px 14px 14px;overflow:hidden;background:linear-gradient(180deg,#f0e7d4,#f1e9db);box-shadow:0 40px 70px -40px rgba(36,26,16,.45);}
-    .arch__frame img{width:100%;display:block;}
-    .arch::after{content:'';position:absolute;inset:-14px;border:1.5px solid rgba(176,120,63,.5);border-radius:999px 999px 18px 18px;pointer-events:none;}
-    .arch__badge{position:absolute;left:50%;bottom:-24px;transform:translateX(-50%);background:var(--espresso);color:var(--ivory);border-radius:999px;padding:.55rem 1.4rem;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;box-shadow:0 16px 30px -14px rgba(36,26,16,.6);}
+    .hero__points{display:flex;gap:.7rem;flex-wrap:wrap;margin-top:2.2rem;}
+    .hero__points li{background:#fff;border:1px solid rgba(139,92,246,.18);border-radius:999px;padding:.45rem 1rem;font-size:.78rem;font-weight:700;color:var(--deep);box-shadow:0 8px 20px -12px rgba(43,30,102,.3);}
+    .hero__visual{position:relative;display:flex;justify-content:center;perspective:1100px;}
+    .photo3d{position:relative;width:min(340px,78vw);transform-style:preserve-3d;transition:transform .25s ease-out;}
+    .photo3d__frame{border-radius:36px;overflow:hidden;position:relative;
+      background:linear-gradient(160deg,#efeaff, #ffe9f0 60%, #fff2e2);
+      border:2px solid transparent;
+      background-clip:padding-box;
+      box-shadow:0 40px 80px -32px rgba(43,30,102,.5), 0 12px 28px -14px rgba(255,94,122,.4);}
+    .photo3d__frame::before{content:'';position:absolute;inset:0;border-radius:36px;padding:2.5px;background:var(--grad);
+      -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+    .photo3d__frame img{width:100%;display:block;}
+    .photo3d__badge{position:absolute;left:50%;bottom:-22px;transform:translateX(-50%) translateZ(46px);
+      background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid rgba(139,92,246,.3);color:var(--deep);
+      border-radius:999px;padding:.6rem 1.4rem;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:800;white-space:nowrap;
+      box-shadow:0 18px 36px -14px rgba(43,30,102,.5);}
+    .hero .orb--a{width:120px;height:120px;top:-30px;right:-16px;--o1:#8b5cf6;--o2:#22d3ee;--osh:rgba(34,211,238,.45);}
+    .hero .orb--b{width:74px;height:74px;left:-30px;bottom:70px;--o1:#ff5e7a;--o2:#ff9a3d;--osh:rgba(255,154,61,.5);animation-delay:-2.5s;}
+    .hero .ring--a{width:180px;height:180px;left:-70px;top:-40px;opacity:.9;}
 
     /* Sections */
-    .section{padding:5.5rem 0;}
-    .section--sand{background:var(--sand);}
-    .section__head{max-width:640px;margin-bottom:3rem;}
-    .section__title{font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:1rem;text-wrap:balance;}
+    .section{padding:5.5rem 0;position:relative;}
+    .section__head{max-width:660px;margin-bottom:3rem;}
+    .section__title{font-size:clamp(1.9rem,3.8vw,2.9rem);margin-top:1rem;text-wrap:balance;}
     .section__sub{color:var(--soft);margin-top:1rem;}
 
     /* About */
+    .about{background:#fff;border-block:1px solid rgba(139,92,246,.12);}
     .about__grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start;}
     @media(max-width:840px){.about__grid{grid-template-columns:1fr;}}
-    .about__lead{font-family:var(--serif);font-size:1.5rem;color:var(--espresso);line-height:1.4;}
+    .about__lead{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.45;color:var(--deep);}
     .about__text{margin-top:1.2rem;color:var(--soft);}
     .about__marks{margin-top:2rem;display:grid;gap:1rem;}
-    .about__marks li{display:flex;gap:1rem;align-items:baseline;}
-    .about__marks b{font-family:var(--serif);color:var(--bronze-deep);font-size:1.1rem;white-space:nowrap;}
+    .about__marks li{display:flex;gap:1rem;align-items:center;background:var(--bg);border-radius:18px;padding:1rem 1.2rem;border:1px solid rgba(139,92,246,.14);}
+    .about__marks b{font-family:var(--display);background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;white-space:nowrap;}
 
     /* Services */
-    .services__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;}
+    .services{background:
+      radial-gradient(70% 60% at 90% 0%, rgba(255,94,122,.12) 0%, transparent 60%),
+      radial-gradient(60% 50% at 5% 100%, rgba(34,211,238,.12) 0%, transparent 55%), var(--bg);}
+    .services__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;perspective:1200px;}
     @media(max-width:900px){.services__grid{grid-template-columns:1fr 1fr;}}
     @media(max-width:600px){.services__grid{grid-template-columns:1fr;}}
-    .svc{background:var(--ivory);border:1px solid var(--line);border-radius:20px;padding:1.8rem;transition:all .4s var(--ease);}
-    .svc:hover{transform:translateY(-5px);box-shadow:0 26px 45px -30px rgba(36,26,16,.35);border-color:rgba(176,120,63,.4);}
-    .svc__num{font-family:var(--serif);color:var(--bronze);font-size:1rem;}
-    .svc h3{font-size:1.25rem;margin-top:.6rem;}
-    .svc p{color:var(--soft);font-size:.95rem;margin-top:.5rem;}
+    .svc{background:var(--card);border-radius:var(--r);padding:1.9rem;border:1px solid rgba(139,92,246,.14);
+      box-shadow:0 20px 44px -30px rgba(43,30,102,.4), inset 0 1px 0 #fff;transition:box-shadow .35s var(--ease);transform-style:preserve-3d;will-change:transform;}
+    .svc:hover{box-shadow:0 34px 70px -34px rgba(43,30,102,.55), 0 12px 28px -18px rgba(255,94,122,.45), inset 0 1px 0 #fff;}
+    .svc__ico{width:52px;height:52px;border-radius:16px;background:var(--grad);display:flex;align-items:center;justify-content:center;color:#fff;
+      box-shadow:0 12px 24px -10px rgba(255,94,122,.55), inset 0 2px 0 rgba(255,255,255,.4), inset 0 -3px 0 rgba(0,0,0,.15);transform:translateZ(30px);}
+    .svc__ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;}
+    .svc h3{font-size:1.18rem;margin-top:1.1rem;transform:translateZ(22px);}
+    .svc p{color:var(--soft);font-size:.95rem;margin-top:.5rem;transform:translateZ(14px);}
 
     /* Founder */
     .founder{background:
-      radial-gradient(120% 120% at 80% 110%, rgba(176,120,63,.25) 0%, rgba(176,120,63,0) 55%),
-      linear-gradient(160deg,#7a5c3a 0%,#5c452c 50%,#241a10 100%);color:var(--ivory);}
-    .founder .eyebrow{color:var(--bronze-soft);}
-    .founder__grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:3.5rem;align-items:center;}
+      radial-gradient(90% 90% at 85% 10%, rgba(139,92,246,.5) 0%, transparent 55%),
+      radial-gradient(70% 80% at 10% 95%, rgba(255,94,122,.4) 0%, transparent 55%),
+      linear-gradient(150deg,#2b1e66 0%,#241b52 55%,#1a1240 100%);color:#fff;overflow:hidden;}
+    .founder__grid{display:grid;grid-template-columns:.82fr 1.18fr;gap:3.5rem;align-items:center;position:relative;}
     @media(max-width:840px){.founder__grid{grid-template-columns:1fr;}}
-    .founder__photo{width:min(300px,70vw);margin-inline:auto;}
-    .founder__photo .arch__frame{background:linear-gradient(180deg,#8a6b40,#5c452c);}
-    .founder h2{color:var(--ivory);font-size:clamp(1.9rem,3.4vw,2.7rem);margin-top:1rem;}
-    .founder__role{font-family:var(--serif);font-style:italic;color:var(--bronze-soft);font-size:1.25rem;margin-top:.5rem;}
-    .founder__quote{margin-top:1.6rem;font-family:var(--serif);font-size:1.35rem;line-height:1.5;color:rgba(250,247,241,.92);}
-    .founder__text{margin-top:1.4rem;color:rgba(250,247,241,.75);max-width:56ch;}
-    .founder__cta{margin-top:2rem;}
+    .founder__photo{position:relative;width:min(300px,70vw);margin-inline:auto;}
+    .founder__photo .photo3d__frame{background:linear-gradient(160deg,#41338f,#2b1e66);}
+    .founder h2{color:#fff;font-size:clamp(1.9rem,3.6vw,2.8rem);margin-top:1rem;}
+    .founder__role{font-weight:700;margin-top:.5rem;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;font-size:1.1rem;}
+    .founder__quote{margin-top:1.5rem;font-family:var(--display);font-weight:600;font-size:1.3rem;line-height:1.5;color:rgba(255,255,255,.94);}
+    .founder__text{margin-top:1.3rem;color:rgba(255,255,255,.7);max-width:56ch;}
+    .founder .chip{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.25);color:#fff;backdrop-filter:blur(8px);}
+    .founder .orb--c{width:100px;height:100px;right:4%;top:8%;--o1:#ff9a3d;--o2:#ff5e7a;--osh:rgba(255,94,122,.5);}
 
     /* Contact */
-    .contact__card{background:var(--ivory);border:1px solid var(--line);border-radius:24px;padding:clamp(2rem,5vw,3.5rem);display:grid;grid-template-columns:1.2fr .8fr;gap:2.5rem;align-items:center;box-shadow:0 34px 60px -44px rgba(36,26,16,.4);}
+    .contact__card{position:relative;overflow:hidden;background:var(--card);border:1px solid rgba(139,92,246,.18);border-radius:32px;padding:clamp(2rem,5vw,3.5rem);
+      display:grid;grid-template-columns:1.15fr .85fr;gap:2.5rem;align-items:center;
+      box-shadow:0 40px 80px -44px rgba(43,30,102,.5), inset 0 1px 0 #fff;}
     @media(max-width:800px){.contact__card{grid-template-columns:1fr;}}
-    .contact h2{font-size:clamp(1.8rem,3.2vw,2.5rem);}
+    .contact h2{font-size:clamp(1.8rem,3.4vw,2.5rem);}
     .contact p{color:var(--soft);margin-top:.8rem;max-width:46ch;}
-    .contact__actions{display:grid;gap:1rem;}
-    .contact__actions .btn{justify-content:center;}
-    .contact__note{font-size:.8rem;color:var(--soft);text-align:center;}
+    .contact__actions{display:grid;gap:1rem;position:relative;z-index:1;}
+    .contact__note{font-size:.82rem;color:var(--soft);text-align:center;font-weight:600;}
+    .contact__card .orb--d{width:150px;height:150px;right:-40px;bottom:-50px;--o1:#8b5cf6;--o2:#22d3ee;--osh:rgba(139,92,246,.4);opacity:.9;}
 
     /* Footer */
-    .footer{background:var(--espresso-deep);color:rgba(250,247,241,.85);padding:3.2rem 0 2.2rem;}
+    .footer{background:#1a1240;color:rgba(255,255,255,.85);padding:3.2rem 0 2.2rem;}
     .footer__grid{display:flex;flex-wrap:wrap;gap:2rem;align-items:center;justify-content:space-between;}
-    .footer .logo b{color:var(--ivory);}
-    .footer__meta{font-size:.85rem;color:rgba(250,247,241,.6);}
-    .footer__links{display:flex;gap:1.4rem;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;}
-    .footer__links a:hover{color:var(--bronze-soft);}
-    .footer__bar{border-top:1px solid rgba(250,247,241,.15);margin-top:2rem;padding-top:1.4rem;font-size:.78rem;color:rgba(250,247,241,.55);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;}
+    .footer .logo b{color:#fff;}
+    .footer__meta{font-size:.88rem;color:rgba(255,255,255,.6);}
+    .footer__links{display:flex;gap:1.4rem;font-size:.82rem;font-weight:700;}
+    .footer__links a:hover{color:#ff9a3d;}
+    .footer__bar{border-top:1px solid rgba(255,255,255,.14);margin-top:2rem;padding-top:1.4rem;font-size:.78rem;color:rgba(255,255,255,.5);display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;}
 
-    /* Floating WhatsApp */
-    .fab{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 30px -12px rgba(37,211,102,.6);transition:.3s;}
-    .fab:hover{transform:scale(1.07);}
+    .fab{position:fixed;right:22px;bottom:22px;z-index:60;width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 32px -10px rgba(37,211,102,.65), inset 0 2px 0 rgba(255,255,255,.35);transition:.3s;}
+    .fab:hover{transform:scale(1.08);}
 
-    .reveal{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);}
     .reveal.is-in{opacity:1;transform:none;}
     @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none;}}
   </style>
@@ -144,7 +183,7 @@
   <header class="nav">
     <div class="nav__inner">
       <a href="#top" class="logo" aria-label="Obriy Consulting home">
-        <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="54" r="24" fill="none" stroke="#b0783f" stroke-width="5"/><rect x="16" y="54" width="68" height="26" fill="#faf7f1"/><path d="M20 58h60" stroke="#b0783f" stroke-width="5" stroke-linecap="round"/><path d="M30 70h40" stroke="#d9b280" stroke-width="4" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9A3D"/><stop offset=".5" stop-color="#FF5E7A"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect width="100" height="100" rx="26" fill="#2b1e66"/><circle cx="50" cy="56" r="24" fill="url(#lg)"/><rect x="12" y="56" width="76" height="32" fill="#2b1e66"/><path d="M18 61h64" stroke="url(#lg)" stroke-width="6" stroke-linecap="round"/><path d="M28 73h44" stroke="#8B5CF6" stroke-width="5" stroke-linecap="round" opacity=".8"/></svg>
         <span><b>Obriy Consulting</b><span>Dubai &middot; UAE</span></span>
       </a>
       <nav class="nav__links" aria-label="Primary">
@@ -159,32 +198,35 @@
   <section class="hero" id="top">
     <div class="hero__inner">
       <div>
-        <p class="eyebrow reveal">Business &amp; Investment Consultancy — Dubai</p>
-        <h1 class="reveal">New Horizons for Your Business in Dubai</h1>
+        <span class="chip reveal">Business &amp; Investment Consultancy &middot; Dubai</span>
+        <h1 class="reveal">New Horizons for Your <span class="grad-text">Business in Dubai</span></h1>
         <p class="hero__sub reveal">Obriy — the Ukrainian word for &ldquo;horizon&rdquo;.</p>
-        <p class="hero__text reveal">Obriy Consulting guides entrepreneurs, investors and families through every step of establishing life and business in the UAE — company formation, residency, real estate and beyond. One partner, the full journey.</p>
+        <p class="hero__text reveal">We guide entrepreneurs, investors and families through every step of establishing life and business in the UAE — company formation, residency, real estate and beyond. One partner, the full journey.</p>
         <div class="hero__cta reveal">
-          <a class="btn btn--bronze" href="https://wa.me/971501410657?text=Hello%20Victoria%2C%20I%27d%20like%20a%20consultation%20with%20Obriy%20Consulting." target="_blank" rel="noopener">WhatsApp Consultation</a>
-          <a class="btn btn--ghost" href="#services">Explore Services</a>
+          <a class="btn btn--grad" href="https://wa.me/971501410657?text=Hello%20Victoria%2C%20I%27d%20like%20a%20consultation%20with%20Obriy%20Consulting." target="_blank" rel="noopener">WhatsApp Consultation</a>
+          <a class="btn btn--glass" href="#services">Explore Services</a>
         </div>
         <ul class="hero__points reveal">
-          <li>Company Setup</li><li>Residency &amp; Visas</li><li>Real Estate</li><li>Relocation</li>
+          <li>🏢 Company Setup</li><li>🛂 Residency &amp; Visas</li><li>🏙️ Real Estate</li><li>✈️ Relocation</li>
         </ul>
       </div>
       <div class="hero__visual reveal">
-        <div class="arch">
-          <div class="arch__frame"><img src="../assets/portrait.png" alt="Victoria Ivanova, Founder &amp; CEO of Obriy Consulting" /></div>
-          <span class="arch__badge">Victoria Ivanova &middot; Founder &amp; CEO</span>
+        <span class="ring ring--a" aria-hidden="true"></span>
+        <div class="photo3d" id="photo3d">
+          <div class="photo3d__frame"><img src="../assets/portrait.png" alt="Victoria Ivanova, Founder &amp; CEO of Obriy Consulting" /></div>
+          <span class="photo3d__badge">Victoria Ivanova &middot; Founder &amp; CEO</span>
         </div>
+        <span class="orb orb--a" aria-hidden="true"></span>
+        <span class="orb orb--b" aria-hidden="true"></span>
       </div>
     </div>
   </section>
 
-  <section class="section" id="about">
+  <section class="section about" id="about">
     <div class="container about__grid">
       <div>
-        <p class="eyebrow reveal">About Obriy</p>
-        <h2 class="section__title reveal">A Clear Path to the UAE</h2>
+        <span class="chip reveal">About Obriy</span>
+        <h2 class="section__title reveal">A Clear Path to <span class="grad-text">the UAE</span></h2>
       </div>
       <div>
         <p class="about__lead reveal">Moving your business, capital or family to Dubai should feel like an opportunity — not a bureaucratic maze.</p>
@@ -198,35 +240,36 @@
     </div>
   </section>
 
-  <section class="section section--sand" id="services">
+  <section class="section services" id="services">
     <div class="container">
       <header class="section__head">
-        <p class="eyebrow reveal">Services</p>
-        <h2 class="section__title reveal">Everything You Need to Land &amp; Grow</h2>
+        <span class="chip reveal">Services</span>
+        <h2 class="section__title reveal">Everything You Need to <span class="grad-text">Land &amp; Grow</span></h2>
       </header>
       <div class="services__grid">
-        <article class="svc reveal"><span class="svc__num">01</span><h3>Company Formation</h3><p>Mainland &amp; free-zone setup, licensing, corporate structuring and bank account opening.</p></article>
-        <article class="svc reveal"><span class="svc__num">02</span><h3>Residency &amp; Golden Visa</h3><p>Investor, entrepreneur and family residency pathways — including the 10-year Golden Visa.</p></article>
-        <article class="svc reveal"><span class="svc__num">03</span><h3>Real Estate Investment</h3><p>Off-plan and ready property advisory with privileged access to Dubai's leading developers.</p></article>
-        <article class="svc reveal"><span class="svc__num">04</span><h3>Relocation &amp; Family</h3><p>Housing, schools, healthcare and day-one essentials — a soft landing for the whole family.</p></article>
-        <article class="svc reveal"><span class="svc__num">05</span><h3>Accounting &amp; PRO</h3><p>Bookkeeping, VAT and corporate tax registration, plus ongoing government paperwork.</p></article>
-        <article class="svc reveal"><span class="svc__num">06</span><h3>Concierge Support</h3><p>Bank relations, insurance, vehicles, staff — the practical details, quietly taken care of.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M14 9h1M14 13h1M10 21v-4h4v4"/></svg></span><h3>Company Formation</h3><p>Mainland &amp; free-zone setup, licensing, corporate structuring and bank account opening.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 8h4M15 12h4M5 18c.8-2 2.5-3 4-3s3.2 1 4 3"/></svg></span><h3>Residency &amp; Golden Visa</h3><p>Investor, entrepreneur and family residency pathways — including the 10-year Golden Visa.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M6 21V9l6-5 6 5v12M10 21v-6h4v6"/></svg></span><h3>Real Estate Investment</h3><p>Off-plan and ready property advisory with privileged access to Dubai's leading developers.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><path d="M2 16l20-6-9 9-2-5-5-2zM22 10L11 21"/></svg></span><h3>Relocation &amp; Family</h3><p>Housing, schools, healthcare and day-one essentials — a soft landing for the whole family.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span><h3>Accounting &amp; PRO</h3><p>Bookkeeping, VAT and corporate tax registration, plus ongoing government paperwork.</p></article>
+        <article class="svc reveal"><span class="svc__ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8 13c1 1.5 2.5 2.5 4 2.5s3-1 4-2.5M9 9.5h.01M15 9.5h.01"/></svg></span><h3>Concierge Support</h3><p>Bank relations, insurance, vehicles, staff — the practical details, quietly taken care of.</p></article>
       </div>
     </div>
   </section>
 
   <section class="section founder" id="founder">
+    <span class="orb orb--c" aria-hidden="true"></span>
     <div class="container founder__grid">
       <div class="founder__photo reveal">
-        <div class="arch"><div class="arch__frame"><img src="../assets/portrait.png" alt="Victoria Ivanova" /></div></div>
+        <div class="photo3d"><div class="photo3d__frame"><img src="../assets/portrait.png" alt="Victoria Ivanova" /></div></div>
       </div>
       <div>
-        <p class="eyebrow reveal">Founder &amp; CEO</p>
+        <span class="chip reveal">Founder &amp; CEO</span>
         <h2 class="reveal">Victoria Ivanova</h2>
         <p class="founder__role reveal">Founder &amp; CEO, Obriy Consulting</p>
         <p class="founder__quote reveal">&ldquo;I built Obriy for people who see Dubai the way I do — not as a destination, but as a beginning.&rdquo;</p>
         <p class="founder__text reveal">A Dubai-based advisor and entrepreneur, Victoria leads every engagement personally — pairing local market knowledge with the care of someone who has walked the relocation journey herself.</p>
-        <a class="btn btn--bronze founder__cta reveal" href="https://wa.me/971501410657?text=Hello%20Victoria%2C%20I%27d%20like%20to%20speak%20about%20Obriy%20Consulting." target="_blank" rel="noopener">Speak with Victoria</a>
+        <a class="btn btn--grad reveal" style="margin-top:2rem" href="https://wa.me/971501410657?text=Hello%20Victoria%2C%20I%27d%20like%20to%20speak%20about%20Obriy%20Consulting." target="_blank" rel="noopener">Speak with Victoria</a>
       </div>
     </div>
   </section>
@@ -234,14 +277,15 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="contact__card contact">
+        <span class="orb orb--d" aria-hidden="true"></span>
         <div>
-          <p class="eyebrow reveal">Contact</p>
-          <h2 class="reveal">Begin with a Private Conversation</h2>
+          <span class="chip reveal">Contact</span>
+          <h2 class="reveal">Begin with a <span class="grad-text">Conversation</span></h2>
           <p class="reveal">Tell us where you are and where you want to be — we'll map the route. Every enquiry is answered personally.</p>
         </div>
         <div class="contact__actions">
-          <a class="btn btn--bronze reveal" href="https://wa.me/971501410657" target="_blank" rel="noopener">WhatsApp &middot; +971 50 141 0657</a>
-          <a class="btn btn--ghost reveal" href="tel:+971501410657">Call &middot; +971 50 141 0657</a>
+          <a class="btn btn--grad reveal" href="https://wa.me/971501410657" target="_blank" rel="noopener">WhatsApp &middot; +971 50 141 0657</a>
+          <a class="btn btn--glass reveal" href="tel:+971501410657">Call &middot; +971 50 141 0657</a>
           <p class="contact__note reveal">Dubai &middot; United Arab Emirates &middot; ObriyConsulting.ae</p>
         </div>
       </div>
@@ -252,8 +296,8 @@
     <div class="container">
       <div class="footer__grid">
         <a href="#top" class="logo" aria-label="Obriy Consulting home">
-          <svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="54" r="24" fill="none" stroke="#d9b280" stroke-width="5"/><rect x="16" y="54" width="68" height="26" fill="#241a10"/><path d="M20 58h60" stroke="#d9b280" stroke-width="5" stroke-linecap="round"/><path d="M30 70h40" stroke="#8a6b40" stroke-width="4" stroke-linecap="round"/></svg>
-          <span><b>Obriy Consulting</b><span style="color:#d9b280">Dubai &middot; UAE</span></span>
+          <svg viewBox="0 0 100 100" aria-hidden="true"><defs><linearGradient id="lgf" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FF9A3D"/><stop offset=".5" stop-color="#FF5E7A"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs><rect width="100" height="100" rx="26" fill="#241b52"/><circle cx="50" cy="56" r="24" fill="url(#lgf)"/><rect x="12" y="56" width="76" height="32" fill="#241b52"/><path d="M18 61h64" stroke="url(#lgf)" stroke-width="6" stroke-linecap="round"/></svg>
+          <span><b>Obriy Consulting</b><span>Dubai &middot; UAE</span></span>
         </a>
         <nav class="footer__links" aria-label="Footer">
           <a href="#about">About</a><a href="#services">Services</a><a href="#founder">Founder</a><a href="#contact">Contact</a>
@@ -268,22 +312,36 @@
   </footer>
 
   <a href="https://wa.me/971501410657" class="fab" target="_blank" rel="noopener" aria-label="WhatsApp Obriy Consulting">
-    <svg viewBox="0 0 24 24" width="26" height="26" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.586-5.443c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    <svg viewBox="0 0 24 24" width="27" height="27" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 018.413 3.488 11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.51 5.26l-.999 3.648 3.978-1.607zm5.586-5.443c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
       var els = document.querySelectorAll('.reveal');
-      if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        els.forEach(function(e){ e.classList.add('is-in'); }); return;
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || reduced) {
+        els.forEach(function(e){ e.classList.add('is-in'); });
+      } else {
+        var io = new IntersectionObserver(function(entries){
+          entries.forEach(function(e,i){
+            if (e.isIntersecting) { setTimeout(function(){ e.target.classList.add('is-in'); }, (i%5)*80); io.unobserve(e.target); }
+          });
+        }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
+        els.forEach(function(e){ io.observe(e); });
       }
-      var io = new IntersectionObserver(function(entries){
-        entries.forEach(function(e,i){
-          if (e.isIntersecting) { setTimeout(function(){ e.target.classList.add('is-in'); }, (i%5)*80); io.unobserve(e.target); }
+      /* 3D tilt on service cards + hero photo (fine pointers only) */
+      if (!reduced && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+        document.querySelectorAll('.svc, .photo3d').forEach(function(c){
+          c.addEventListener('pointermove', function(ev){
+            var b = c.getBoundingClientRect();
+            var px = (ev.clientX - b.left) / b.width - .5;
+            var py = (ev.clientY - b.top) / b.height - .5;
+            c.style.transform = 'perspective(1000px) rotateX(' + (py * -7) + 'deg) rotateY(' + (px * 9) + 'deg) translateY(-4px)';
+          });
+          c.addEventListener('pointerleave', function(){ c.style.transform = ''; });
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -6% 0px' });
-      els.forEach(function(e){ io.observe(e); });
+      }
     })();
   </script>
 </body>
