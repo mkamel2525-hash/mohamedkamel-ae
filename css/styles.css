@@ -1584,16 +1584,7 @@ html.lenis, html.lenis body { height: auto; }
    ============================================================ */
 .dev-card__top { flex-direction: column; align-items: flex-start; gap: .45rem; }
 
-/* ============================================================
-   Ukrainian flag beside the name
-   ============================================================ */
-.flag-ua {
-  display: inline-block; width: 0.5em; height: 0.34em;
-  border-radius: 2px; box-shadow: 0 1px 4px rgba(0,0,0,0.18);
-  vertical-align: 0.04em; margin-left: 0.06em;
-}
 .nav__name { white-space: nowrap; }
-.nav__name .flag-ua { width: 0.9em; height: 0.6em; vertical-align: -0.02em; }
 
 /* ============================================================
    VICTORIA — her own design language (distinct from the original)
