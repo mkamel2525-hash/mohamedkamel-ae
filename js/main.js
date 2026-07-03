@@ -220,7 +220,7 @@
             ? '<ul class="lx">' + ln.details.map(x => `<li>${dt(x)}</li>`).join('') + '</ul>' : '';
           return `<li><span class="ln">${ln.n}</span><span class="la">${dt(ln.a)} &middot; ${dt(ln.t)}</span><span class="lp">${detail}</span>${breakdown}</li>`;
         }).join('');
-        const wa = 'https://wa.me/971588801766?text=' +
+        const wa = 'https://wa.me/971501410657?text=' +
           encodeURIComponent('Hi Victoria, please share the latest ' + d.name + ' launches with current prices and payment plans.');
         card.innerHTML = `
           ${logo}
@@ -324,7 +324,7 @@
       `Location: ${data.get('location')}%0A` +
       `Objective: ${data.get('objective')}%0A` +
       `Message: ${data.get('message') || '-'}`;
-    const waUrl = `https://wa.me/971588801766?text=${msg}`;
+    const waUrl = `https://wa.me/971501410657?text=${msg}`;
     try { window.open(waUrl, '_blank', 'noopener'); } catch (err) {}
 
     form.innerHTML = `
@@ -663,7 +663,7 @@
     document.getElementById('calcMonth').textContent = fmt(netLo/12) + ' – ' + fmt(netHi/12);
     const msg = encodeURIComponent('Hi Victoria, I used the holiday-home calculator (property value AED ' +
       value.toLocaleString('en-US') + '). Please send me a tailored short-stay income projection.');
-    document.getElementById('calcCta').href = 'https://wa.me/971588801766?text=' + msg;
+    document.getElementById('calcCta').href = 'https://wa.me/971501410657?text=' + msg;
     const res = document.getElementById('calcResult');
     res.hidden = false; res.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }

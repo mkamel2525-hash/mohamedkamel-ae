@@ -12,7 +12,6 @@ placeholders:
 
 | What | Current placeholder | Where |
 |------|--------------------|-------|
-| Phone / WhatsApp | `971588801766` (Mohamed's — replace with hers) | all `wa.me/...` and `tel:` links |
 | Email | `Victoria@Deluxehomes.ae` | `index.html`, `card/index.html`, `js/main.js` (`LEAD_EMAIL_ENDPOINT`) |
 | Title / company | `Luxury Property Consultant · Deluxe Homes Real Estate` | `index.html`, `js/i18n.js`, `card/index.html` |
 | Instagram / LinkedIn | empty links (`https://instagram.com/`) | `index.html`, `card/index.html` |
