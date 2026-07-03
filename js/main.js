@@ -287,8 +287,6 @@
 
   /* ---------- Consultation form ---------- */
   const form = document.getElementById('consultForm');
-  // FormSubmit.co delivers each lead to this inbox (no backend needed).
-  const LEAD_EMAIL_ENDPOINT = 'https://formsubmit.co/Victoria@Deluxehomes.ae';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
@@ -297,23 +295,6 @@
     for (const f of required) {
       if (!data.get(f)) { form.querySelector(`[name="${f}"]`)?.focus(); return; }
     }
-
-    // 1) Email the lead automatically — fires even as we navigate to WhatsApp.
-    try {
-      const fd = new FormData();
-      fd.append('Name', data.get('name'));
-      fd.append('WhatsApp', data.get('whatsapp'));
-      fd.append('Email', data.get('email'));
-      fd.append('Budget', data.get('budget'));
-      fd.append('Location', data.get('location'));
-      fd.append('Objective', data.get('objective'));
-      fd.append('Message', data.get('message') || '-');
-      fd.append('_replyto', data.get('email'));   // tapping "Reply" goes straight to the client
-      fd.append('_subject', 'New Private Consultation Request — ' + (data.get('name') || ''));
-      fd.append('_template', 'table');
-      fd.append('_captcha', 'false');
-      fetch(LEAD_EMAIL_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true }).catch(() => {});
-    } catch (err) {}
 
     // 2) WhatsApp message — client taps send and Victoria receives it instantly.
     const msg = `Private Consultation Request%0A%0A` +
@@ -330,7 +311,7 @@
     form.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:2rem 0;">
         <div style="font-family:var(--serif);font-size:2rem;color:var(--gold);margin-bottom:0.6rem;">Thank you, ${name.split(' ')[0] || 'investor'}.</div>
-        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request has been sent to Victoria by email. To confirm on WhatsApp too, tap below — she will respond personally.</p>
+        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Tap below to send your request to Victoria on WhatsApp — she will respond personally.</p>
         <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Confirm via WhatsApp</a>
       </div>`;
     form.classList.add('is-sent');

@@ -2177,10 +2177,6 @@ h1, h2, h3, h4 { letter-spacing: 0; }
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             <span data-i18n="chan.call">Call</span>
           </a>
-          <a class="chan chan--mail" href="mailto:Victoria@Deluxehomes.ae" aria-label="Email">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-            <span data-i18n="consult.email">Email</span>
-          </a>
           <a class="chan chan--ig" href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
             <span>Instagram</span>
@@ -2274,7 +2270,6 @@ h1, h2, h3, h4 { letter-spacing: 0; }
       <div class="footer__col">
         <h4 data-i18n="footer.connect">Connect</h4>
         <a href="https://wa.me/971501410657" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="mailto:Victoria@Deluxehomes.ae">Victoria@Deluxehomes.ae</a>
         <a href="https://instagram.com/" target="_blank" rel="noopener">Instagram</a>
         <a href="https://linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
       </div>
@@ -3166,8 +3161,6 @@ Object.assign(window.DEV_T.ru, {
 
   /* ---------- Consultation form ---------- */
   const form = document.getElementById('consultForm');
-  // FormSubmit.co delivers each lead to this inbox (no backend needed).
-  const LEAD_EMAIL_ENDPOINT = 'https://formsubmit.co/Victoria@Deluxehomes.ae';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
@@ -3176,23 +3169,6 @@ Object.assign(window.DEV_T.ru, {
     for (const f of required) {
       if (!data.get(f)) { form.querySelector(`[name="${f}"]`)?.focus(); return; }
     }
-
-    // 1) Email the lead automatically \u2014 fires even as we navigate to WhatsApp.
-    try {
-      const fd = new FormData();
-      fd.append('Name', data.get('name'));
-      fd.append('WhatsApp', data.get('whatsapp'));
-      fd.append('Email', data.get('email'));
-      fd.append('Budget', data.get('budget'));
-      fd.append('Location', data.get('location'));
-      fd.append('Objective', data.get('objective'));
-      fd.append('Message', data.get('message') || '-');
-      fd.append('_replyto', data.get('email'));   // tapping "Reply" goes straight to the client
-      fd.append('_subject', 'New Private Consultation Request \u2014 ' + (data.get('name') || ''));
-      fd.append('_template', 'table');
-      fd.append('_captcha', 'false');
-      fetch(LEAD_EMAIL_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true }).catch(() => {});
-    } catch (err) {}
 
     // 2) WhatsApp message \u2014 client taps send and Victoria receives it instantly.
     const msg = `Private Consultation Request%0A%0A` +
@@ -3209,7 +3185,7 @@ Object.assign(window.DEV_T.ru, {
     form.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:2rem 0;">
         <div style="font-family:var(--serif);font-size:2rem;color:var(--gold);margin-bottom:0.6rem;">Thank you, ${name.split(' ')[0] || 'investor'}.</div>
-        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request has been sent to Victoria by email. To confirm on WhatsApp too, tap below \u2014 she will respond personally.</p>
+        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Tap below to send your request to Victoria on WhatsApp \u2014 she will respond personally.</p>
         <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Confirm via WhatsApp</a>
       </div>`;
     form.classList.add('is-sent');
