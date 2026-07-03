@@ -1,5 +1,5 @@
 /* ============================================================
-   Viktoria Ivanova — multilingual engine (EN · العربية · Русский)
+   Victoria Ivanova — multilingual engine (EN · العربية · Русский)
    - English baseline is auto-captured from the DOM
    - Arabic & Russian strings authored below
    - Switches in place, sets dir=rtl for Arabic, remembers choice

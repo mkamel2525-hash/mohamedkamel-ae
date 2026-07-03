@@ -1,5 +1,5 @@
 /* ============================================================
-   VIKTORIA IVANOVA — luxury motion & interaction layer
+   VICTORIA IVANOVA — luxury motion & interaction layer
    ============================================================ */
 (function () {
   'use strict';
@@ -221,7 +221,7 @@
           return `<li><span class="ln">${ln.n}</span><span class="la">${dt(ln.a)} &middot; ${dt(ln.t)}</span><span class="lp">${detail}</span>${breakdown}</li>`;
         }).join('');
         const wa = 'https://wa.me/971588801766?text=' +
-          encodeURIComponent('Hi Viktoria, please share the latest ' + d.name + ' launches with current prices and payment plans.');
+          encodeURIComponent('Hi Victoria, please share the latest ' + d.name + ' launches with current prices and payment plans.');
         card.innerHTML = `
           ${logo}
           <div class="dev-card__top">
@@ -235,7 +235,7 @@
             <div class="dev-card__launches">
               <b data-i18n="dev.lbl.launches">Latest Launches</b>
               <ul>${launches}</ul>
-              <p class="dev-card__pricing" data-i18n="dev.pricing">Indicative starting prices &amp; payment plans — confirm the latest with Viktoria.</p>
+              <p class="dev-card__pricing" data-i18n="dev.pricing">Indicative starting prices &amp; payment plans — confirm the latest with Victoria.</p>
               <a class="dev-card__wa" href="${wa}" target="_blank" rel="noopener" onclick="event.stopPropagation()" data-i18n="dev.wa">Get latest prices &amp; payment plans &rarr;</a>
             </div>
           </div>
@@ -288,7 +288,7 @@
   /* ---------- Consultation form ---------- */
   const form = document.getElementById('consultForm');
   // FormSubmit.co delivers each lead to this inbox (no backend needed).
-  const LEAD_EMAIL_ENDPOINT = 'https://formsubmit.co/Viktoria@Deluxehomes.ae';
+  const LEAD_EMAIL_ENDPOINT = 'https://formsubmit.co/Victoria@Deluxehomes.ae';
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
@@ -315,7 +315,7 @@
       fetch(LEAD_EMAIL_ENDPOINT, { method: 'POST', body: fd, mode: 'no-cors', keepalive: true }).catch(() => {});
     } catch (err) {}
 
-    // 2) WhatsApp message — client taps send and Viktoria receives it instantly.
+    // 2) WhatsApp message — client taps send and Victoria receives it instantly.
     const msg = `Private Consultation Request%0A%0A` +
       `Name: ${data.get('name')}%0A` +
       `WhatsApp: ${data.get('whatsapp')}%0A` +
@@ -330,7 +330,7 @@
     form.innerHTML = `
       <div style="grid-column:1/-1;text-align:center;padding:2rem 0;">
         <div style="font-family:var(--serif);font-size:2rem;color:var(--gold);margin-bottom:0.6rem;">Thank you, ${name.split(' ')[0] || 'investor'}.</div>
-        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request has been sent to Viktoria by email. To confirm on WhatsApp too, tap below — she will respond personally.</p>
+        <p style="color:var(--soft);max-width:42ch;margin:0 auto 1.6rem;">Your request has been sent to Victoria by email. To confirm on WhatsApp too, tap below — she will respond personally.</p>
         <a href="${waUrl}" target="_blank" rel="noopener" class="btn btn--gold magnetic">Confirm via WhatsApp</a>
       </div>`;
     form.classList.add('is-sent');
@@ -661,7 +661,7 @@
     document.getElementById('calcGross').textContent = fmt(grossLo) + ' – ' + fmt(grossHi);
     document.getElementById('calcNet').textContent = fmt(netLo) + ' – ' + fmt(netHi);
     document.getElementById('calcMonth').textContent = fmt(netLo/12) + ' – ' + fmt(netHi/12);
-    const msg = encodeURIComponent('Hi Viktoria, I used the holiday-home calculator (property value AED ' +
+    const msg = encodeURIComponent('Hi Victoria, I used the holiday-home calculator (property value AED ' +
       value.toLocaleString('en-US') + '). Please send me a tailored short-stay income projection.');
     document.getElementById('calcCta').href = 'https://wa.me/971588801766?text=' + msg;
     const res = document.getElementById('calcResult');

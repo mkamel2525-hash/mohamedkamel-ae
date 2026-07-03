@@ -1,10 +1,10 @@
-# Viktoria Ivanova — Dubai Luxury Property Advisor (Website)
+# Victoria Ivanova — Dubai Luxury Property Advisor (Website)
 
 A luxury personal-brand real estate website — same award-winning design as
 [mohamedkamel.ae](https://mohamedkamel.ae) — prepared as a separate, standalone
 site so it can live in its **own GitHub account** with its **own domain**.
 
-The site belongs to **Viktoria Ivanova** (Arabic `فيكتوريا إيفانوفا`,
+The site belongs to **Victoria Ivanova** (Arabic `فيكتوريا إيفانوفا`,
 Russian `Виктория Иванова`) — monogram **VI**. Some contact details are still
 placeholders:
 
@@ -13,19 +13,19 @@ placeholders:
 | What | Current placeholder | Where |
 |------|--------------------|-------|
 | Phone / WhatsApp | `971588801766` (Mohamed's — replace with hers) | all `wa.me/...` and `tel:` links |
-| Email | `Viktoria@Deluxehomes.ae` | `index.html`, `card/index.html`, `js/main.js` (`LEAD_EMAIL_ENDPOINT`) |
+| Email | `Victoria@Deluxehomes.ae` | `index.html`, `card/index.html`, `js/main.js` (`LEAD_EMAIL_ENDPOINT`) |
 | Title / company | `Luxury Property Consultant · Deluxe Homes Real Estate` | `index.html`, `js/i18n.js`, `card/index.html` |
 | Instagram / LinkedIn | empty links (`https://instagram.com/`) | `index.html`, `card/index.html` |
 | Career stats | `AED 150M+ Career Sales`, `10+ Developer Partners` | `index.html`, `js/i18n.js` |
 | Social preview image | none yet | add `assets/og-image.jpg` (1200×630) |
 | Listings | Mohamed's Property Finder listings | `index.html` `#listings` section |
-| Domain | `viktoriaivanova.ae` (sample) | `index.html`, `card/index.html`, `sitemap.xml`, `robots.txt` |
+| Domain | `victoriaivanova.ae` (sample) | `index.html`, `card/index.html`, `sitemap.xml`, `robots.txt` |
 | Google Analytics | disabled (`G-XXXXXXXXXX`) | `index.html` — paste her GA4 Measurement ID |
 
 ## 🚀 How to launch on her own GitHub + domain
 
-1. **Create her GitHub account** at github.com (e.g. username `viktoriaivanova`).
-2. **Create a new repository** in her account (e.g. `viktoriaivanova-website`),
+1. **Create her GitHub account** at github.com (e.g. username `victoriaivanova`).
+2. **Create a new repository** in her account (e.g. `victoriaivanova-website`),
    and upload all files from this folder (or fork/import this branch).
 3. **Enable GitHub Pages:** repo → *Settings → Pages* → Source:
    *Deploy from a branch* → `main` → `/ (root)` → Save.
@@ -39,7 +39,7 @@ placeholders:
      and one **CNAME record**: `www` → `USERNAME.github.io`.
    - In the repo: *Settings → Pages → Custom domain* → enter the domain →
      Save → tick **Enforce HTTPS** (may take up to 24 h for DNS + certificate).
-6. **Update the domain placeholders** — replace `viktoriaivanova.ae` with the real
+6. **Update the domain placeholders** — replace `victoriaivanova.ae` with the real
    domain in `index.html`, `card/index.html`, `sitemap.xml`, `robots.txt`.
 
 ## Design
@@ -68,7 +68,7 @@ design-system/      Design documentation
 
 ## The portrait
 
-Viktoria's studio portrait lives at `assets/portrait.png` (hero) and
+Victoria's studio portrait lives at `assets/portrait.png` (hero) and
 `assets/portrait-consult.png` (round avatar in the consultation section).
 To swap it, replace those two files — if they're ever missing the site
 gracefully falls back to a styled frame, so nothing looks broken.
