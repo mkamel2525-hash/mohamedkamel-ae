@@ -442,7 +442,7 @@
         const tw = (Math.sin(t * 1.6 + p.tw) + 1) / 2;
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(193,121,90,${(p.a * (0.45 + 0.55 * tw)).toFixed(3)})`;
+        ctx.fillStyle = `rgba(176,120,63,${(p.a * (0.45 + 0.55 * tw)).toFixed(3)})`;
         ctx.fill();
       }
       if (running) raf = requestAnimationFrame(draw);
