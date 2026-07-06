@@ -1579,3 +1579,29 @@ html.lenis, html.lenis body { height: auto; }
    guarantees short names like "Object 1" stay on one line
    ============================================================ */
 .dev-card__top { flex-direction: column; align-items: flex-start; gap: .45rem; }
+
+/* ============================================================
+   v65 — iPhone/iPad fit hardening
+   ============================================================ */
+/* Touch devices: titles always visible immediately — no wipe-reveal risk */
+@media (hover: none) {
+  .hero__title,
+  .section__head .section__title { clip-path: none !important; }
+}
+/* kill any residual sideways overflow at the root */
+html { overflow-x: clip; }
+
+/* iPad portrait (768–1024): keep stat cards beside the photo, not on the face */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .glass-card { transform: scale(.92); }
+  .glass-card--a { top: 1%; left: -12%; }
+  .glass-card--b { bottom: 30%; right: -12%; }
+  .glass-card--c { bottom: -4%; left: -8%; }
+}
+/* iPad landscape (1025–1240): same care at desktop-like widths */
+@media (min-width: 1025px) and (max-width: 1240px) {
+  .glass-card { transform: scale(.92); }
+  .glass-card--a { top: 6%; left: -10%; }
+  .glass-card--b { bottom: 14%; right: -8%; }
+  .glass-card--c { bottom: -2%; left: 0; }
+}
