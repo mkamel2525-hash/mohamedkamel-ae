@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://mohamedkamel.ae/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mohamedkamel.ae/</loc><lastmod>2026-06-27</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://mohamedkamel.ae/card/</loc><lastmod>2026-06-27</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://mohamedkamel.ae/insights/off-plan-investing-dubai.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mohamedkamel.ae/insights/dubai-vs-abu-dhabi-investment.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://mohamedkamel.ae/insights/uae-golden-visa-property.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>

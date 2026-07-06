@@ -292,6 +292,8 @@
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
     const data = new FormData(form);
+    // honeypot: a human never fills this hidden field — silently drop bot submissions
+    if ((data.get('company_website') || '').toString().trim() !== '') return;
     const name = (data.get('name') || '').toString().trim();
     const required = ['name', 'whatsapp', 'email', 'budget', 'location', 'objective'];
     for (const f of required) {
