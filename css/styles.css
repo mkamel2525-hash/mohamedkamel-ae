@@ -1629,3 +1629,25 @@ html { overflow-x: clip; }
 .dev-card__launches .ln { color: var(--navy-ink); }
 .dev-card__launches .la,
 .dev-card__launches .lx li { color: #5F7292; }
+
+/* ============================================================
+   v67 — even brighter: lighter azure blues, whiter backgrounds,
+   extra light everywhere
+   ============================================================ */
+:root {
+  --beige: #FEFDFA;
+  --cream: #FCF8F0;
+  --gold: #DDB972;
+  --gold-deep: #C6A05A;
+  --dark: #3672D2;           /* brighter royal azure */
+  --dark-2: #4E8AE8;         /* light azure */
+  --text: #2E66C4;           /* bright blue body text */
+  --soft: #6B7FA0;
+  --navy-ink: #2E66C4;
+}
+.trust { background: linear-gradient(165deg, #5E96F2 0%, #4C86E8 55%, #3B76D6 100%); }
+.footer { background: linear-gradient(180deg, #4E8AE8 0%, #3B76D6 50%, #3268C8 100%); }
+/* extra light in the hero scene */
+.hero__bg { filter: brightness(1.07) saturate(1.05); }
+.dev-card__launches .la,
+.dev-card__launches .lx li { color: #6B7FA0; }
