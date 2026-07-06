@@ -1651,3 +1651,49 @@ html { overflow-x: clip; }
 .hero__bg { filter: brightness(1.07) saturate(1.05); }
 .dev-card__launches .la,
 .dev-card__launches .lx li { color: #6B7FA0; }
+
+/* ============================================================
+   v68 — vivid, cheerful, modern accents
+   ============================================================ */
+/* gradient headlines (modern editorial) */
+.hero__title,
+.section__head .section__title {
+  background: linear-gradient(95deg, #2456A8 0%, #3B82F6 55%, #2E66C4 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: #2E66C4;
+}
+/* cheerful alternating section tints */
+.about.section { background: linear-gradient(180deg, #FFFFFF 0%, #F4F9FF 100%); }
+.services.section--beige { background: linear-gradient(180deg, #F2F8FF 0%, #FDFBF6 100%); }
+.devs.section { background: linear-gradient(180deg, #FFFFFF 0%, #FFF8EA 100%); }
+.listings.section { background: linear-gradient(180deg, #F4F9FF 0%, #FFFFFF 100%); }
+.calc.section--beige { background: linear-gradient(180deg, #FFF7E6 0%, #FDFBF6 100%); }
+.consult.section--beige { background: linear-gradient(180deg, #F2F8FF 0%, #FCF8F0 100%); }
+/* colorful top accent on service cards (alternating azure/gold) */
+.service-card { position: relative; overflow: hidden; }
+.service-card::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, #3B82F6, #DDB972);
+}
+.service-card:nth-child(even)::before { background: linear-gradient(90deg, #DDB972, #3B82F6); }
+.service-card__index { color: #3B82F6; }
+/* vivid gradient on gold buttons */
+.btn--gold { background: linear-gradient(120deg, #E9C77E, #D6AF62); }
+.btn--gold:hover { background: linear-gradient(120deg, #F0D28A, #DDB667); }
+/* cheerful hero chips */
+.hero__services li {
+  background: #fff;
+  border: 1px solid rgba(59, 130, 246, .28);
+  box-shadow: 0 3px 12px -6px rgba(59, 130, 246, .35);
+}
+/* scroll progress bar: azure → gold */
+.scroll-progress { background: linear-gradient(90deg, #3B82F6, #DDB972) !important; }
+/* listing tag: sunny pill */
+.listing-card__tag { background: linear-gradient(90deg, #FFF3D9, #EAF2FF); }
+/* dev-card toggle pops */
+.dev-card__toggle { color: #3B82F6 !important; }
+.dev-card__toggle::after { color: #DDB972; }
+/* gradient headlines + clip-path wipe conflict in Chromium — drop the wipe
+   everywhere; titles use the standard reveal fade instead */
+.hero__title,
+.section__head .section__title { clip-path: none !important; }
