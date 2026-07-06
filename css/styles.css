@@ -1605,3 +1605,27 @@ html { overflow-x: clip; }
   .glass-card--b { bottom: 14%; right: -8%; }
   .glass-card--c { bottom: -2%; left: 0; }
 }
+
+/* ============================================================
+   v66 — brighter palette: luminous backgrounds, vivid royal blue,
+   sunny gold. No darks.
+   ============================================================ */
+:root {
+  --beige: #FDFBF6;          /* lighter warm white */
+  --cream: #FBF6EC;          /* brighter cream */
+  --gold: #D4AF6A;           /* sunnier gold */
+  --gold-deep: #BE9852;      /* brighter deep gold */
+  --dark: #2A5BAE;           /* vivid royal blue */
+  --dark-2: #3B76D6;         /* bright azure */
+  --text: #24549E;           /* brighter body blue */
+  --soft: #5F7292;           /* lighter secondary text */
+  --navy-ink: #2258AC;       /* bright ink blue */
+}
+/* brighter glossy gradients on the blue bands */
+.trust { background: linear-gradient(165deg, #4C86E8 0%, #3568C4 55%, #2A5BAE 100%); }
+.footer { background: linear-gradient(180deg, #3B76D6 0%, #2E63BC 50%, #2757A8 100%); }
+/* lift hard-coded darker blues to the bright ink */
+.listing-card__title { color: var(--navy-ink); }
+.dev-card__launches .ln { color: var(--navy-ink); }
+.dev-card__launches .la,
+.dev-card__launches .lx li { color: #5F7292; }
