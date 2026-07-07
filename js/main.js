@@ -672,3 +672,53 @@
   btn.addEventListener('click', calc);
   valEl.addEventListener('keydown', e => { if (e.key === 'Enter') calc(); });
 })();
+
+/* ============================================================
+   v69 — Investment Tools: tabs + ROI + Mortgage calculators
+   ============================================================ */
+(function () {
+  'use strict';
+  const num = (v) => parseFloat(String(v || '').replace(/[^0-9.]/g, '')) || 0;
+  const aed = (v) => 'AED ' + Math.round(v).toLocaleString('en-US');
+
+  /* tabs */
+  const tabs = document.querySelectorAll('.calc-tab');
+  const panels = document.querySelectorAll('.calc-panel');
+  tabs.forEach(t => t.addEventListener('click', () => {
+    tabs.forEach(x => x.classList.toggle('is-active', x === t));
+    panels.forEach(p => p.classList.toggle('is-active', p.id === 'panel-' + t.dataset.tab));
+  }));
+
+  /* ROI */
+  const roiBtn = document.getElementById('roiBtn');
+  roiBtn?.addEventListener('click', () => {
+    const price = num(document.getElementById('roiPrice').value);
+    const rent = num(document.getElementById('roiRent').value);
+    if (!price || !rent) return;
+    const gross = rent / price * 100;
+    const netRent = rent * 0.8;                 // ~20% service charges & costs
+    const net = netRent / price * 100;
+    const payback = price / netRent;
+    document.getElementById('roiGross').textContent = gross.toFixed(1) + '%';
+    document.getElementById('roiNet').textContent = net.toFixed(1) + '%';
+    document.getElementById('roiPayback').textContent = payback.toFixed(0) + ' yrs';
+    document.getElementById('roiResult').hidden = false;
+  });
+
+  /* Mortgage */
+  const mortBtn = document.getElementById('mortBtn');
+  mortBtn?.addEventListener('click', () => {
+    const price = num(document.getElementById('mortPrice').value);
+    const down = num(document.getElementById('mortDown').value);
+    const rate = num(document.getElementById('mortRate').value);
+    const years = num(document.getElementById('mortYears').value);
+    if (!price || !rate || !years) return;
+    const loan = price * (1 - down / 100);
+    const r = rate / 100 / 12, n = years * 12;
+    const m = loan * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+    document.getElementById('mortLoan').textContent = aed(loan);
+    document.getElementById('mortMonthly').textContent = aed(m) + '/mo';
+    document.getElementById('mortInterest').textContent = aed(m * n - loan);
+    document.getElementById('mortResult').hidden = false;
+  });
+})();

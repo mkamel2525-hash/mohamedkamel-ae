@@ -37,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <link rel="preload" as="image" href="assets/mohamed-kamel.png" />
-  <link rel="stylesheet" href="css/styles.css?v=68" />
+  <link rel="stylesheet" href="css/styles.css?v=69" />
 
   <!-- Visitor tracking (Google Analytics 4) — replace G-XXXXXXXXXX with your Measurement ID -->
   <script>
@@ -177,6 +177,13 @@
           </a>
           <a href="#consultation" class="btn btn--ghost magnetic" data-i18n="hero.book">Book Private Consultation</a>
         </div>
+
+        <p class="reveal" style="margin:0;">
+          <a href="#developers" class="hero__explore">
+            <span data-i18n="hero.explore">Explore the Latest Developer Launches</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+        </p>
 
         <p class="hero__status reveal">
           <span class="hero__status-dot" aria-hidden="true"></span>
@@ -443,11 +450,18 @@
   <section class="calc section section--beige" id="calculator">
     <div class="container">
       <header class="section__head section__head--center">
-        <p class="eyebrow reveal" data-i18n="calc.eyebrow">Holiday Home Income</p>
-        <h2 class="section__title reveal" data-i18n="calc.title">Estimate Your Short-Stay Returns</h2>
-        <p class="section__sub reveal" data-i18n="calc.sub">An indicative projection of your annual holiday-home (Airbnb) income in Dubai — based on location and property value.</p>
+        <p class="eyebrow reveal" data-i18n="calc.eyebrow">Calculators</p>
+        <h2 class="section__title reveal" data-i18n="calc.title">Investment Tools</h2>
+        <p class="section__sub reveal" data-i18n="calc.sub">Holiday-home income, rental ROI and mortgage payments — quick indicative numbers for your Dubai investment.</p>
       </header>
 
+      <div class="calc__tabs reveal" role="tablist">
+        <button type="button" class="calc-tab is-active" data-tab="holiday" data-i18n="tabs.holiday">Holiday Home</button>
+        <button type="button" class="calc-tab" data-tab="roi" data-i18n="tabs.roi">Rental ROI</button>
+        <button type="button" class="calc-tab" data-tab="mortgage" data-i18n="tabs.mortgage">Mortgage</button>
+      </div>
+
+      <div class="calc-panel is-active" id="panel-holiday">
       <div class="calc__card reveal">
         <div class="calc__fields">
           <div class="field">
@@ -484,6 +498,94 @@
         </div>
 
         <p class="calc__note" data-i18n="calc.note">Indicative gross estimate only. Actual returns vary with occupancy, nightly rate, season, fees &amp; management — and are not guaranteed. Figures shown before purchase costs. Book a private consultation for a property-specific projection.</p>
+      </div>
+      </div><!-- /panel-holiday -->
+
+      <!-- ============ ROI CALCULATOR ============ -->
+      <div class="calc-panel" id="panel-roi">
+        <div class="calc__card">
+          <div class="calc__fields">
+            <div class="field">
+              <input type="text" id="roiPrice" inputmode="numeric" placeholder=" " autocomplete="off" />
+              <label for="roiPrice" data-i18n="calc.valueLabel">Property Value (AED)</label>
+            </div>
+            <div class="field">
+              <input type="text" id="roiRent" inputmode="numeric" placeholder=" " autocomplete="off" />
+              <label for="roiRent" data-i18n="roi.rent">Expected Annual Rent (AED)</label>
+            </div>
+          </div>
+          <button type="button" id="roiBtn" class="btn btn--gold btn--block magnetic" data-i18n="roi.btn">Calculate ROI</button>
+
+          <div class="calc__result" id="roiResult" hidden>
+            <div class="calc__row">
+              <span class="calc__lbl" data-i18n="roi.gross">Gross Rental Yield / year</span>
+              <span class="calc__val" id="roiGross">—</span>
+            </div>
+            <div class="calc__row">
+              <span class="calc__lbl" data-i18n="roi.net">Net Yield / year <small>(after ~20% costs)</small></span>
+              <span class="calc__val calc__val--gold" id="roiNet">—</span>
+            </div>
+            <div class="calc__row calc__row--sub">
+              <span class="calc__lbl" data-i18n="roi.payback">Approx. Payback Period</span>
+              <span class="calc__val" id="roiPayback">—</span>
+            </div>
+            <a class="btn btn--dark btn--block magnetic" href="https://wa.me/971588801766?text=Hi%20Mohamed%2C%20I%27d%20like%20a%20tailored%20ROI%20projection%20for%20a%20Dubai%20property." target="_blank" rel="noopener" style="margin-top:1rem;" data-i18n="calc.cta">Get a tailored projection on WhatsApp</a>
+          </div>
+          <p class="calc__note" data-i18n="roi.note">Indicative estimate only. Actual returns vary with rent achieved, service charges, fees and vacancy — and are not guaranteed. Figures shown before purchase costs.</p>
+        </div>
+      </div>
+
+      <!-- ============ MORTGAGE CALCULATOR ============ -->
+      <div class="calc-panel" id="panel-mortgage">
+        <div class="calc__card">
+          <div class="calc__fields">
+            <div class="field">
+              <input type="text" id="mortPrice" inputmode="numeric" placeholder=" " autocomplete="off" />
+              <label for="mortPrice" data-i18n="calc.valueLabel">Property Value (AED)</label>
+            </div>
+            <div class="field">
+              <select id="mortDown" required>
+                <option value="20" selected>20%</option>
+                <option value="25">25%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+              </select>
+              <label for="mortDown" data-i18n="mort.down">Down Payment</label>
+            </div>
+            <div class="field">
+              <input type="text" id="mortRate" inputmode="decimal" placeholder=" " autocomplete="off" value="3.99" />
+              <label for="mortRate" data-i18n="mort.rate">Interest Rate (% / year)</label>
+            </div>
+            <div class="field">
+              <select id="mortYears" required>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25" selected>25</option>
+              </select>
+              <label for="mortYears" data-i18n="mort.years">Term (years)</label>
+            </div>
+          </div>
+          <button type="button" id="mortBtn" class="btn btn--gold btn--block magnetic" data-i18n="mort.btn">Calculate Monthly Payment</button>
+
+          <div class="calc__result" id="mortResult" hidden>
+            <div class="calc__row">
+              <span class="calc__lbl" data-i18n="mort.loan">Loan Amount</span>
+              <span class="calc__val" id="mortLoan">—</span>
+            </div>
+            <div class="calc__row">
+              <span class="calc__lbl" data-i18n="mort.monthly">Estimated Monthly Payment</span>
+              <span class="calc__val calc__val--gold" id="mortMonthly">—</span>
+            </div>
+            <div class="calc__row calc__row--sub">
+              <span class="calc__lbl" data-i18n="mort.interest">Total Interest Over Term</span>
+              <span class="calc__val" id="mortInterest">—</span>
+            </div>
+            <a class="btn btn--dark btn--block magnetic" href="https://wa.me/971588801766?text=Hi%20Mohamed%2C%20I%27d%20like%20help%20with%20mortgage%20options%20for%20a%20Dubai%20property." target="_blank" rel="noopener" style="margin-top:1rem;" data-i18n="mort.cta">Get mortgage guidance on WhatsApp</a>
+          </div>
+          <p class="calc__note" data-i18n="mort.note">Indicative only — actual rates, eligibility and fees vary by bank and profile. UAE expats typically need a 20% down payment for properties under AED 5M. Not financial advice.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -636,9 +738,9 @@
     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
   </button>
 
-  <script src="js/i18n.js?v=4"></script>
+  <script src="js/i18n.js?v=5"></script>
   <script src="js/dev-i18n.js?v=4"></script>
-  <script src="js/main.js?v=66"></script>
+  <script src="js/main.js?v=67"></script>
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="js/anim.js?v=5"></script>
 </body>

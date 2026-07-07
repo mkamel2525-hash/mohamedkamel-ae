@@ -1697,3 +1697,33 @@ html { overflow-x: clip; }
    everywhere; titles use the standard reveal fade instead */
 .hero__title,
 .section__head .section__title { clip-path: none !important; }
+
+/* ============================================================
+   v69 — hero explore link + Investment Tools tabs
+   ============================================================ */
+.hero__explore{
+  display:inline-flex;align-items:center;gap:.55rem;margin-top:1.15rem;
+  font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold-deep);
+  border-bottom:1.5px solid var(--gold);padding-bottom:.35rem;cursor:pointer;
+  transition:color .25s ease;
+}
+.hero__explore:hover{color:#3B82F6;border-color:#3B82F6;}
+.hero__explore svg{transition:transform .3s ease;}
+.hero__explore:hover svg{transform:translateY(3px);}
+
+.calc__tabs{display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:0 0 1.8rem;}
+.calc-tab{
+  font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.75rem 1.5rem;border-radius:40px;cursor:pointer;
+  border:1px solid rgba(59,130,246,.3);background:#fff;color:var(--navy-ink);
+  transition:all .25s ease;
+}
+.calc-tab:hover{transform:translateY(-2px);box-shadow:0 8px 18px -10px rgba(59,130,246,.5);}
+.calc-tab.is-active{
+  background:linear-gradient(120deg,#3B82F6,#2E66C4);color:#fff;border-color:transparent;
+  box-shadow:0 10px 24px -10px rgba(59,130,246,.65);
+}
+.calc-panel{display:none;}
+.calc-panel.is-active{display:block;animation:fadeUp .45s var(--ease);}
