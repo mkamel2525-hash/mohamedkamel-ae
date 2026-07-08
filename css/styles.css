@@ -1761,5 +1761,5 @@ html { overflow-x: clip; }
    centered beneath the picture.
    ============================================================ */
 .hero__portrait .hero__stats{
-  max-width:100% !important;width:100% !important;margin:-1.4rem auto 0 !important;
+  max-width:100% !important;width:100% !important;margin:0.55rem auto 0 !important;
 }
