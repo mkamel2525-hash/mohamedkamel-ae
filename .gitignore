@@ -1,0 +1,3 @@
+# Python bytecode (from local skill tooling)
+__pycache__/
+*.pyc
