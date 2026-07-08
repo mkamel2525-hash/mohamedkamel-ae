@@ -1754,3 +1754,12 @@ html { overflow-x: clip; }
   .hero__stats{grid-template-columns:1fr 1fr;max-width:340px;gap:.7rem;}
   .hero__stats .glass-card--c{grid-column:1 / -1;}       /* 10+ spans full width on small phones */
 }
+
+/* ============================================================
+   v72 — Stats row now lives INSIDE the portrait column, directly
+   under the photo. Dubai & Abu Dhabi (middle card) sits precisely
+   centered beneath the picture.
+   ============================================================ */
+.hero__portrait .hero__stats{
+  max-width:100% !important;width:100% !important;margin:1.3rem auto 0 !important;
+}
