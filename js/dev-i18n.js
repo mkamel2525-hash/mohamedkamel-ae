@@ -310,3 +310,46 @@ Object.assign(window.DEV_T.ru, {
   '1–4 BR urban apartments & luxury penthouses — from AED 2,000,000':'Городские апартаменты 1–4 спальни и люкс-пентхаусы — от AED 2,000,000',
   'Modern 1–4 BR apartments & duplexes — from AED 2,620,000':'Современные апартаменты и дуплексы 1–4 спальни — от AED 2,620,000'
 });
+
+Object.assign(window.DEV_T.ar, {
+  'Ultra-Luxury & Hospitality':'فاخر جداً وضيافة',
+  'Dubai luxury real-estate and hospitality developer (est. 2007), partnering with world-class hotel brands on branded residences.':'مطوّر عقارات فاخرة وضيافة في دبي (تأسس 2007)، يتعاون مع أرقى العلامات الفندقية العالمية في المساكن ذات العلامات التجارية.',
+  'DIFC, Jumeirah, Sheikh Zayed Road, Mohammed Bin Rashid City.':'مركز دبي المالي العالمي، جميرا، شارع الشيخ زايد، مدينة محمد بن راشد.',
+  'Internationally branded, architect-led trophy residences with strong prestige and resale demand.':'مساكن مميّزة بعلامات عالمية وتصميم معماري راقٍ، بمكانة مرموقة وطلب قوي على إعادة البيع.',
+  'Branded luxury residences':'مساكن فاخرة بعلامة تجارية',
+  '1–5 BR branded apartments':'شقق بعلامة تجارية من 1–5 غرف',
+  'Ultra-luxury villas':'فلل فاخرة جداً',
+  'Four Seasons-branded private residences in DIFC':'مساكن خاصة بعلامة فورسيزونز في مركز دبي المالي العالمي',
+  'From ~AED 33.7M':'من ~33.7 مليون درهم',
+  'Handover: Q4 2027':'التسليم: الربع الرابع 2027',
+  'Hotel-serviced branded living in Dubai’s financial district':'حياة بخدمات فندقية وعلامة تجارية في المركز المالي بدبي',
+  'Rosewood-branded 1–5 bedroom residences':'مساكن بعلامة روزوود من 1–5 غرف نوم',
+  'From ~AED 32.8M':'من ~32.8 مليون درهم',
+  'Handover: Q4 2029':'التسليم: الربع الرابع 2029',
+  'Ultra-luxury living on the Jumeirah coast':'حياة فاخرة جداً على ساحل جميرا',
+  'Limited collection of ultra-luxury villas':'مجموعة محدودة من الفلل الفاخرة جداً',
+  'From ~AED 79.9M':'من ~79.9 مليون درهم',
+  'Sales from August 2026 · handover Q4 2029':'البيع من أغسطس 2026 · التسليم الربع الرابع 2029',
+  'Green, hillside-inspired masterplan in MBR City':'مخطط رئيسي أخضر مستوحى من التلال في مدينة محمد بن راشد'
+});
+Object.assign(window.DEV_T.ru, {
+  'Ultra-Luxury & Hospitality':'Сверхлюкс и гостеприимство',
+  'Dubai luxury real-estate and hospitality developer (est. 2007), partnering with world-class hotel brands on branded residences.':'Дубайский девелопер элитной недвижимости и гостеприимства (осн. 2007), создающий брендированные резиденции с мировыми отельными брендами.',
+  'DIFC, Jumeirah, Sheikh Zayed Road, Mohammed Bin Rashid City.':'DIFC, Джумейра, шоссе Шейха Зайда, Mohammed Bin Rashid City.',
+  'Internationally branded, architect-led trophy residences with strong prestige and resale demand.':'Международно брендированные, архитектурно выверенные престижные резиденции с высоким статусом и спросом на перепродажу.',
+  'Branded luxury residences':'Брендированные люкс-резиденции',
+  '1–5 BR branded apartments':'Брендированные апартаменты 1–5 спален',
+  'Ultra-luxury villas':'Сверхлюкс-виллы',
+  'Four Seasons-branded private residences in DIFC':'Частные резиденции под брендом Four Seasons в DIFC',
+  'From ~AED 33.7M':'от ~AED 33,7 млн',
+  'Handover: Q4 2027':'Сдача: 4 кв. 2027',
+  'Hotel-serviced branded living in Dubai’s financial district':'Брендированная жизнь с отельным сервисом в финансовом районе Дубая',
+  'Rosewood-branded 1–5 bedroom residences':'Резиденции под брендом Rosewood, 1–5 спален',
+  'From ~AED 32.8M':'от ~AED 32,8 млн',
+  'Handover: Q4 2029':'Сдача: 4 кв. 2029',
+  'Ultra-luxury living on the Jumeirah coast':'Сверхлюкс-жизнь на побережье Джумейра',
+  'Limited collection of ultra-luxury villas':'Ограниченная коллекция сверхлюкс-вилл',
+  'From ~AED 79.9M':'от ~AED 79,9 млн',
+  'Sales from August 2026 · handover Q4 2029':'Продажи с августа 2026 · сдача 4 кв. 2029',
+  'Green, hillside-inspired masterplan in MBR City':'Зелёный мастер-план, вдохновлённый холмами, в MBR City'
+});
