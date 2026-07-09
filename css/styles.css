@@ -1783,3 +1783,20 @@ html { overflow-x: clip; }
 .trust__track{ cursor:grab; }
 /* solid, premium chips so the line never looks weak */
 .trust__logo{ box-shadow:0 10px 26px -10px rgba(0,0,0,.45); }
+
+/* ============================================================
+   v76 — Bigger developer logos & blue-line chips; black chip text
+   ============================================================ */
+/* Developer CARD logos — a touch bigger */
+.dev-card__brand{ height:86px !important; padding:12px 24px !important; }
+.dev-card__brand .dev-card__logo,
+.dev-card__logo{ max-height:60px !important; max-width:250px !important; }
+
+/* Blue moving line (trust bar) — bigger chips */
+.trust__logo{ height:96px !important; padding:0 36px !important; border-radius:16px !important; gap:1rem !important; }
+.trust__logo img{ max-height:52px !important; max-width:140px !important; }
+.trust__logo--wm{ padding:0 34px !important; }
+.trust__logo--wm img{ max-height:44px !important; max-width:200px !important; }
+
+/* Blue-line developer names — BLACK text (was blue) */
+.trust__logo b{ color:#111 !important; font-size:1.75rem !important; }
