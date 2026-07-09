@@ -639,7 +639,7 @@
   const zoneEl = document.getElementById('calcZone');
   const btn = document.getElementById('calcBtn');
   if (!valEl || !zoneEl || !btn) return;
-  const COST = 0.25; // ~25% operating costs (management, cleaning, permits, fees)
+  const COST = 0.30; // ~30% operating costs (15-25% management, DTCM permit, cleaning, utilities, vacancy)
   const fmt = n => 'AED ' + Math.round(n).toLocaleString('en-US');
 
   // Live-format the value field with thousands separators
