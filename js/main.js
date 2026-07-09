@@ -565,68 +565,80 @@
     s.addEventListener('click',()=>openDeveloper(s.textContent||''));
   });
 
-  /* ---------- Auto-moving (CSS) + draggable developer marquee ---------- */
+  /* ---------- Rock-solid auto + finger-drag developer marquee ----------
+     Single JS-driven loop (no CSS keyframes to fight with). Works with
+     finger on iPad/iPhone: horizontal swipe drags the strip, vertical
+     swipe still scrolls the page (direction-locked + touch-action:pan-y). */
   (function(){
     const marquee = document.querySelector('.trust__marquee');
     const track = marquee && marquee.querySelector('.trust__track');
     if (!marquee || !track) return;
 
+    // Kill any CSS animation — we drive the motion entirely from JS.
+    track.style.animation = 'none';
     marquee.classList.add('trust__marquee--drag');
 
-    // Wrap the (CSS-animated) track so finger-drag translates a separate layer
-    // and never fights the keyframe animation that keeps it gliding left.
-    const dragLayer = document.createElement('div');
-    dragLayer.className = 'trust__drag';
-    marquee.insertBefore(dragLayer, track);
-    dragLayer.appendChild(track);
-
     let half = 0;
-    const measure = () => { half = track.scrollWidth / 2; };   // content duplicated → one set = half
+    const measure = () => { half = track.scrollWidth / 2; };  // content duplicated → one set = half
     measure();
     window.addEventListener('resize', measure);
     window.addEventListener('load', measure);
-    setTimeout(measure, 1500);
+    setTimeout(measure, 1200);
+    track.querySelectorAll('img').forEach(img => { if (!img.complete) img.addEventListener('load', measure, { once: true }); });
 
-    let offset = 0, dragging = false, startX = 0, startOffset = 0, moved = 0, suppressClick = false, resumeT;
-    const norm = () => { if (half) { while (offset <= -half) offset += half; while (offset > 0) offset -= half; } };
-    const render = () => { dragLayer.style.transform = `translate3d(${offset}px,0,0)`; };
+    const SPEED = 34;                 // px / second auto-scroll
+    let offset = 0, prev = 0;
+    let dragging = false, axis = null, startX = 0, startY = 0, startOffset = 0, moved = 0;
+    let paused = false, suppress = false, resumeT;
 
-    const pauseAnim = () => { track.style.animationPlayState = 'paused'; clearTimeout(resumeT); };
-    const resumeAnim = (delay) => { clearTimeout(resumeT); resumeT = setTimeout(() => { track.style.animationPlayState = 'running'; }, delay || 1200); };
+    const wrap = () => { if (half > 0) { while (offset <= -half) offset += half; while (offset > 0) offset -= half; } };
+    const apply = () => { track.style.transform = 'translate3d(' + offset + 'px,0,0)'; };
 
+    function frame(t){
+      if (!prev) prev = t;
+      const dt = Math.min(0.05, (t - prev) / 1000); prev = t;
+      if (!dragging && !paused) { offset -= SPEED * dt; wrap(); apply(); }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+
+    // Begin a potential drag on any pointer (touch / pen / mouse)
     marquee.addEventListener('pointerdown', (e) => {
-      // Only the mouse can drag. On touch, leave it auto-scrolling so
-      // scrolling the page over the bar never disturbs it (no shake).
-      if (e.pointerType !== 'mouse') return;
-      dragging = true; pauseAnim();
-      startX = e.clientX; startOffset = offset; moved = 0;
-      marquee.style.cursor = 'grabbing';
+      dragging = true; axis = null; moved = 0;
+      startX = e.clientX; startY = e.clientY; startOffset = offset;
+      clearTimeout(resumeT); paused = true;               // stop auto while touching
     });
-    // listen on window so a drag keeps working even if the pointer leaves the bar,
-    // and so normal clicks still reach the developer chips (no pointer capture)
+
+    // Move on window so the drag survives the finger leaving the bar
     window.addEventListener('pointermove', (e) => {
       if (!dragging) return;
-      const dx = e.clientX - startX;
+      const dx = e.clientX - startX, dy = e.clientY - startY;
+      if (!axis) {                                        // lock direction on first real movement
+        if (Math.abs(dx) > 5 || Math.abs(dy) > 5) {
+          axis = Math.abs(dx) >= Math.abs(dy) ? 'x' : 'y';
+          if (axis === 'y') { dragging = false; paused = false; return; }  // let the page scroll
+        } else return;
+      }
       moved = Math.max(moved, Math.abs(dx));
-      offset = startOffset + dx; norm(); render();
-    });
-    const endDrag = () => {
-      if (!dragging) return;
-      dragging = false; marquee.style.cursor = 'grab';
-      if (moved > 8) { suppressClick = true; setTimeout(() => { suppressClick = false; }, 80); }
-      resumeAnim();
+      offset = startOffset + dx; wrap(); apply();
+      if (e.cancelable) e.preventDefault();               // block rubber-band while dragging horizontally
+    }, { passive: false });
+
+    const end = () => {
+      if (!dragging && axis !== 'y') { paused = false; return; }
+      dragging = false; axis = null;
+      if (moved > 6) { suppress = true; setTimeout(() => { suppress = false; }, 70); }
+      clearTimeout(resumeT); resumeT = setTimeout(() => { paused = false; }, 600);  // resume glide
     };
-    window.addEventListener('pointerup', endDrag);
-    window.addEventListener('pointercancel', endDrag);
+    window.addEventListener('pointerup', end);
+    window.addEventListener('pointercancel', end);
 
-    // a genuine drag shouldn't also open a developer card (a plain click still does)
-    marquee.addEventListener('click', (e) => {
-      if (suppressClick) { e.stopPropagation(); e.preventDefault(); }
-    }, true);
+    // A genuine swipe shouldn't also open a developer card
+    marquee.addEventListener('click', (e) => { if (suppress) { e.stopPropagation(); e.preventDefault(); } }, true);
 
-    // desktop hover pause (resumes shortly after)
-    marquee.addEventListener('mouseenter', () => { if (!dragging) pauseAnim(); });
-    marquee.addEventListener('mouseleave', () => { if (!dragging) resumeAnim(300); });
+    // Desktop: pause on hover, resume on leave
+    marquee.addEventListener('mouseenter', () => { if (!dragging) paused = true; });
+    marquee.addEventListener('mouseleave', () => { if (!dragging) paused = false; });
   })();
 })();
 
