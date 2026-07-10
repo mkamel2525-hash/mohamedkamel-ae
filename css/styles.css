@@ -1362,12 +1362,28 @@ html.rtl .eyebrow { }
   .nav__links-cta::after { display: none !important; }
 }
 
-/* v49 — tighten desktop nav spacing on narrower laptops so nothing wraps/overflows */
-@media (min-width: 1025px) and (max-width: 1240px) {
-  .nav__links { gap: 1.3rem; }
-  .nav__inner { gap: 1rem; }
-  .nav__cta { padding: 0.6rem 1rem; }
-  .lang-switch { margin: 0 .35rem; }
+/* v49/v78 — full desktop nav fits cleanly on iPad & small laptops so the
+   language switch and Book Consultation button are never clipped / off-screen */
+/* Book Consultation appears as the gold button on desktop/tablet, so hide the
+   duplicate text link (it is only meant for the mobile slide-in menu) */
+@media (min-width: 1025px) {
+  .nav__links .nav__links-cta { display: none !important; }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .nav__inner { gap: .55rem; }
+  .nav__links { gap: .9rem; }
+  .nav__links a { font-size: .72rem; letter-spacing: .09em; }
+  .nav__cta { padding: .55rem .85rem; font-size: .66rem; letter-spacing: .08em; }
+  .lang-switch { margin: 0 .25rem; padding: 3px; gap: 2px; }
+  .lang-opt { padding: .32rem .55rem; font-size: .74rem; }
+  .lang-opt[lang="ar"] { font-size: .86rem; }
+}
+/* Extra squeeze for the tightest iPad landscape widths (≈1025–1200px) */
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .nav__links { gap: .7rem; }
+  .nav__links a { font-size: .68rem; }
+  .nav__cta { padding: .5rem .7rem; font-size: .62rem; }
+  .nav__brand .nav__name { font-size: 1rem; }
 }
 
 /* ============================================================
