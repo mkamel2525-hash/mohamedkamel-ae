@@ -1,0 +1,71 @@
+/* ============================================================
+   Owner & Landlord Portal — styles layered on top of the main site
+   ============================================================ */
+
+/* Hero */
+.op-hero{
+  position:relative; padding:9rem 0 4rem;
+  background:linear-gradient(165deg,#F4F9FF 0%,#FCF8F0 55%,#FFF7E6 100%);
+  overflow:hidden;
+}
+.op-hero__inner{ max-width:900px; text-align:center; }
+.op-hero__title{
+  font-family:var(--serif); font-weight:600; line-height:1.02;
+  font-size:clamp(2.4rem,6vw,4.6rem); margin:.6rem 0 1rem;
+  background:linear-gradient(95deg,#2456A8,#3B82F6,#2E66C4);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+}
+.op-hero__sub{
+  font-size:clamp(1rem,2.2vw,1.2rem); color:var(--text,#2E66C4);
+  max-width:60ch; margin:0 auto 2rem; line-height:1.75;
+}
+.op-hero__cta{ display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+.op-hero__rera{
+  margin-top:1.8rem; font-size:.74rem; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--gold-deep,#C6A05A); font-weight:600;
+}
+
+/* Outline button (pairs with .btn--gold) */
+.btn--outline{
+  background:transparent; color:var(--dark,#2E66C4);
+  border:1.5px solid var(--gold,#DDB972); padding:.95rem 1.7rem; border-radius:3px;
+  font-weight:600; letter-spacing:.1em; text-transform:uppercase; font-size:.8rem;
+  transition:background .35s var(--ease), color .35s var(--ease);
+}
+.btn--outline:hover{ background:var(--gold,#DDB972); color:#fff; }
+
+/* Service cards — add a link + lift */
+.services__grid .service-card{ display:flex; flex-direction:column; }
+.service-card__link{
+  margin-top:auto; padding-top:1rem; font-weight:600; font-size:.86rem;
+  color:var(--dark,#2E66C4); letter-spacing:.02em; align-self:flex-start;
+  border-bottom:1px solid transparent; transition:border-color .3s;
+}
+.service-card__link:hover{ border-color:var(--gold,#DDB972); }
+
+/* List Property — two column */
+.op-list__grid{ display:grid; grid-template-columns:0.9fr 1.1fr; gap:3rem; align-items:start; }
+.op-list__intro .section__title{ text-align:left; }
+.op-list__intro .section__sub{ text-align:left; margin-left:0; }
+.op-list__points{ list-style:none; padding:0; margin:1.6rem 0 0; display:grid; gap:.8rem; }
+.op-list__points li{ position:relative; padding-left:1.8rem; color:var(--navy-ink,#2E66C4); font-size:.98rem; }
+.op-list__points li::before{
+  content:'✓'; position:absolute; left:0; top:0; color:var(--gold-deep,#C6A05A); font-weight:700;
+}
+@media (max-width:860px){
+  .op-list__grid{ grid-template-columns:1fr; gap:2rem; }
+  .op-list__intro .section__title, .op-list__intro .section__sub{ text-align:center; }
+  .op-list__points{ max-width:420px; margin-inline:auto; }
+}
+
+/* Floating WhatsApp */
+.wa-float{
+  position:fixed; right:20px; bottom:20px; z-index:60;
+  width:58px; height:58px; border-radius:50%; background:#25D366;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 12px 30px -8px rgba(37,211,102,.6); transition:transform .3s;
+}
+.wa-float:hover{ transform:scale(1.08); }
+
+/* keep the portal nav solid (no transparent hero state) */
+body.op .nav{ background:rgba(255,255,255,.92); backdrop-filter:blur(12px); }
