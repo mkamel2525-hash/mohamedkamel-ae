@@ -299,7 +299,7 @@ section[id], [id].section { scroll-margin-top: 84px; }
 .process-step:not(.is-active) p { opacity: 0.55; }
 
 /* ============ DEVELOPER EXPERTISE ============ */
-.devs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.devs__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; align-items: start; }
 .dev-card {
   position: relative; background: var(--white); border: 1px solid var(--line); border-radius: 8px; padding: 2.2rem 2rem;
   cursor: pointer; overflow: hidden; transition: transform .4s var(--ease), box-shadow .4s var(--ease);

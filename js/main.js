@@ -245,7 +245,11 @@
             </div>
           </div>
           <span class="dev-card__toggle" data-i18n="dev.toggle">View Launches</span>`;
-        card.addEventListener('click', () => card.classList.toggle('is-open'));
+        card.addEventListener('click', () => {
+          const willOpen = !card.classList.contains('is-open');
+          grid.querySelectorAll('.dev-card.is-open').forEach(c => { if (c !== card) c.classList.remove('is-open'); });
+          card.classList.toggle('is-open', willOpen);
+        });
         grid.appendChild(card);
       });
       // re-observe newly added reveals
