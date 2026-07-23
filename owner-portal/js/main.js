@@ -175,7 +175,7 @@
     const FILE = {
       'Emaar':'assets/logos/emaar.png',
       'DAMAC':'assets/logos/damac.png','Binghatti':'assets/logos/binghatti.png',
-      'Aldar':'assets/logos/aldar.png','Ellington':'assets/logos/ellington.png',
+      'Aldar':'assets/logos/aldar-uppercase.png','Ellington':'assets/logos/ellington.png',
       'Object 1':'assets/logos/object1.png','Beyond by Omniyat':'assets/logos/beyond.jpg',
       'H&H':'assets/logos/handh.jpg',
       'Select Group':'assets/logos/selectgroup.png',

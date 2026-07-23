@@ -16,7 +16,7 @@
       ['Beyond', A + 'beyond.jpg', false],
       ['Binghatti', A + 'binghatti.png', false],
       ['DAMAC', A + 'damac.png', false],
-      ['Aldar', A + 'aldar.png', false],
+      ['Aldar', A + 'aldar-uppercase.png', false],
       ['Modon', A + 'modon.jpg', false],
       ['Nakheel', A + 'nakheel.jpg', false],
       ['Imtiaz', A + 'imtiaz.png', false],
