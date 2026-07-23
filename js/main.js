@@ -174,6 +174,7 @@
     };
     const FILE = {
       'Emaar':'assets/logos/emaar.png',
+      'Aldar':'assets/logos/aldar-uppercase.png',
       'H&H':'assets/logos/handh.jpg',
       'Select Group':'assets/logos/selectgroup.png',
       'Zaya':'assets/logos/zaya.jpg',
