@@ -867,3 +867,53 @@ Object.assign(window.DEV_T.ru, {
   'Premium Waterfront':'Премиальная набережная',
   'Nature-Infused Luxury':'Роскошь в гармонии с природой',
 });
+
+/* wasl developer — AR/RU */
+Object.assign(window.DEV_T.ar, {
+  'Government-Backed Master Developer':'مطوّر رئيسي مدعوم حكومياً',
+  'One of Dubai’s largest landlords and master developers — a wasl Asset Management Group company.':'أحد أكبر المُلّاك والمطوّرين الرئيسيين في دبي — إحدى شركات مجموعة وصل لإدارة الأصول.',
+  'Al Kifaf (Bur Dubai), Wasl Gate, Jumeirah Golf Estates, Al Wasl.':'الكفاف (بر دبي)، وصل جيت، جميرا جولف إستيتس، الوصل.',
+  'Government-backed, centrally-located communities with reliable demand and strong end-user appeal.':'مجتمعات مركزية مدعومة حكومياً بطلب موثوق وجاذبية قوية للمستخدم النهائي.',
+  'Al Kifaf, Bur Dubai':'الكفاف، بر دبي',
+  'Jumeirah Golf Estates':'جميرا جولف إستيتس',
+  'Wasl Gate':'وصل جيت',
+  '1–4 BR apartments':'شقق من 1–4 غرف',
+  '4–6 BR ultra-luxury villas':'فلل فاخرة جداً من 4–6 غرف',
+  'Studio–3 BR apartments':'شقق من استوديو حتى 3 غرف',
+  '1–4 BR apartments — from AED 1.4M':'شقق 1–4 غرف — من 1.4 مليون درهم',
+  'Plan: 40% during construction · 60% on handover':'الخطة: 40% أثناء الإنشاء · 60% عند التسليم',
+  'Central Bur Dubai — beside Zabeel Park & the Museum of the Future':'وسط بر دبي — بجوار حديقة زعبيل ومتحف المستقبل',
+  'Towers A & B · handover Q4 2026 – Q1 2027':'برجا A وB · التسليم الربع الرابع 2026 – الربع الأول 2027',
+  '185 ultra-luxury 4, 5 & 6-bedroom standalone villas':'185 فيلا مستقلة فاخرة جداً من 4 و5 و6 غرف نوم',
+  'Private gardens, pools, terraces & in-unit elevators':'حدائق ومسابح وتراسات خاصة ومصاعد داخل الوحدات',
+  'Set within the expansion of Jumeirah Golf Estates':'ضمن توسعة جميرا جولف إستيتس',
+  'Spacious layouts, high ceilings & natural materials':'مخططات واسعة وأسقف عالية ومواد طبيعية',
+  'Studio–3 BR apartments — from AED 550K':'شقق من استوديو حتى 3 غرف — من 550 ألف درهم',
+  'Plan: 60% during construction · 40% on handover':'الخطة: 60% أثناء الإنشاء · 40% عند التسليم',
+  'Green community at Wasl Gate near Ibn Battuta Mall & metro':'مجتمع أخضر في وصل جيت قرب ابن بطوطة مول والمترو',
+  'Accessible entry point with strong rental demand':'نقطة دخول ميسورة مع طلب إيجاري قوي'
+});
+Object.assign(window.DEV_T.ru, {
+  'Government-Backed Master Developer':'Государственный мастер-девелопер',
+  'One of Dubai’s largest landlords and master developers — a wasl Asset Management Group company.':'Один из крупнейших владельцев и мастер-девелоперов Дубая — компания группы wasl Asset Management.',
+  'Al Kifaf (Bur Dubai), Wasl Gate, Jumeirah Golf Estates, Al Wasl.':'Аль-Кифаф (Бур-Дубай), Wasl Gate, Jumeirah Golf Estates, Аль-Васл.',
+  'Government-backed, centrally-located communities with reliable demand and strong end-user appeal.':'Государственные, центрально расположенные сообщества с надёжным спросом и привлекательностью для конечных покупателей.',
+  'Al Kifaf, Bur Dubai':'Аль-Кифаф, Бур-Дубай',
+  'Jumeirah Golf Estates':'Jumeirah Golf Estates',
+  'Wasl Gate':'Wasl Gate',
+  '1–4 BR apartments':'Апартаменты 1–4 спальни',
+  '4–6 BR ultra-luxury villas':'Сверхлюкс-виллы 4–6 спален',
+  'Studio–3 BR apartments':'Апартаменты студия–3 спальни',
+  '1–4 BR apartments — from AED 1.4M':'Апартаменты 1–4 спальни — от AED 1,4 млн',
+  'Plan: 40% during construction · 60% on handover':'План: 40% в период строительства · 60% при передаче',
+  'Central Bur Dubai — beside Zabeel Park & the Museum of the Future':'Центр Бур-Дубай — рядом с парком Забиль и Музеем будущего',
+  'Towers A & B · handover Q4 2026 – Q1 2027':'Башни A и B · сдача 4 кв. 2026 – 1 кв. 2027',
+  '185 ultra-luxury 4, 5 & 6-bedroom standalone villas':'185 отдельно стоящих сверхлюкс-вилл с 4, 5 и 6 спальнями',
+  'Private gardens, pools, terraces & in-unit elevators':'Частные сады, бассейны, террасы и лифты внутри вилл',
+  'Set within the expansion of Jumeirah Golf Estates':'В составе расширения Jumeirah Golf Estates',
+  'Spacious layouts, high ceilings & natural materials':'Просторные планировки, высокие потолки и натуральные материалы',
+  'Studio–3 BR apartments — from AED 550K':'Апартаменты студия–3 спальни — от AED 550 тыс.',
+  'Plan: 60% during construction · 40% on handover':'План: 60% в период строительства · 40% при передаче',
+  'Green community at Wasl Gate near Ibn Battuta Mall & metro':'Зелёное сообщество в Wasl Gate рядом с Ibn Battuta Mall и метро',
+  'Accessible entry point with strong rental demand':'Доступная точка входа с высоким спросом на аренду'
+});
